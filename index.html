@@ -1,0 +1,2418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===================== META TAGS ===================== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MediCare General Hospital – A leading multi-specialty hospital offering world-class healthcare with 150+ expert doctors, 45+ departments, and 500+ beds. Book appointments online." />
+  <meta name="keywords" content="hospital, healthcare, doctors, emergency, OPD, surgery, MediCare, multi-specialty" />
+  <meta name="author" content="MediCare General Hospital" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.medicarehospital.com/" />
+  <meta property="og:title" content="MediCare General Hospital – Excellence in Healthcare" />
+  <meta property="og:description" content="Trusted by 300,000+ patients. Expert specialists, advanced technology, and compassionate care – all under one roof." />
+  <meta property="og:image" content="https://www.medicarehospital.com/assets/og-image.jpg" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="MediCare General Hospital – Excellence in Healthcare" />
+  <meta property="twitter:description" content="World-class multi-specialty hospital with 150+ doctors and 45+ departments." />
+
+  <title>MediCare General Hospital – Excellence in Healthcare</title>
+
+  <!-- ===================== BOOTSTRAP 5 CSS ===================== -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+
+  <!-- ===================== FONT AWESOME 6 ===================== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- ===================== GOOGLE FONTS ===================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+
+  <!-- ===================== CUSTOM STYLESHEET ===================== -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* ============================================================
+       CUSTOM STYLES – MediCare General Hospital
+    ============================================================ */
+    :root {
+      --mc-navy:      #0a1f44;
+      --mc-teal:      #00a896;
+      --mc-teal-dark: #007d72;
+      --mc-teal-lt:   #e0f7f5;
+      --mc-red:       #e63946;
+      --mc-gold:      #f4a261;
+      --mc-gray-bg:   #f5f7fa;
+      --mc-text:      #2d3748;
+      --mc-muted:     #718096;
+      --font-body:    'Inter', sans-serif;
+      --font-display: 'Playfair Display', serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--mc-text);
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ---- Utility ---- */
+    .text-teal    { color: var(--mc-teal) !important; }
+    .bg-teal      { background-color: var(--mc-teal) !important; }
+    .bg-navy      { background-color: var(--mc-navy) !important; }
+    .btn-teal {
+      background: var(--mc-teal);
+      color: #fff;
+      border: 2px solid var(--mc-teal);
+      font-weight: 600;
+      letter-spacing: .3px;
+      transition: all .3s ease;
+    }
+    .btn-teal:hover {
+      background: var(--mc-teal-dark);
+      border-color: var(--mc-teal-dark);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,168,150,.35);
+    }
+    .btn-outline-teal {
+      background: transparent;
+      color: var(--mc-teal);
+      border: 2px solid var(--mc-teal);
+      font-weight: 600;
+      transition: all .3s ease;
+    }
+    .btn-outline-teal:hover {
+      background: var(--mc-teal);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--mc-navy);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+    }
+    .section-subtitle {
+      color: var(--mc-muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+    }
+    .divider-teal {
+      width: 60px;
+      height: 4px;
+      background: var(--mc-teal);
+      border-radius: 2px;
+    }
+
+    /* ============================================================
+       1. EMERGENCY BANNER
+    ============================================================ */
+    #emergency-banner {
+      background: var(--mc-red);
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      padding: 8px 0;
+    }
+    .pulse-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 50%;
+      margin-right: 6px;
+      animation: pulse-ring 1.4s ease-out infinite;
+    }
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(255,255,255,.6); }
+      70%  { box-shadow: 0 0 0 8px rgba(255,255,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+
+    /* ============================================================
+       2. TOP INFO BAR
+    ============================================================ */
+    #top-info-bar {
+      background: var(--mc-navy);
+      color: #a0aec0;
+      font-size: .82rem;
+      padding: 6px 0;
+    }
+    #top-info-bar a { color: #a0aec0; text-decoration: none; transition: color .2s; }
+    #top-info-bar a:hover { color: var(--mc-teal); }
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.2);
+      color: #a0aec0;
+      transition: all .25s;
+      text-decoration: none;
+    }
+    .social-icons a:hover { background: var(--mc-teal); color: #fff; border-color: var(--mc-teal); }
+
+    /* ============================================================
+       3. MAIN NAVBAR
+    ============================================================ */
+    #main-navbar {
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+      transition: all .35s ease;
+      padding: 12px 0;
+    }
+    #main-navbar.navbar-scrolled {
+      padding: 8px 0;
+      box-shadow: 0 4px 24px rgba(0,0,0,.12);
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,.97);
+    }
+    .navbar-logo-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px; height: 42px;
+      background: var(--mc-teal);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1.2rem;
+      margin-right: 10px;
+    }
+    .navbar-brand-text .brand-main  { font-size: 1.2rem; font-weight: 800; color: var(--mc-navy); line-height: 1; }
+    .navbar-brand-text .brand-sub   { font-size: .68rem; color: var(--mc-muted); letter-spacing: .8px; text-transform: uppercase; }
+    .nav-link {
+      font-weight: 500;
+      font-size: .9rem;
+      color: var(--mc-navy) !important;
+      padding: 6px 12px !important;
+      position: relative;
+      transition: color .2s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 12px; right: 12px;
+      height: 2px;
+      background: var(--mc-teal);
+      transform: scaleX(0);
+      transition: transform .25s ease;
+    }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+    .nav-link:hover { color: var(--mc-teal) !important; }
+    .dropdown-menu { border: none; box-shadow: 0 8px 32px rgba(0,0,0,.12); border-radius: 12px; padding: 10px; }
+    .dropdown-item { font-size: .88rem; border-radius: 8px; padding: 8px 14px; transition: background .2s; }
+    .dropdown-item:hover { background: var(--mc-teal-lt); color: var(--mc-teal); }
+    .btn-search {
+      background: var(--mc-gray-bg);
+      border: none;
+      color: var(--mc-navy);
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .2s;
+    }
+    .btn-search:hover { background: var(--mc-teal); color: #fff; }
+
+    /* ============================================================
+       4. HERO SECTION
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--mc-navy) 0%, #0d3b6e 45%, #005f73 80%, var(--mc-teal-dark) 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    /* Decorative animated circles */
+    .hero-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.07);
+      animation: hero-spin 20s linear infinite;
+    }
+    .hero-circle-1 { width: 500px; height: 500px; top: -150px; right: -100px; animation-duration: 25s; }
+    .hero-circle-2 { width: 350px; height: 350px; bottom: -100px; right: 150px; animation-direction: reverse; animation-duration: 18s; border-color: rgba(0,168,150,.2); }
+    .hero-circle-3 { width: 200px; height: 200px; top: 30%; left: -60px; animation-duration: 15s; border-color: rgba(255,255,255,.1); }
+    @keyframes hero-spin { from { transform: rotate(0deg) scale(1); } to { transform: rotate(360deg) scale(1); } }
+
+    /* Floating particles */
+    .hero-particles span {
+      position: absolute;
+      display: block;
+      width: 6px; height: 6px;
+      background: rgba(255,255,255,.15);
+      border-radius: 50%;
+      animation: float-up 8s linear infinite;
+    }
+    @keyframes float-up {
+      0%   { transform: translateY(0) rotate(0); opacity: 1; }
+      100% { transform: translateY(-600px) rotate(720deg); opacity: 0; }
+    }
+    .hero-particles span:nth-child(1)  { left: 10%; animation-delay: 0s;   width: 8px;  height: 8px; }
+    .hero-particles span:nth-child(2)  { left: 25%; animation-delay: 2s;   width: 5px;  height: 5px; }
+    .hero-particles span:nth-child(3)  { left: 40%; animation-delay: 4s;   width: 10px; height: 10px; }
+    .hero-particles span:nth-child(4)  { left: 60%; animation-delay: 1s;   width: 4px;  height: 4px; }
+    .hero-particles span:nth-child(5)  { left: 75%; animation-delay: 3s;   width: 7px;  height: 7px; }
+    .hero-particles span:nth-child(6)  { left: 90%; animation-delay: 5s;   width: 5px;  height: 5px; }
+
+    .hero-content { position: relative; z-index: 2; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0,168,150,.25);
+      color: #7eecd6;
+      border: 1px solid rgba(0,168,150,.4);
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      color: #fff;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    /* CSS text rotation animation */
+    .hero-rotating-text {
+      display: inline-block;
+      color: var(--mc-teal);
+      position: relative;
+      overflow: hidden;
+      height: 1.15em;
+      vertical-align: bottom;
+    }
+    .hero-rotating-text span {
+      display: block;
+      position: absolute;
+      top: 0; left: 0;
+      opacity: 0;
+      animation: text-rotate 12s linear infinite;
+      white-space: nowrap;
+      color: #4dd9c8;
+    }
+    .hero-rotating-text span:nth-child(1) { animation-delay: 0s; }
+    .hero-rotating-text span:nth-child(2) { animation-delay: 4s; }
+    .hero-rotating-text span:nth-child(3) { animation-delay: 8s; }
+    @keyframes text-rotate {
+      0%,5%   { opacity: 0; transform: translateY(20px); }
+      10%,28% { opacity: 1; transform: translateY(0); }
+      33%,100%{ opacity: 0; transform: translateY(-20px); }
+    }
+    .hero-sub {
+      color: rgba(255,255,255,.8);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+    .hero-stat-card {
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 16px;
+      padding: 18px 24px;
+      text-align: center;
+      min-width: 130px;
+      transition: transform .3s;
+    }
+    .hero-stat-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.15); }
+    .hero-stat-card .stat-number { font-size: 1.8rem; font-weight: 800; color: #fff; }
+    .hero-stat-card .stat-label  { font-size: .75rem; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: .8px; }
+    .hero-stat-card .stat-icon   { font-size: 1.5rem; color: var(--mc-teal); margin-bottom: 6px; }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.6);
+      font-size: .75rem;
+      text-align: center;
+      z-index: 2;
+      animation: bounce-down 2s ease infinite;
+    }
+    .scroll-indicator i { display: block; font-size: 1.4rem; margin-top: 4px; }
+    @keyframes bounce-down {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* Hero right image placeholder */
+    .hero-image-wrap {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-img-card {
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 24px;
+      overflow: hidden;
+      height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .hero-img-card .img-icon { font-size: 6rem; color: rgba(255,255,255,.15); }
+    .hero-floating-badge {
+      position: absolute;
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px 18px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.2);
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--mc-navy);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-floating-badge.badge-top-right  { top: 24px; right: -20px; }
+    .hero-floating-badge.badge-bot-left   { bottom: 40px; left: -30px; }
+    .hero-floating-badge .badge-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+
+    /* ============================================================
+       5. QUICK SERVICES BAR
+    ============================================================ */
+    #quick-services {
+      background: var(--mc-navy);
+      padding: 28px 0;
+    }
+    .qs-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 20px;
+      border-right: 1px solid rgba(255,255,255,.1);
+      cursor: pointer;
+      transition: all .25s;
+    }
+    .qs-item:last-child { border-right: none; }
+    .qs-item:hover .qs-icon { background: var(--mc-teal); }
+    .qs-item:hover .qs-title { color: var(--mc-teal); }
+    .qs-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.08);
+      color: var(--mc-teal);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      transition: background .25s;
+      flex-shrink: 0;
+    }
+    .qs-icon.active { background: var(--mc-teal); color: #fff; }
+    .qs-title { color: #fff; font-weight: 600; font-size: .95rem; }
+    .qs-sub   { color: rgba(255,255,255,.5); font-size: .78rem; }
+
+    /* ============================================================
+       6. ABOUT SECTION
+    ============================================================ */
+    #about { padding: 100px 0; background: #fff; }
+    .about-img-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: visible;
+    }
+    .about-img-placeholder {
+      width: 100%;
+      height: 500px;
+      background: linear-gradient(135deg, #e0f7f5 0%, #b2dfdb 100%);
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 7rem;
+      color: var(--mc-teal);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-img-placeholder::before {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      background: rgba(0,168,150,.1);
+      border-radius: 50%;
+      top: -50px; right: -50px;
+    }
+    .about-img-placeholder::after {
+      content: '';
+      position: absolute;
+      width: 150px; height: 150px;
+      background: rgba(0,168,150,.1);
+      border-radius: 50%;
+      bottom: -30px; left: -30px;
+    }
+    .about-badge-overlay {
+      position: absolute;
+      bottom: -20px;
+      right: 30px;
+      background: var(--mc-teal);
+      color: #fff;
+      padding: 16px 24px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,168,150,.4);
+    }
+    .about-badge-overlay .badge-num  { font-size: 2rem; font-weight: 800; line-height: 1; }
+    .about-badge-overlay .badge-text { font-size: .72rem; text-transform: uppercase; letter-spacing: .8px; }
+    .about-mini-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 30px;
+    }
+    .mini-stat-card {
+      background: var(--mc-gray-bg);
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+      border-left: 4px solid var(--mc-teal);
+      transition: transform .3s;
+    }
+    .mini-stat-card:hover { transform: translateY(-3px); }
+    .mini-stat-card .ms-num { font-size: 1.8rem; font-weight: 800; color: var(--mc-teal); }
+    .mini-stat-card .ms-label { font-size: .78rem; color: var(--mc-muted); text-transform: uppercase; letter-spacing: .5px; }
+    .key-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: var(--mc-text);
+      font-size: .95rem;
+    }
+    .key-points li i { color: var(--mc-teal); font-size: 1rem; margin-top: 3px; flex-shrink: 0; }
+
+    /* ============================================================
+       7. DEPARTMENTS SECTION
+    ============================================================ */
+    #departments { padding: 100px 0; background: var(--mc-gray-bg); }
+    .dept-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 30px 24px;
+      text-align: center;
+      border: 1px solid #e8edf2;
+      transition: all .3s ease;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .dept-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--mc-teal);
+      transform: scaleX(0);
+      transition: transform .3s;
+    }
+    .dept-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,.1); border-color: transparent; }
+    .dept-card:hover::before { transform: scaleX(1); }
+    .dept-icon-wrap {
+      width: 72px; height: 72px;
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 18px;
+      transition: transform .3s;
+    }
+    .dept-card:hover .dept-icon-wrap { transform: scale(1.1) rotate(-5deg); }
+    .dept-card h5 { font-weight: 700; color: var(--mc-navy); font-size: 1rem; margin-bottom: 8px; }
+    .dept-card p  { font-size: .82rem; color: var(--mc-muted); line-height: 1.6; margin-bottom: 14px; }
+    .dept-doc-count { font-size: .78rem; color: var(--mc-teal); font-weight: 600; }
+    .dept-link { font-size: .82rem; font-weight: 600; color: var(--mc-teal); text-decoration: none; }
+    .dept-link:hover { color: var(--mc-teal-dark); }
+
+    /* ============================================================
+       8. WHY CHOOSE US
+    ============================================================ */
+    #why-us {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--mc-navy) 0%, #0d3b6e 60%, var(--mc-teal-dark) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    #why-us::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .why-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 18px;
+      padding: 34px 28px;
+      text-align: center;
+      height: 100%;
+      transition: all .35s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .why-card:hover {
+      background: rgba(255,255,255,.12);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,.3);
+    }
+    .why-icon {
+      width: 68px; height: 68px;
+      border-radius: 18px;
+      background: rgba(0,168,150,.2);
+      color: var(--mc-teal);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 20px;
+      transition: all .3s;
+    }
+    .why-card:hover .why-icon { background: var(--mc-teal); color: #fff; transform: scale(1.05); }
+    .why-card h5 { color: #fff; font-weight: 700; margin-bottom: 12px; }
+    .why-card p  { color: rgba(255,255,255,.6); font-size: .88rem; line-height: 1.7; margin: 0; }
+
+    /* ============================================================
+       9. FEATURED DOCTORS
+    ============================================================ */
+    #doctors { padding: 100px 0; background: #fff; }
+    .doctor-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.07);
+      border: 1px solid #e8edf2;
+      transition: all .35s ease;
+      height: 100%;
+    }
+    .doctor-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,.12); }
+    .doctor-photo {
+      height: 220px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      position: relative;
+    }
+    .doctor-available-badge {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: #22c55e;
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .doctor-available-badge.unavailable { background: #ef4444; }
+    .doctor-body { padding: 20px; }
+    .doctor-specialty {
+      display: inline-block;
+      background: var(--mc-teal-lt);
+      color: var(--mc-teal);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .doctor-name { font-weight: 800; color: var(--mc-navy); font-size: 1.05rem; margin-bottom: 6px; }
+    .doctor-exp  { font-size: .82rem; color: var(--mc-muted); margin-bottom: 10px; }
+    .star-rating  { color: #f59e0b; font-size: .85rem; }
+    .star-rating span { color: var(--mc-muted); font-size: .78rem; margin-left: 4px; }
+    .btn-profile {
+      width: 100%;
+      background: transparent;
+      border: 2px solid var(--mc-teal);
+      color: var(--mc-teal);
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: .85rem;
+      padding: 9px;
+      margin-top: 14px;
+      transition: all .25s;
+    }
+    .btn-profile:hover { background: var(--mc-teal); color: #fff; }
+
+    /* ============================================================
+       10. HEALTH SERVICES
+    ============================================================ */
+    #services { padding: 100px 0; background: var(--mc-gray-bg); }
+    .service-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      border: 1px solid #e8edf2;
+      transition: all .3s;
+      height: 100%;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,.09); border-color: var(--mc-teal); }
+    .service-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .service-card h6 { font-weight: 700; color: var(--mc-navy); margin-bottom: 6px; }
+    .service-card p  { font-size: .84rem; color: var(--mc-muted); line-height: 1.6; margin: 0; }
+    .service-link { font-size: .82rem; font-weight: 600; color: var(--mc-teal); text-decoration: none; }
+    .service-link:hover { color: var(--mc-teal-dark); }
+
+    /* ============================================================
+       11. STATS COUNTER SECTION
+    ============================================================ */
+    #stats-counter {
+      background: var(--mc-navy);
+      padding: 80px 0;
+    }
+    .counter-card { text-align: center; padding: 20px; }
+    .counter-icon {
+      font-size: 2.5rem;
+      color: var(--mc-teal);
+      margin-bottom: 16px;
+    }
+    .counter-number {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .counter-label {
+      color: rgba(255,255,255,.6);
+      font-size: .9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .counter-divider {
+      width: 1px;
+      background: rgba(255,255,255,.1);
+      align-self: stretch;
+    }
+
+    /* ============================================================
+       12. TESTIMONIALS
+    ============================================================ */
+    #testimonials { padding: 100px 0; background: #fff; }
+    .testimonial-card {
+      background: var(--mc-gray-bg);
+      border-radius: 20px;
+      padding: 36px 32px;
+      position: relative;
+      border: 1px solid #e8edf2;
+    }
+    .quote-icon {
+      position: absolute;
+      top: 24px; right: 28px;
+      font-size: 3rem;
+      color: var(--mc-teal);
+      opacity: .15;
+    }
+    .testimonial-text { color: var(--mc-text); font-size: .97rem; line-height: 1.8; font-style: italic; margin-bottom: 24px; }
+    .testimonial-stars { color: #f59e0b; font-size: .9rem; margin-bottom: 14px; }
+    .testimonial-avatar {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--mc-teal), var(--mc-navy));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .testimonial-name    { font-weight: 700; color: var(--mc-navy); font-size: .95rem; }
+    .testimonial-meta    { font-size: .78rem; color: var(--mc-muted); }
+    .dept-treated-badge  { background: var(--mc-teal-lt); color: var(--mc-teal); font-size: .7rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon { filter: invert(1) hue-rotate(160deg); }
+    .carousel-indicators [data-bs-target] { background-color: var(--mc-teal); }
+
+    /* ============================================================
+       13. NEWS / ANNOUNCEMENTS
+    ============================================================ */
+    #news { padding: 100px 0; background: var(--mc-gray-bg); }
+    .news-card {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid #e8edf2;
+      transition: all .3s ease;
+      height: 100%;
+    }
+    .news-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.1); }
+    .news-img-placeholder {
+      height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+    }
+    .news-date-badge {
+      position: absolute;
+      top: 16px; left: 16px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 6px 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    }
+    .news-date-badge .day   { font-size: 1.3rem; font-weight: 800; color: var(--mc-navy); line-height: 1; }
+    .news-date-badge .month { font-size: .7rem; text-transform: uppercase; color: var(--mc-muted); letter-spacing: .8px; }
+    .news-body { padding: 24px; }
+    .news-tag { display: inline-block; background: var(--mc-teal-lt); color: var(--mc-teal); font-size: .7rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .5px; }
+    .news-title { font-weight: 700; color: var(--mc-navy); font-size: 1rem; margin-bottom: 10px; line-height: 1.4; }
+    .news-excerpt { font-size: .85rem; color: var(--mc-muted); line-height: 1.65; margin-bottom: 16px; }
+    .news-read-more { font-size: .85rem; font-weight: 600; color: var(--mc-teal); text-decoration: none; }
+    .news-read-more:hover { color: var(--mc-teal-dark); }
+    .news-read-more i { font-size: .75rem; margin-left: 4px; }
+
+    /* ============================================================
+       14. APPOINTMENT CTA
+    ============================================================ */
+    #cta-appointment {
+      background: linear-gradient(135deg, var(--mc-teal-dark) 0%, var(--mc-teal) 60%, #2dd4bf 100%);
+      padding: 90px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-appointment::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Ccircle cx='40' cy='40' r='1.5' fill='rgba(255,255,255,.08)'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    #cta-appointment h2 { font-family: var(--font-display); color: #fff; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800; }
+    #cta-appointment p  { color: rgba(255,255,255,.85); font-size: 1.05rem; }
+    .cta-form-inline .form-control {
+      border: none;
+      border-radius: 50px;
+      height: 52px;
+      padding: 0 24px;
+      font-size: .95rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.12);
+    }
+    .cta-form-inline .form-control:focus { box-shadow: 0 4px 20px rgba(0,0,0,.2); outline: none; }
+    .cta-form-inline .btn {
+      height: 52px;
+      border-radius: 50px;
+      padding: 0 32px;
+      font-weight: 700;
+      background: var(--mc-navy);
+      color: #fff;
+      border: none;
+      transition: all .3s;
+    }
+    .cta-form-inline .btn:hover { background: #0a1f44cc; transform: translateX(2px); }
+
+    /* ============================================================
+       15. ACCREDITATIONS STRIP
+    ============================================================ */
+    #accreditations {
+      background: #fff;
+      padding: 36px 0;
+      border-top: 1px solid #e8edf2;
+      border-bottom: 1px solid #e8edf2;
+    }
+    .accred-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 30px;
+      text-align: center;
+    }
+    .accred-logo {
+      width: 80px; height: 60px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .accred-badge p { font-size: .72rem; color: var(--mc-muted); text-transform: uppercase; letter-spacing: .5px; }
+
+    /* ============================================================
+       16. FOOTER
+    ============================================================ */
+    #footer { background: #050f22; color: #a0aec0; }
+    #footer .footer-top { padding: 80px 0 50px; }
+    .footer-logo-text .brand-main { font-size: 1.3rem; font-weight: 800; color: #fff; }
+    .footer-logo-text .brand-sub  { font-size: .7rem; color: var(--mc-muted); letter-spacing: .8px; }
+    .footer-desc { font-size: .87rem; line-height: 1.8; color: #718096; margin: 16px 0 20px; }
+    .footer-social a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.06);
+      color: #a0aec0;
+      text-decoration: none;
+      transition: all .25s;
+      margin-right: 8px;
+    }
+    .footer-social a:hover { background: var(--mc-teal); color: #fff; transform: translateY(-2px); }
+    .footer-heading { color: #fff; font-weight: 700; font-size: .95rem; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid rgba(255,255,255,.08); text-transform: uppercase; letter-spacing: .8px; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { color: #718096; text-decoration: none; font-size: .87rem; transition: all .2s; display: flex; align-items: center; gap: 6px; }
+    .footer-links a::before { content: '\f054'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: .6rem; color: var(--mc-teal); }
+    .footer-links a:hover { color: var(--mc-teal); padding-left: 4px; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: .87rem; }
+    .footer-contact-icon { color: var(--mc-teal); font-size: 1rem; margin-top: 2px; flex-shrink: 0; }
+    .footer-contact-item a { color: #718096; text-decoration: none; }
+    .footer-contact-item a:hover { color: var(--mc-teal); }
+    #footer .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 20px 0;
+      font-size: .82rem;
+      color: #4a5568;
+    }
+    #footer .footer-bottom a { color: #4a5568; text-decoration: none; transition: color .2s; }
+    #footer .footer-bottom a:hover { color: var(--mc-teal); }
+
+    /* ============================================================
+       SEARCH OFFCANVAS
+    ============================================================ */
+    #searchOffcanvas .offcanvas-header { background: var(--mc-navy); color: #fff; }
+    #searchOffcanvas .offcanvas-body   { padding: 30px; }
+    .search-input-wrap { position: relative; }
+    .search-input-wrap input {
+      border-radius: 50px;
+      border: 2px solid #e8edf2;
+      height: 54px;
+      padding: 0 60px 0 24px;
+      font-size: 1rem;
+      width: 100%;
+    }
+    .search-input-wrap input:focus { border-color: var(--mc-teal); outline: none; }
+    .search-input-wrap .btn-search-go {
+      position: absolute;
+      right: 6px; top: 6px;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--mc-teal);
+      color: #fff;
+      border: none;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .quick-search-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .quick-tag { background: var(--mc-gray-bg); color: var(--mc-navy); border-radius: 20px; padding: 6px 14px; font-size: .82rem; cursor: pointer; transition: all .2s; border: none; }
+    .quick-tag:hover { background: var(--mc-teal); color: #fff; }
+
+    /* ============================================================
+       BACK TO TOP
+    ============================================================ */
+    #back-to-top {
+      position: fixed;
+      bottom: 30px; right: 30px;
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--mc-teal);
+      color: #fff;
+      border: none;
+      box-shadow: 0 6px 20px rgba(0,168,150,.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all .35s ease;
+      cursor: pointer;
+    }
+    #back-to-top.visible { opacity: 1; transform: translateY(0); }
+    #back-to-top:hover { background: var(--mc-teal-dark); transform: translateY(-3px); }
+
+    /* Responsive tweaks */
+    @media (max-width: 991px) {
+      #hero { min-height: auto; padding: 100px 0 60px; }
+      .hero-stats { justify-content: center; }
+      .about-img-placeholder { height: 320px; }
+      .qs-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
+      .qs-item:last-child { border-bottom: none; }
+      .counter-divider { display: none; }
+    }
+    @media (max-width: 575px) {
+      #top-info-bar .top-info-left { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================
+  1. EMERGENCY BANNER
+================================================================ -->
+<div id="emergency-banner">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-center text-center gap-3 flex-wrap">
+      <span><span class="pulse-dot"></span> 24/7 Emergency: <strong>Call 108</strong></span>
+      <span class="d-none d-sm-inline">|</span>
+      <span><i class="fa-solid fa-truck-medical me-1"></i> Ambulance: <strong>+1-800-MEDICARE</strong></span>
+      <span class="d-none d-md-inline">|</span>
+      <span class="d-none d-md-inline"><i class="fa-solid fa-phone-volume me-1"></i> Helpline: <strong>1800-123-4567</strong> (Toll Free)</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+  2. TOP INFO BAR
+================================================================ -->
+<div id="top-info-bar">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-4 top-info-left">
+        <a href="mailto:info@medicarehospital.com">
+          <i class="fa-regular fa-envelope me-1"></i> info@medicarehospital.com
+        </a>
+        <span class="d-none d-lg-inline">
+          <i class="fa-solid fa-location-dot me-1"></i> 42 Health Avenue, Greenfield Medical District, NY 10001
+        </span>
+        <span class="d-none d-md-inline">
+          <i class="fa-regular fa-clock me-1"></i> OPD: Mon–Sat, 08:00 AM – 08:00 PM
+        </span>
+      </div>
+      <div class="social-icons d-flex align-items-center gap-1">
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+  3. MAIN NAVBAR
+================================================================ -->
+<nav class="navbar navbar-expand-lg sticky-top" id="main-navbar">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <div class="navbar-logo-icon"><i class="fa-solid fa-cross"></i></div>
+      <div class="navbar-brand-text">
+        <div class="brand-main">MediCare</div>
+        <div class="brand-sub">General Hospital</div>
+      </div>
+    </a>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <i class="fa-solid fa-bars" style="color:var(--mc-navy)"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Home</a>
+        </li>
+        <!-- Departments Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="departments.html" data-bs-toggle="dropdown">Departments</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item fw-bold text-teal border-bottom mb-1" href="departments.html"><i class="fa-solid fa-list me-2"></i>All 12 Departments</a></li>
+            <li><a class="dropdown-item" href="departments.html#cardiology"><i class="fa-solid fa-heart-pulse text-danger me-2"></i>Cardiology</a></li>
+            <li><a class="dropdown-item" href="departments.html#neurology"><i class="fa-solid fa-brain text-purple me-2" style="color:#7c3aed"></i>Neurology</a></li>
+            <li><a class="dropdown-item" href="departments.html#orthopedics"><i class="fa-solid fa-bone text-warning me-2"></i>Orthopedics</a></li>
+            <li><a class="dropdown-item" href="departments.html#pediatrics"><i class="fa-solid fa-baby text-pink me-2" style="color:#ec4899"></i>Pediatrics</a></li>
+            <li><a class="dropdown-item" href="departments.html#ophthalmology"><i class="fa-solid fa-eye text-info me-2"></i>Ophthalmology</a></li>
+            <li><a class="dropdown-item" href="departments.html#pulmonology"><i class="fa-solid fa-lungs text-primary me-2"></i>Pulmonology</a></li>
+            <li><a class="dropdown-item" href="departments.html#gynecology"><i class="fa-solid fa-venus text-pink me-2" style="color:#f472b6"></i>Gynecology</a></li>
+            <li><a class="dropdown-item" href="departments.html#dental"><i class="fa-solid fa-tooth text-teal me-2" style="color:#0d9488"></i>Dental Care</a></li>
+            <li><a class="dropdown-item" href="departments.html#oncology"><i class="fa-solid fa-microscope text-success me-2"></i>Oncology</a></li>
+            <li><a class="dropdown-item" href="departments.html#nephrology"><i class="fa-solid fa-kidneys text-orange me-2" style="color:#ea580c"></i>Nephrology</a></li>
+            <li><a class="dropdown-item" href="departments.html#dermatology"><i class="fa-solid fa-person-half-dress text-violet me-2" style="color:#8b5cf6"></i>Dermatology</a></li>
+            <li><a class="dropdown-item" href="departments.html#endocrinology"><i class="fa-solid fa-syringe text-teal me-2" style="color:#0891b2"></i>Endocrinology</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="facilities.html">Facilities</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+        <!-- Search trigger -->
+        <button class="btn-search" data-bs-toggle="offcanvas" data-bs-target="#searchOffcanvas" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <!-- Book Appointment CTA -->
+        <a href="#cta-appointment" class="btn btn-teal rounded-pill px-4">
+          <i class="fa-regular fa-calendar-check me-2"></i>Book Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Search Offcanvas -->
+<div class="offcanvas offcanvas-top" tabindex="-1" id="searchOffcanvas">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title"><i class="fa-solid fa-magnifying-glass me-2"></i> Search MediCare</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="search-input-wrap">
+      <input type="text" placeholder="Search doctors, departments, services, conditions…" />
+      <button class="btn-search-go"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+    <p class="text-muted small mt-4 mb-2">Popular Searches:</p>
+    <div class="quick-search-tags">
+      <button class="quick-tag">Heart Specialist</button>
+      <button class="quick-tag">OPD Booking</button>
+      <button class="quick-tag">Cancer Treatment</button>
+      <button class="quick-tag">Pediatrician</button>
+      <button class="quick-tag">Lab Reports</button>
+      <button class="quick-tag">Emergency</button>
+      <button class="quick-tag">Orthopedic Surgery</button>
+      <button class="quick-tag">MRI Scan</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+  4. HERO SECTION
+================================================================ -->
+<section id="hero">
+  <!-- Decorative circles -->
+  <div class="hero-circle hero-circle-1"></div>
+  <div class="hero-circle hero-circle-2"></div>
+  <div class="hero-circle hero-circle-3"></div>
+
+  <!-- Particles -->
+  <div class="hero-particles" aria-hidden="true">
+    <span style="bottom:10%"></span>
+    <span style="bottom:20%"></span>
+    <span style="bottom:5%"></span>
+    <span style="bottom:30%"></span>
+    <span style="bottom:15%"></span>
+    <span style="bottom:8%"></span>
+  </div>
+
+  <div class="container py-5 py-lg-0">
+    <div class="row align-items-center g-5">
+      <!-- Left: Content -->
+      <div class="col-lg-6 hero-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-star-of-life me-2"></i> JCI & NABH Accredited Hospital
+        </div>
+        <h1 class="hero-heading">
+          Committed to<br />
+          <div class="hero-rotating-text" style="min-width:320px;">
+            <span>World-Class Healthcare</span>
+            <span>Expert Medical Team</span>
+            <span>Advanced Technology</span>
+          </div>
+        </h1>
+        <p class="hero-sub">
+          At MediCare General Hospital, every patient is our top priority. With 150+ specialist doctors,
+          cutting-edge diagnostics, and compassionate nursing care, we deliver life-changing outcomes
+          across 45+ medical specialties — because your health deserves nothing less than the best.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#cta-appointment" class="btn btn-teal btn-lg rounded-pill px-5">
+            <i class="fa-regular fa-calendar-check me-2"></i> Book Appointment
+          </a>
+          <a href="#doctors" class="btn btn-outline-light btn-lg rounded-pill px-5">
+            <i class="fa-solid fa-user-doctor me-2"></i> Find a Doctor
+          </a>
+        </div>
+
+        <!-- Hero Stats -->
+        <div class="hero-stats">
+          <div class="hero-stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="stat-number">300K+</div>
+            <div class="stat-label">Patients Served</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-user-doctor"></i></div>
+            <div class="stat-number">150+</div>
+            <div class="stat-label">Expert Doctors</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-hospital"></i></div>
+            <div class="stat-number">45+</div>
+            <div class="stat-label">Departments</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Decorative Card -->
+      <div class="col-lg-6 hero-image-wrap d-none d-lg-block">
+        <div class="hero-img-card">
+          <i class="fa-solid fa-hospital-user img-icon"></i>
+          <!-- Floating badges -->
+          <div class="hero-floating-badge badge-top-right">
+            <div class="badge-icon bg-success bg-opacity-10 text-success"><i class="fa-solid fa-circle-check"></i></div>
+            <div>
+              <div style="font-size:.7rem;color:#718096">Success Rate</div>
+              <div style="font-size:1rem;font-weight:800;color:#0a1f44">98.6%</div>
+            </div>
+          </div>
+          <div class="hero-floating-badge badge-bot-left">
+            <div class="badge-icon bg-teal" style="background:var(--mc-teal-lt)!important;color:var(--mc-teal)"><i class="fa-solid fa-bed-pulse"></i></div>
+            <div>
+              <div style="font-size:.7rem;color:#718096">Available Beds</div>
+              <div style="font-size:1rem;font-weight:800;color:#0a1f44">500+ Beds</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    Scroll Down <i class="fa-solid fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ================================================================
+  5. QUICK SERVICES BAR
+================================================================ -->
+<section id="quick-services">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-sm-6 col-lg-3">
+        <div class="qs-item">
+          <div class="qs-icon active"><i class="fa-solid fa-truck-medical"></i></div>
+          <div>
+            <div class="qs-title">Emergency Care</div>
+            <div class="qs-sub">24/7 Life Support &amp; Trauma</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="qs-item">
+          <div class="qs-icon"><i class="fa-regular fa-calendar-check"></i></div>
+          <div>
+            <div class="qs-title">OPD Booking</div>
+            <div class="qs-sub">Book Online or By Phone</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="qs-item">
+          <div class="qs-icon"><i class="fa-solid fa-stethoscope"></i></div>
+          <div>
+            <div class="qs-title">Health Checkup</div>
+            <div class="qs-sub">Preventive &amp; Wellness Packages</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="qs-item">
+          <div class="qs-icon"><i class="fa-solid fa-file-waveform"></i></div>
+          <div>
+            <div class="qs-title">Lab Reports</div>
+            <div class="qs-sub">Download Results Online</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+  6. ABOUT SECTION
+================================================================ -->
+<section id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <!-- Left: Image placeholder -->
+      <div class="col-lg-5">
+        <div class="about-img-wrap">
+          <div class="about-img-placeholder">
+            <i class="fa-solid fa-hospital"></i>
+          </div>
+          <div class="about-badge-overlay">
+            <div class="badge-num">40</div>
+            <div class="badge-text">Years of<br/>Excellence</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Content -->
+      <div class="col-lg-7">
+        <p class="text-teal fw-600 text-uppercase small letter-spacing-2 mb-2">
+          <i class="fa-solid fa-star-of-life me-2"></i>About MediCare
+        </p>
+        <h2 class="section-title mb-3">
+          A Legacy of Healing,<br />A Future of Innovation
+        </h2>
+        <div class="divider-teal mb-4"></div>
+        <p class="text-muted mb-3" style="line-height:1.85">
+          Founded in 1984, MediCare General Hospital has grown from a 50-bed community clinic into one of the
+          region's most trusted multi-specialty tertiary care hospitals. We serve over 300,000 patients annually
+          across our main campus and three satellite clinics, bringing advanced diagnostics and world-class
+          surgical expertise within reach of every family.
+        </p>
+        <p class="text-muted mb-3" style="line-height:1.85">
+          Our 500-bed state-of-the-art facility is equipped with the latest generation MRI, CT, PET-CT, robotic
+          surgery suites, and a Level-I Trauma Centre. Our team of 150+ board-certified specialists collaborate
+          through multidisciplinary tumor boards, cardiac teams, and neurological conferences to ensure every
+          patient receives a holistic, evidence-based treatment plan.
+        </p>
+        <p class="text-muted mb-4" style="line-height:1.85">
+          Accredited by the Joint Commission International (JCI) and the National Accreditation Board for
+          Hospitals (NABH), MediCare sets the gold standard for patient safety, clinical outcomes, and
+          compassionate care throughout the region.
+        </p>
+
+        <!-- Key Points -->
+        <ul class="key-points list-unstyled mb-4">
+          <li><i class="fa-solid fa-circle-check"></i> JCI & NABH Accredited – Meeting the Highest International Standards</li>
+          <li><i class="fa-solid fa-circle-check"></i> Robotic Surgery, AI-assisted Diagnostics & Precision Medicine</li>
+          <li><i class="fa-solid fa-circle-check"></i> 24/7 Level-I Trauma & Intensive Care Units</li>
+          <li><i class="fa-solid fa-circle-check"></i> Integrated Electronic Health Records for Seamless Care Continuity</li>
+          <li><i class="fa-solid fa-circle-check"></i> Dedicated Patient Relations & International Patients Desk</li>
+        </ul>
+
+        <div class="d-flex flex-wrap gap-3 mb-5">
+          <a href="#" class="btn btn-teal rounded-pill px-4">Learn More <i class="fa-solid fa-arrow-right ms-2"></i></a>
+          <a href="#" class="btn btn-outline-teal rounded-pill px-4">Our Story</a>
+        </div>
+
+        <!-- Mini Stats (animated on scroll) -->
+        <div class="about-mini-stats">
+          <div class="mini-stat-card">
+            <div class="ms-num counter" data-target="300000" data-suffix="K+">0</div>
+            <div class="ms-label">Patients Annually</div>
+          </div>
+          <div class="mini-stat-card">
+            <div class="ms-num counter" data-target="150" data-suffix="+">0</div>
+            <div class="ms-label">Specialist Doctors</div>
+          </div>
+          <div class="mini-stat-card">
+            <div class="ms-num counter" data-target="45" data-suffix="+">0</div>
+            <div class="ms-label">Departments</div>
+          </div>
+          <div class="mini-stat-card">
+            <div class="ms-num counter" data-target="40" data-suffix=" Yrs">0</div>
+            <div class="ms-label">Years of Service</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+  7. DEPARTMENTS SECTION
+================================================================ -->
+<section id="departments">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="text-teal fw-600 text-uppercase small mb-2"><i class="fa-solid fa-hospital me-2"></i>Medical Departments</p>
+      <h2 class="section-title">World-Class Specialties Under One Roof</h2>
+      <p class="section-subtitle mx-auto mt-3">
+        From routine health checkups to complex surgeries, our 45+ departments are staffed by nationally
+        recognised specialists dedicated to your well-being.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Cardiology -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dept-card">
+          <div class="dept-icon-wrap" style="background:#fff0f0;color:#e63946"><i class="fa-solid fa-heart-pulse"></i></div>
+          <h5>Cardiology</h5>
+          <p>Advanced cardiac care including interventional procedures, electrophysiology, and cardiac rehabilitation.</p>
+          <div class="dept-doc-count mb-2"><i class="fa-solid fa-user-doctor me-1"></i>18 Cardiologists</div>
+          <a href="#" class="dept-link">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+      <!-- Neurology -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dept-card">
+          <div class="dept-icon-wrap" style="background:#ede9fe;color:#7c3aed"><i class="fa-solid fa-brain"></i></div>
+          <h5>Neurology &amp; Neuro Surgery</h5>
+          <p>Expert management of stroke, epilepsy, Parkinson's, tumors, and spinal cord disorders.</p>
+          <div class="dept-doc-count mb-2"><i class="fa-solid fa-user-doctor me-1"></i>12 Neurologists</div>
+          <a href="#" class="dept-link">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+      <!-- Orthopedics -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dept-card">
+          <div class="dept-icon-wrap" style="background:#fef9c3;color:#d97706"><i class="fa-solid fa-bone"></i></div>
+          <h5>Orthopedics</h5>
+          <p>Joint replacement, sports injury management, arthroscopy, and musculoskeletal rehabilitation.</p>
+          <div class="dept-doc-count mb-2"><i class="fa-solid fa-user-doctor me-1"></i>14 Orthopedists</div>
+          <a href="#" class="dept-link">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+      <!-- Pediatrics -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dept-card">
+          <div class="dept-icon-wrap" style="background:#fce7f3;color:#db2777"><i class="fa-solid fa-baby"></i></div>
+          <h5>Pediatrics &amp; Neonatology</h5>
+          <p>Comprehensive child healthcare from newborn intensive care to adolescent medicine and vaccinations.</p>
+          <div class="dept-doc-count mb-2"><i class="fa-solid fa-user-doctor me-1"></i>10 Pediatricians</div>
+          <a href="#" class="dept-link">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+      <!-- Oncology -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dept-card">
+          <div class="dept-icon-wrap" style="background:#dcfce7;color:#16a34a"><i class="fa-solid fa-microscope"></i></div>
+          <h5>Oncology</h5>
+          <p>Multidisciplinary cancer care with chemotherapy, immunotherapy, targeted therapy, and radiation oncology.</p>
+          <div class="dept-doc-count mb-2"><i class="fa-solid fa-user-doctor me-1"></i>11 Oncologists</div>
+          <a href="#" class="dept-link">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+      <!-- Gynecology -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dept-card">
+          <div class="dept-icon-wrap" style="background:#fce7f3;color:#9d174d"><i class="fa-solid fa-venus"></i></div>
+          <h5>Gynecology &amp; Obstetrics</h5>
+          <p>Women's health including high-risk pregnancy, laparoscopic surgery, fertility treatments, and menopause care.</p>
+          <div class="dept-doc-count mb-2"><i class="fa-solid fa-user-doctor me-1"></i>9 Gynecologists</div>
+          <a href="#" class="dept-link">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+      <!-- Ophthalmology -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dept-card">
+          <div class="dept-icon-wrap" style="background:#e0f2fe;color:#0284c7"><i class="fa-solid fa-eye"></i></div>
+          <h5>Ophthalmology</h5>
+          <p>LASIK, cataract, glaucoma, retinal conditions, and pediatric ophthalmology using the latest laser technology.</p>
+          <div class="dept-doc-count mb-2"><i class="fa-solid fa-user-doctor me-1"></i>7 Eye Specialists</div>
+          <a href="#" class="dept-link">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+      <!-- Pulmonology -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dept-card">
+          <div class="dept-icon-wrap" style="background:#dbeafe;color:#1d4ed8"><i class="fa-solid fa-lungs"></i></div>
+          <h5>Pulmonology</h5>
+          <p>Diagnosis and treatment of asthma, COPD, interstitial lung disease, sleep apnea, and lung cancer screening.</p>
+          <div class="dept-doc-count mb-2"><i class="fa-solid fa-user-doctor me-1"></i>8 Pulmonologists</div>
+          <a href="#" class="dept-link">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+      <!-- Nephrology -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dept-card">
+          <div class="dept-icon-wrap" style="background:#ffedd5;color:#ea580c"><i class="fa-solid fa-droplet"></i></div>
+          <h5>Nephrology &amp; Urology</h5>
+          <p>Kidney disease, dialysis, transplant coordination, urological conditions, and minimally invasive urology.</p>
+          <div class="dept-doc-count mb-2"><i class="fa-solid fa-user-doctor me-1"></i>9 Nephrologists</div>
+          <a href="#" class="dept-link">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+      <!-- Dermatology -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dept-card">
+          <div class="dept-icon-wrap" style="background:#f5f3ff;color:#8b5cf6"><i class="fa-solid fa-hand-sparkles"></i></div>
+          <h5>Dermatology</h5>
+          <p>Medical and cosmetic dermatology, laser treatments, skin cancer screening, and chronic skin condition management.</p>
+          <div class="dept-doc-count mb-2"><i class="fa-solid fa-user-doctor me-1"></i>6 Dermatologists</div>
+          <a href="#" class="dept-link">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+      <!-- Endocrinology -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dept-card">
+          <div class="dept-icon-wrap" style="background:#e0f7f5;color:#0d9488"><i class="fa-solid fa-syringe"></i></div>
+          <h5>Endocrinology &amp; Diabetes</h5>
+          <p>Comprehensive diabetes management, thyroid disorders, hormonal imbalances, and metabolic syndrome care.</p>
+          <div class="dept-doc-count mb-2"><i class="fa-solid fa-user-doctor me-1"></i>7 Endocrinologists</div>
+          <a href="#" class="dept-link">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+      <!-- Dental -->
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="dept-card">
+          <div class="dept-icon-wrap" style="background:#f0fdf4;color:#15803d"><i class="fa-solid fa-tooth"></i></div>
+          <h5>Dental &amp; Maxillofacial</h5>
+          <p>General and specialist dentistry, orthodontics, implants, oral surgery, and cosmetic dental procedures.</p>
+          <div class="dept-doc-count mb-2"><i class="fa-solid fa-user-doctor me-1"></i>8 Dental Surgeons</div>
+          <a href="#" class="dept-link">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="#" class="btn btn-teal btn-lg rounded-pill px-5">
+        <i class="fa-solid fa-grid me-2"></i>View All 45+ Departments
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+  8. WHY CHOOSE US
+================================================================ -->
+<section id="why-us">
+  <div class="container position-relative" style="z-index:1">
+    <div class="text-center mb-5">
+      <p class="fw-600 text-uppercase small mb-2" style="color:rgba(255,255,255,.5);letter-spacing:2px">
+        <i class="fa-solid fa-shield-halved me-2"></i>Why Choose Us
+      </p>
+      <h2 class="section-title text-white">The MediCare Difference</h2>
+      <p class="mx-auto mt-3" style="color:rgba(255,255,255,.6);max-width:560px">
+        We don't just treat illness — we restore lives. Here's what sets MediCare apart from the rest.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-robot"></i></div>
+          <h5>Advanced Technology</h5>
+          <p>Robotic surgery systems, AI-assisted diagnostics, 3T MRI, 128-slice CT, and state-of-the-art catheterisation labs ensure the most accurate treatment outcomes.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-user-doctor"></i></div>
+          <h5>Expert Medical Team</h5>
+          <p>Our 150+ specialists are nationally and internationally trained, holding fellowship credentials from institutions such as AIIMS, Johns Hopkins, Mayo Clinic, and Harvard Medical School.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-truck-medical"></i></div>
+          <h5>24/7 Emergency Care</h5>
+          <p>Our Level-I Trauma Centre is staffed round-the-clock with emergency physicians, surgeons, and critical care specialists. Average ER response time under 4 minutes.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-medal"></i></div>
+          <h5>International Standards</h5>
+          <p>Dual JCI and NABH accreditation, ISO 9001:2015 quality management, and WHO-certified infection control protocols guarantee the safest patient environment.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-heart-circle-check"></i></div>
+          <h5>Patient-First Approach</h5>
+          <p>Dedicated patient navigators guide you through your entire care journey. From admission to discharge, our patient relations team ensures zero confusion and maximum comfort.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
+          <h5>Affordable, Transparent Care</h5>
+          <p>Cashless insurance with 400+ TPA empanelled, government scheme tie-ups, and clear pre-treatment cost estimates so you never face financial surprises.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+  9. FEATURED DOCTORS
+================================================================ -->
+<section id="doctors">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="text-teal fw-600 text-uppercase small mb-2"><i class="fa-solid fa-stethoscope me-2"></i>Our Specialists</p>
+      <h2 class="section-title">Meet Our Featured Doctors</h2>
+      <p class="section-subtitle mx-auto mt-3">
+        Our team of highly qualified, compassionate medical professionals brings decades of experience
+        and the latest clinical knowledge to every patient encounter.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Doctor 1 -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="doctor-card">
+          <div class="doctor-photo" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)">
+            <i class="fa-solid fa-user-doctor" style="color:#0284c7;opacity:.6"></i>
+            <span class="doctor-available-badge">Available Today</span>
+          </div>
+          <div class="doctor-body">
+            <div class="doctor-specialty">Cardiology</div>
+            <div class="doctor-name">Dr. Arjun Sharma, MD</div>
+            <div class="doctor-exp"><i class="fa-regular fa-clock me-1 text-teal"></i>22 Years Experience</div>
+            <div class="star-rating">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+              <span>4.8 (342 reviews)</span>
+            </div>
+            <p class="text-muted small mt-2 mb-0">Senior Interventional Cardiologist | MBBS, MD, DM Cardiology | AIIMS Delhi</p>
+            <button class="btn-profile">View Profile &amp; Book</button>
+          </div>
+        </div>
+      </div>
+      <!-- Doctor 2 -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="doctor-card">
+          <div class="doctor-photo" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8)">
+            <i class="fa-solid fa-user-doctor" style="color:#db2777;opacity:.6"></i>
+            <span class="doctor-available-badge">Available Today</span>
+          </div>
+          <div class="doctor-body">
+            <div class="doctor-specialty">Neurology</div>
+            <div class="doctor-name">Dr. Priya Nair, MD</div>
+            <div class="doctor-exp"><i class="fa-regular fa-clock me-1 text-teal"></i>18 Years Experience</div>
+            <div class="star-rating">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>5.0 (218 reviews)</span>
+            </div>
+            <p class="text-muted small mt-2 mb-0">Consultant Neurologist | Stroke &amp; Epilepsy Specialist | Fellowship, Mayo Clinic</p>
+            <button class="btn-profile">View Profile &amp; Book</button>
+          </div>
+        </div>
+      </div>
+      <!-- Doctor 3 -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="doctor-card">
+          <div class="doctor-photo" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0)">
+            <i class="fa-solid fa-user-doctor" style="color:#16a34a;opacity:.6"></i>
+            <span class="doctor-available-badge unavailable">Fri &amp; Sat Only</span>
+          </div>
+          <div class="doctor-body">
+            <div class="doctor-specialty">Oncology</div>
+            <div class="doctor-name">Dr. Rakesh Menon, MCh</div>
+            <div class="doctor-exp"><i class="fa-regular fa-clock me-1 text-teal"></i>26 Years Experience</div>
+            <div class="star-rating">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+              <span>4.9 (507 reviews)</span>
+            </div>
+            <p class="text-muted small mt-2 mb-0">Head of Surgical Oncology | Robotic Surgery Expert | Harvard-trained</p>
+            <button class="btn-profile">View Profile &amp; Book</button>
+          </div>
+        </div>
+      </div>
+      <!-- Doctor 4 -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="doctor-card">
+          <div class="doctor-photo" style="background:linear-gradient(135deg,#fef9c3,#fde68a)">
+            <i class="fa-solid fa-user-doctor" style="color:#d97706;opacity:.6"></i>
+            <span class="doctor-available-badge">Available Today</span>
+          </div>
+          <div class="doctor-body">
+            <div class="doctor-specialty">Orthopedics</div>
+            <div class="doctor-name">Dr. Kavitha Reddy, MS</div>
+            <div class="doctor-exp"><i class="fa-regular fa-clock me-1 text-teal"></i>15 Years Experience</div>
+            <div class="star-rating">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+              <span>4.7 (289 reviews)</span>
+            </div>
+            <p class="text-muted small mt-2 mb-0">Joint Replacement &amp; Arthroscopy Specialist | MS Ortho | AAOS Member</p>
+            <button class="btn-profile">View Profile &amp; Book</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="#" class="btn btn-teal btn-lg rounded-pill px-5">
+        <i class="fa-solid fa-users me-2"></i>See All 150+ Doctors
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+  10. HEALTH SERVICES SECTION
+================================================================ -->
+<section id="services">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="text-teal fw-600 text-uppercase small mb-2"><i class="fa-solid fa-notes-medical me-2"></i>Our Services</p>
+      <h2 class="section-title">Comprehensive Health Services</h2>
+      <p class="section-subtitle mx-auto mt-3">
+        Beyond clinical treatment, MediCare offers a full ecosystem of diagnostic, therapeutic,
+        and preventive healthcare services to support your health at every stage of life.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Service 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon" style="background:#fff0f0;color:#e63946"><i class="fa-solid fa-heart-pulse"></i></div>
+          <div>
+            <h6>Cardiac Diagnostics &amp; Intervention</h6>
+            <p>Echocardiography, treadmill tests, coronary angiography, angioplasty, bypass surgery, and pacemaker implantation by our expert cardiac team.</p>
+            <a href="#" class="service-link mt-2 d-inline-block">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Service 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon" style="background:#e0f7f5;color:var(--mc-teal)"><i class="fa-solid fa-vials"></i></div>
+          <div>
+            <h6>Advanced Laboratory Services</h6>
+            <p>NABL-accredited laboratory offering 1,200+ tests including genomic profiling, liquid biopsy, microbiology, serology, and automated haematology panels.</p>
+            <a href="#" class="service-link mt-2 d-inline-block">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Service 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon" style="background:#dbeafe;color:#1d4ed8"><i class="fa-solid fa-x-ray"></i></div>
+          <div>
+            <h6>Medical Imaging &amp; Radiology</h6>
+            <p>3T MRI, 128-slice MDCT, digital X-ray, 4D ultrasound, DEXA bone density scan, PET-CT, and interventional radiology procedures available 24/7.</p>
+            <a href="#" class="service-link mt-2 d-inline-block">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Service 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon" style="background:#f5f3ff;color:#7c3aed"><i class="fa-solid fa-robot"></i></div>
+          <div>
+            <h6>Robotic &amp; Minimally Invasive Surgery</h6>
+            <p>da Vinci robotic surgical system for prostate, gynaecological, colorectal, and thoracic surgeries with faster recovery and fewer complications.</p>
+            <a href="#" class="service-link mt-2 d-inline-block">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Service 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon" style="background:#dcfce7;color:#16a34a"><i class="fa-solid fa-person-walking-with-cane"></i></div>
+          <div>
+            <h6>Physiotherapy &amp; Rehabilitation</h6>
+            <p>Inpatient and outpatient physiotherapy, occupational therapy, speech therapy, neurological rehabilitation, and cardiac rehab programs tailored to each patient.</p>
+            <a href="#" class="service-link mt-2 d-inline-block">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Service 6 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon" style="background:#ffedd5;color:#ea580c"><i class="fa-solid fa-shield-virus"></i></div>
+          <div>
+            <h6>Preventive Health &amp; Wellness</h6>
+            <p>Executive health screening packages, vaccination clinics, corporate wellness programmes, lifestyle disease prevention camps, and nutritional counselling.</p>
+            <a href="#" class="service-link mt-2 d-inline-block">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+  11. STATS COUNTER SECTION
+================================================================ -->
+<section id="stats-counter">
+  <div class="container">
+    <div class="row g-0 align-items-center">
+      <div class="col-6 col-md-3">
+        <div class="counter-card">
+          <div class="counter-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="counter-number big-counter" data-target="300000" data-suffix="K+">0</div>
+          <div class="counter-label">Patients Treated</div>
+        </div>
+      </div>
+      <div class="counter-divider d-none d-md-block"></div>
+      <div class="col-6 col-md-3">
+        <div class="counter-card">
+          <div class="counter-icon"><i class="fa-solid fa-user-doctor"></i></div>
+          <div class="counter-number big-counter" data-target="150" data-suffix="+">0</div>
+          <div class="counter-label">Specialist Doctors</div>
+        </div>
+      </div>
+      <div class="counter-divider d-none d-md-block"></div>
+      <div class="col-6 col-md-3">
+        <div class="counter-card">
+          <div class="counter-icon"><i class="fa-solid fa-bed-pulse"></i></div>
+          <div class="counter-number big-counter" data-target="500" data-suffix="+">0</div>
+          <div class="counter-label">Hospital Beds</div>
+        </div>
+      </div>
+      <div class="counter-divider d-none d-md-block"></div>
+      <div class="col-6 col-md-3">
+        <div class="counter-card">
+          <div class="counter-icon"><i class="fa-solid fa-award"></i></div>
+          <div class="counter-number big-counter" data-target="40" data-suffix="+">0</div>
+          <div class="counter-label">Years of Excellence</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+  12. PATIENT TESTIMONIALS
+================================================================ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="text-teal fw-600 text-uppercase small mb-2"><i class="fa-solid fa-quote-left me-2"></i>Patient Stories</p>
+      <h2 class="section-title">What Our Patients Say</h2>
+      <p class="section-subtitle mx-auto mt-3">
+        Real stories from the people who matter most — our patients and their families.
+      </p>
+    </div>
+
+    <!-- Bootstrap Carousel -->
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+      </div>
+
+      <div class="carousel-inner pb-5">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <i class="fa-solid fa-quote-right quote-icon"></i>
+                <div class="testimonial-stars">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testimonial-text">"I came to MediCare after two failed procedures elsewhere. Dr. Sharma's team performed a complex angioplasty and had me back home within four days. Their ICU care was exceptional — I never felt alone during those critical hours."</p>
+                <div class="d-flex align-items-center gap-3 mt-3">
+                  <div class="testimonial-avatar">RK</div>
+                  <div>
+                    <div class="testimonial-name">Rajiv Kumar</div>
+                    <div class="testimonial-meta">Age 58 &bull; New Delhi</div>
+                    <span class="dept-treated-badge">Cardiology</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block">
+              <div class="testimonial-card">
+                <i class="fa-solid fa-quote-right quote-icon"></i>
+                <div class="testimonial-stars">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testimonial-text">"After my daughter's epilepsy diagnosis, we were devastated. Dr. Priya Nair and her neurology team mapped her seizure focus precisely and she underwent a successful surgery. She has been seizure-free for two years. MediCare changed our lives."</p>
+                <div class="d-flex align-items-center gap-3 mt-3">
+                  <div class="testimonial-avatar">SM</div>
+                  <div>
+                    <div class="testimonial-name">Sunita Mathur</div>
+                    <div class="testimonial-meta">Mother of Patient, Age 34 &bull; Jaipur</div>
+                    <span class="dept-treated-badge">Neurology</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block">
+              <div class="testimonial-card">
+                <i class="fa-solid fa-quote-right quote-icon"></i>
+                <div class="testimonial-stars">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="testimonial-text">"As a professional athlete, a torn ACL could have ended my career. Dr. Kavitha Reddy's arthroscopic reconstruction was flawless. The physiotherapy team had me back on the field in just 5 months. Truly world-class orthopaedic care."</p>
+                <div class="d-flex align-items-center gap-3 mt-3">
+                  <div class="testimonial-avatar">AJ</div>
+                  <div>
+                    <div class="testimonial-name">Aakash Joshi</div>
+                    <div class="testimonial-meta">Professional Cricketer, Age 27 &bull; Mumbai</div>
+                    <span class="dept-treated-badge">Orthopedics</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <i class="fa-solid fa-quote-right quote-icon"></i>
+                <div class="testimonial-stars">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testimonial-text">"My stage-3 breast cancer diagnosis was terrifying. But Dr. Menon's oncology team had a comprehensive plan ready within 48 hours — surgery, targeted chemotherapy, then radiation. I am now in remission. MediCare gave me my life back."</p>
+                <div class="d-flex align-items-center gap-3 mt-3">
+                  <div class="testimonial-avatar">PD</div>
+                  <div>
+                    <div class="testimonial-name">Poonam Desai</div>
+                    <div class="testimonial-meta">Age 44 &bull; Ahmedabad</div>
+                    <span class="dept-treated-badge">Oncology</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block">
+              <div class="testimonial-card">
+                <i class="fa-solid fa-quote-right quote-icon"></i>
+                <div class="testimonial-stars">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testimonial-text">"My premature twin daughters spent 6 weeks in the NICU at MediCare. The neonatology team was outstanding — attentive, communicative, and deeply caring. Both girls are now thriving toddlers. We will be eternally grateful."</p>
+                <div class="d-flex align-items-center gap-3 mt-3">
+                  <div class="testimonial-avatar">NV</div>
+                  <div>
+                    <div class="testimonial-name">Nandita Verma</div>
+                    <div class="testimonial-meta">Age 32 &bull; Bengaluru</div>
+                    <span class="dept-treated-badge">Neonatology</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block">
+              <div class="testimonial-card">
+                <i class="fa-solid fa-quote-right quote-icon"></i>
+                <div class="testimonial-stars">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="testimonial-text">"I flew in from Dubai for a total knee replacement. The International Patients Desk managed everything — visa letters, airport pickup, hotel, surgery, and follow-up video calls. Phenomenal coordination from a team that genuinely cares."</p>
+                <div class="d-flex align-items-center gap-3 mt-3">
+                  <div class="testimonial-avatar">MK</div>
+                  <div>
+                    <div class="testimonial-name">Mohammed Khalid</div>
+                    <div class="testimonial-meta">Age 65 &bull; Dubai, UAE</div>
+                    <span class="dept-treated-badge">Orthopedics</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <i class="fa-solid fa-quote-right quote-icon"></i>
+                <div class="testimonial-stars">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testimonial-text">"My father had a sudden stroke at 2 AM. The emergency team was extraordinary — clot-busting therapy was administered within 40 minutes. He recovered 90% of function. The neurological rehabilitation program made a huge difference."</p>
+                <div class="d-flex align-items-center gap-3 mt-3">
+                  <div class="testimonial-avatar">AS</div>
+                  <div>
+                    <div class="testimonial-name">Ananya Singh</div>
+                    <div class="testimonial-meta">Daughter of Patient &bull; Hyderabad</div>
+                    <span class="dept-treated-badge">Neurology</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block">
+              <div class="testimonial-card">
+                <i class="fa-solid fa-quote-right quote-icon"></i>
+                <div class="testimonial-stars">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testimonial-text">"After years of managing Type 2 diabetes poorly, MediCare's endocrinology team put me on a structured program. My HbA1c dropped from 11.2 to 6.8 in eight months. The dietitian and diabetes educator were absolutely invaluable."</p>
+                <div class="d-flex align-items-center gap-3 mt-3">
+                  <div class="testimonial-avatar">TB</div>
+                  <div>
+                    <div class="testimonial-name">Thomas Babu</div>
+                    <div class="testimonial-meta">Age 52 &bull; Kochi</div>
+                    <span class="dept-treated-badge">Endocrinology</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block">
+              <div class="testimonial-card">
+                <i class="fa-solid fa-quote-right quote-icon"></i>
+                <div class="testimonial-stars">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="testimonial-text">"The LASIK procedure by Dr. Krishnan at the Ophthalmology Centre was painless and precise. I went from -7.5 diopters to 20/20 vision in both eyes. The post-op care instructions and follow-ups were thorough and reassuring."</p>
+                <div class="d-flex align-items-center gap-3 mt-3">
+                  <div class="testimonial-avatar">LP</div>
+                  <div>
+                    <div class="testimonial-name">Lata Pillai</div>
+                    <div class="testimonial-meta">Age 29 &bull; Chennai</div>
+                    <span class="dept-treated-badge">Ophthalmology</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+  13. LATEST NEWS / ANNOUNCEMENTS
+================================================================ -->
+<section id="news">
+  <div class="container">
+    <div class="d-flex align-items-end justify-content-between mb-5 flex-wrap gap-3">
+      <div>
+        <p class="text-teal fw-600 text-uppercase small mb-2"><i class="fa-solid fa-newspaper me-2"></i>News &amp; Updates</p>
+        <h2 class="section-title mb-0">Latest from MediCare</h2>
+      </div>
+      <a href="#" class="btn btn-outline-teal rounded-pill px-4">View All News</a>
+    </div>
+
+    <div class="row g-4">
+      <!-- News 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="news-card">
+          <div class="news-img-placeholder" style="background:linear-gradient(135deg,#e0f2fe,#bae6fd)">
+            <i class="fa-solid fa-robot" style="color:#0284c7;opacity:.6"></i>
+            <div class="news-date-badge">
+              <div class="day">22</div>
+              <div class="month">Oct 2026</div>
+            </div>
+          </div>
+          <div class="news-body">
+            <span class="news-tag">Technology</span>
+            <h5 class="news-title">MediCare Installs South Asia's Most Advanced AI-Assisted Diagnostics Platform</h5>
+            <p class="news-excerpt">Our radiology department now leverages deep-learning algorithms for early cancer detection in CT and MRI scans, achieving 96.4% sensitivity — setting a new benchmark in diagnostic accuracy across the region.</p>
+            <a href="#" class="news-read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- News 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="news-card">
+          <div class="news-img-placeholder" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0)">
+            <i class="fa-solid fa-award" style="color:#16a34a;opacity:.6"></i>
+            <div class="news-date-badge">
+              <div class="day">15</div>
+              <div class="month">Oct 2026</div>
+            </div>
+          </div>
+          <div class="news-body">
+            <span class="news-tag">Accreditation</span>
+            <h5 class="news-title">MediCare Receives JCI Gold Seal for 5th Consecutive Term</h5>
+            <p class="news-excerpt">The Joint Commission International has re-accredited MediCare General Hospital with a perfect compliance score — recognising excellence in patient safety, care quality, and organisational leadership for the 5th consecutive cycle.</p>
+            <a href="#" class="news-read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- News 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="news-card">
+          <div class="news-img-placeholder" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8)">
+            <i class="fa-solid fa-child-reaching" style="color:#db2777;opacity:.6"></i>
+            <div class="news-date-badge">
+              <div class="day">08</div>
+              <div class="month">Oct 2026</div>
+            </div>
+          </div>
+          <div class="news-body">
+            <span class="news-tag">Pediatrics</span>
+            <h5 class="news-title">New 32-Bed Level-III NICU Opens at MediCare's Mother &amp; Child Wing</h5>
+            <p class="news-excerpt">Our expanded Neonatal Intensive Care Unit features advanced ventilators, hypothermia therapy systems, and family-integrated care spaces, significantly improving outcomes for premature and critically ill newborns across the region.</p>
+            <a href="#" class="news-read-more">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+  14. APPOINTMENT CTA SECTION
+================================================================ -->
+<section id="cta-appointment">
+  <div class="container position-relative" style="z-index:1">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <p class="fw-600 text-uppercase small mb-2" style="color:rgba(255,255,255,.7);letter-spacing:2px">
+          <i class="fa-regular fa-calendar-check me-2"></i>Book An Appointment
+        </p>
+        <h2>Your Health Can't Wait.<br />Neither Should You.</h2>
+        <p>Schedule a consultation with any of our 150+ specialist doctors — online in under 2 minutes, or call us any time of the day or night. First-time visitors receive a complimentary wellness assessment.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <div class="d-flex align-items-center gap-2 text-white">
+            <i class="fa-solid fa-shield-check fa-lg"></i>
+            <span class="small">No Hidden Charges</span>
+          </div>
+          <div class="d-flex align-items-center gap-2 text-white">
+            <i class="fa-solid fa-clock fa-lg"></i>
+            <span class="small">Instant Confirmation</span>
+          </div>
+          <div class="d-flex align-items-center gap-2 text-white">
+            <i class="fa-solid fa-rotate-left fa-lg"></i>
+            <span class="small">Free Reschedule</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div style="background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:36px;">
+          <h5 class="text-white fw-700 mb-4"><i class="fa-regular fa-calendar-check me-2"></i>Quick Appointment Request</h5>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Your Full Name" style="border-radius:10px;height:48px;" />
+          </div>
+          <div class="mb-3">
+            <input type="tel" class="form-control" placeholder="Mobile Number" style="border-radius:10px;height:48px;" />
+          </div>
+          <div class="mb-3">
+            <select class="form-select" style="border-radius:10px;height:48px;">
+              <option value="">Select Department / Specialty</option>
+              <option>Cardiology</option><option>Neurology</option><option>Orthopedics</option>
+              <option>Pediatrics</option><option>Oncology</option><option>Gynecology</option>
+              <option>Ophthalmology</option><option>Pulmonology</option><option>Endocrinology</option>
+              <option>Nephrology</option><option>Dermatology</option><option>Dental Care</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <input type="date" class="form-control" style="border-radius:10px;height:48px;" />
+          </div>
+          <button class="btn btn-teal w-100" style="height:52px;border-radius:12px;font-size:1rem;font-weight:700;">
+            <i class="fa-solid fa-paper-plane me-2"></i>Confirm Appointment
+          </button>
+          <p class="text-center mt-3 mb-0" style="color:rgba(255,255,255,.6);font-size:.8rem;">
+            Or call us at <strong style="color:#fff">+1-800-MEDICARE</strong> (24/7)
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+  15. ACCREDITATIONS STRIP
+================================================================ -->
+<section id="accreditations">
+  <div class="container">
+    <div class="text-center mb-4">
+      <p class="text-muted small text-uppercase letter-spacing-2" style="letter-spacing:2px">
+        <i class="fa-solid fa-certificate me-2 text-teal"></i>Our Certifications &amp; Accreditations
+      </p>
+    </div>
+    <div class="row g-3 align-items-center justify-content-center">
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="accred-badge">
+          <div class="accred-logo" style="background:#fff3cd;color:#b45309;font-size:.9rem">JCI</div>
+          <p>Joint Commission International</p>
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="accred-badge">
+          <div class="accred-logo" style="background:#e0f2fe;color:#0284c7;font-size:.9rem">NABH</div>
+          <p>National Accreditation Board for Hospitals</p>
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="accred-badge">
+          <div class="accred-logo" style="background:#dcfce7;color:#16a34a;font-size:.85rem">ISO<br/>9001</div>
+          <p>Quality Management Certified</p>
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="accred-badge">
+          <div class="accred-logo" style="background:#f0fdf4;color:#15803d;font-size:.9rem">NABL</div>
+          <p>National Accreditation Board for Testing Labs</p>
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="accred-badge">
+          <div class="accred-logo" style="background:#f5f3ff;color:#7c3aed;font-size:.9rem">WHO</div>
+          <p>World Health Organization Standards</p>
+        </div>
+      </div>
+      <div class="col-6 col-sm-4 col-md-2">
+        <div class="accred-badge">
+          <div class="accred-logo" style="background:#fff0f0;color:#e63946;font-size:.8rem">AAOS</div>
+          <p>American Academy of Orthopaedic Surgeons</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+  16. FOOTER
+================================================================ -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row g-5">
+        <!-- Col 1: About -->
+        <div class="col-lg-3 col-md-6">
+          <div class="d-flex align-items-center mb-3">
+            <div class="navbar-logo-icon me-2" style="background:var(--mc-teal)"><i class="fa-solid fa-cross"></i></div>
+            <div class="footer-logo-text">
+              <div class="brand-main">MediCare</div>
+              <div class="brand-sub">General Hospital</div>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Serving communities with compassionate, evidence-based healthcare for over 40 years.
+            A JCI & NABH accredited multi-specialty hospital committed to clinical excellence
+            and patient-centred outcomes.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="col-lg-2 col-md-6">
+          <h6 class="footer-heading">Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">All Departments</a></li>
+            <li><a href="#">Our Doctors</a></li>
+            <li><a href="#">Health Services</a></li>
+            <li><a href="#">Patient Portal</a></li>
+            <li><a href="#">Lab Reports</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Media &amp; News</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Departments -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Key Departments</h6>
+          <ul class="footer-links">
+            <li><a href="#">Cardiology &amp; Cardiac Surgery</a></li>
+            <li><a href="#">Neurology &amp; Neuro Surgery</a></li>
+            <li><a href="#">Orthopedics &amp; Sports Medicine</a></li>
+            <li><a href="#">Oncology &amp; Cancer Care</a></li>
+            <li><a href="#">Pediatrics &amp; Neonatology</a></li>
+            <li><a href="#">Gynecology &amp; Obstetrics</a></li>
+            <li><a href="#">Pulmonology &amp; Sleep</a></li>
+            <li><a href="#">Nephrology &amp; Dialysis</a></li>
+            <li><a href="#">Endocrinology &amp; Diabetes</a></li>
+            <li><a href="#">Dermatology &amp; Aesthetics</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact -->
+        <div class="col-lg-4 col-md-6">
+          <h6 class="footer-heading">Get in Touch</h6>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot footer-contact-icon"></i>
+            <div>42 Health Avenue, Greenfield Medical District<br />New York, NY 10001, United States</div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone footer-contact-icon"></i>
+            <div>
+              <a href="tel:+18006334227">+1-800-MEDICARE (Main)</a><br />
+              <a href="tel:+18001234567">+1-800-123-4567 (Toll Free)</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-regular fa-envelope footer-contact-icon"></i>
+            <div>
+              <a href="mailto:info@medicarehospital.com">info@medicarehospital.com</a><br />
+              <a href="mailto:appointments@medicarehospital.com">appointments@medicarehospital.com</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-regular fa-clock footer-contact-icon"></i>
+            <div>
+              OPD: Mon – Sat, 08:00 AM – 08:00 PM<br />
+              Emergency: 24 / 7 / 365
+            </div>
+          </div>
+          <!-- Newsletter -->
+          <div class="mt-3">
+            <p style="color:#4a5568;font-size:.82rem;margin-bottom:8px">Subscribe to our health newsletter:</p>
+            <div class="d-flex gap-2">
+              <input type="email" class="form-control form-control-sm" placeholder="Enter your email"
+                style="border-radius:8px;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:#a0aec0;" />
+              <button class="btn btn-teal btn-sm px-3" style="border-radius:8px;white-space:nowrap">Subscribe</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+        <div>&copy; 2026 MediCare General Hospital. All Rights Reserved.</div>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Disclaimer</a>
+          <a href="#">Sitemap</a>
+        </div>
+        <div>
+          Made with <i class="fa-solid fa-heart text-danger"></i> for better health
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" aria-label="Back to top">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<!-- ================================================================
+  SCRIPTS
+================================================================ -->
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom data & main scripts -->
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+/* ==============================================================
+   INLINE SCRIPTS:
+   1. Navbar glass effect on scroll
+   2. Back-to-top button
+   3. Counter animation via Intersection Observer
+   4. Smooth scroll for anchor links
+   5. Active nav highlight
+============================================================== */
+(function () {
+  'use strict';
+
+  /* ── 1. Navbar glass / scroll effect ─────────────────────── */
+  const navbar = document.getElementById('main-navbar');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 60) {
+      navbar.classList.add('navbar-scrolled');
+    } else {
+      navbar.classList.remove('navbar-scrolled');
+    }
+  }, { passive: true });
+
+  /* ── 2. Back-to-top ──────────────────────────────────────── */
+  const backBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 400) {
+      backBtn.classList.add('visible');
+    } else {
+      backBtn.classList.remove('visible');
+    }
+  }, { passive: true });
+  backBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ── 3. Counter animation (Intersection Observer) ─────────── */
+  function animateCounter(el) {
+    const target   = parseInt(el.dataset.target, 10);
+    const suffix   = el.dataset.suffix || '';
+    const duration = 2000; // ms
+    const start    = performance.now();
+
+    // For large numbers like 300000 → display as 300
+    const displayDivisor = target >= 100000 ? 1000 : 1;
+    const displayTarget  = target / displayDivisor;
+
+    function update(now) {
+      const elapsed  = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic
+      const eased    = 1 - Math.pow(1 - progress, 3);
+      const current  = Math.floor(eased * displayTarget);
+      el.textContent = current.toLocaleString() + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = displayTarget.toLocaleString() + suffix;
+      }
+    }
+    requestAnimationFrame(update);
+  }
+
+  const counters = document.querySelectorAll('.counter, .big-counter');
+  const counterObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  counters.forEach(function (el) {
+    counterObserver.observe(el);
+  });
+
+  /* ── 4. Smooth scroll for all anchor hash links ───────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ── 5. Active nav link highlight on scroll ───────────────── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('#main-navbar .nav-link');
+
+  const sectionObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        navLinks.forEach(function (link) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(function (section) {
+    sectionObserver.observe(section);
+  });
+
+  /* ── 6. Quick Services hover interaction ─────────────────── */
+  document.querySelectorAll('.qs-item').forEach(function (item) {
+    item.addEventListener('click', function () {
+      document.querySelectorAll('.qs-icon').forEach(function (icon) {
+        icon.classList.remove('active');
+      });
+      this.querySelector('.qs-icon').classList.add('active');
+    });
+  });
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find a Doctor – MediCare General Hospital</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --primary-dark: #0a58ca;
+      --accent: #e63946;
+      --dark: #1a1a2e;
+      --light-bg: #f8faff;
+      --card-shadow: 0 4px 20px rgba(13,110,253,.09);
+    }
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--light-bg); color: #2d3748; }
+
+    /* ─── EMERGENCY BANNER ─── */
+    .emergency-banner { background: linear-gradient(90deg,#c0392b,#e74c3c); color:#fff; font-size:.82rem; letter-spacing:.4px; padding:6px 0; }
+    .emergency-banner a { color:#fff; text-decoration:none; font-weight:600; }
+    .emergency-banner a:hover { text-decoration:underline; }
+    .blink { animation: blink 1.1s step-start infinite; }
+    @keyframes blink { 50%{opacity:0;} }
+
+    /* ─── TOP BAR ─── */
+    .top-bar { background:#1a1a2e; color:rgba(255,255,255,.75); font-size:.8rem; padding:7px 0; }
+    .top-bar a { color:rgba(255,255,255,.8); text-decoration:none; }
+    .top-bar a:hover { color:#fff; }
+    .top-bar .social-icon { width:26px; height:26px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(255,255,255,.1); transition:background .25s; }
+    .top-bar .social-icon:hover { background:var(--primary); }
+
+    /* ─── NAVBAR ─── */
+    .main-navbar { background:#fff; box-shadow:0 2px 20px rgba(0,0,0,.08); padding:0; }
+    .navbar-brand .brand-logo { width:42px; height:42px; background:linear-gradient(135deg,var(--primary),#6610f2); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.2rem; }
+    .navbar-brand .hospital-name { font-family:'Playfair Display',serif; font-weight:700; font-size:1.1rem; color:var(--dark); line-height:1.1; }
+    .navbar-brand .hospital-tagline { font-size:.68rem; color:#6c757d; letter-spacing:.5px; text-transform:uppercase; }
+    .main-navbar .nav-link { font-size:.88rem; font-weight:500; color:#4a5568; padding:1.4rem .85rem!important; position:relative; transition:color .2s; }
+    .main-navbar .nav-link::after { content:''; position:absolute; bottom:0; left:.85rem; right:.85rem; height:3px; background:var(--primary); border-radius:3px 3px 0 0; transform:scaleX(0); transition:transform .25s; }
+    .main-navbar .nav-link:hover, .main-navbar .nav-link.active { color:var(--primary); }
+    .main-navbar .nav-link:hover::after, .main-navbar .nav-link.active::after { transform:scaleX(1); }
+    .btn-book-nav { background:linear-gradient(135deg,var(--primary),#6610f2); color:#fff!important; border-radius:25px; padding:.45rem 1.3rem!important; font-size:.85rem!important; font-weight:600!important; }
+    .btn-book-nav:hover { transform:translateY(-1px); box-shadow:0 4px 14px rgba(13,110,253,.4); }
+    .btn-book-nav::after { display:none!important; }
+
+    /* ─── HERO ─── */
+    .page-hero { background:linear-gradient(135deg,#0a1628 0%,#1a3a5c 50%,#0d6efd 100%); padding:80px 0 60px; position:relative; overflow:hidden; }
+    .page-hero::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    .page-hero h1 { font-family:'Playfair Display',serif; font-size:2.8rem; color:#fff; }
+    .page-hero p.lead { color:rgba(255,255,255,.8); }
+    .breadcrumb-item + .breadcrumb-item::before { color:rgba(255,255,255,.5); }
+    .breadcrumb-item a { color:rgba(255,255,255,.7); text-decoration:none; }
+    .breadcrumb-item.active { color:rgba(255,255,255,.95); }
+    .hero-search-bar { background:#fff; border-radius:50px; padding:6px 6px 6px 20px; display:flex; align-items:center; gap:8px; box-shadow:0 8px 32px rgba(0,0,0,.2); max-width:680px; }
+    .hero-search-bar input { border:none; outline:none; flex:1; font-size:.95rem; }
+    .hero-search-bar select { border:none; border-left:1px solid #dee2e6; outline:none; font-size:.88rem; padding:4px 10px; color:#6c757d; }
+    .hero-search-bar .btn { border-radius:50px; padding:.55rem 1.4rem; font-weight:600; }
+
+    /* ─── SIDEBAR ─── */
+    .filter-sidebar { background:#fff; border-radius:16px; box-shadow:var(--card-shadow); padding:24px; position:sticky; top:80px; max-height:calc(100vh - 100px); overflow-y:auto; }
+    .filter-sidebar::-webkit-scrollbar { width:4px; }
+    .filter-sidebar::-webkit-scrollbar-thumb { background:#dee2e6; border-radius:4px; }
+    .sidebar-section { margin-bottom:22px; padding-bottom:20px; border-bottom:1px solid #f0f0f0; }
+    .sidebar-section:last-child { border-bottom:none; margin-bottom:0; }
+    .sidebar-heading { font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:#6c757d; margin-bottom:12px; display:flex; align-items:center; gap:6px; }
+    .sidebar-search { border:1.5px solid #dee2e6; border-radius:10px; padding:.5rem 1rem; font-size:.85rem; width:100%; }
+    .sidebar-search:focus { border-color:var(--primary); outline:none; box-shadow:0 0 0 3px rgba(13,110,253,.1); }
+    .filter-check { font-size:.84rem; }
+    .filter-check label { cursor:pointer; display:flex; justify-content:space-between; width:100%; }
+    .filter-check input { accent-color:var(--primary); }
+    .dept-count { background:#f0f4ff; color:var(--primary); border-radius:10px; padding:1px 7px; font-size:.72rem; font-weight:600; }
+    .avail-radio label { font-size:.84rem; cursor:pointer; }
+    .avail-radio .avail-today { color:#198754; font-weight:600; }
+    .range-slider { accent-color:var(--primary); }
+    .btn-clear-filters { border-radius:10px; font-size:.82rem; font-weight:500; }
+    .btn-location { border-radius:10px; font-size:.82rem; font-weight:500; }
+    .star-filter label { cursor:pointer; font-size:.85rem; }
+    .star-filter .fa-star { color:#ffc107; font-size:.85rem; }
+
+    /* ─── SORT BAR ─── */
+    .sort-bar { background:#fff; border-radius:12px; padding:14px 20px; box-shadow:var(--card-shadow); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:20px; }
+    .sort-bar select { border:1.5px solid #dee2e6; border-radius:8px; padding:.35rem .8rem; font-size:.84rem; }
+    .view-toggle .btn { padding:.35rem .7rem; border-radius:8px; font-size:.85rem; }
+
+    /* ─── DOCTOR CARDS (GRID) ─── */
+    .doctor-card { background:#fff; border-radius:16px; box-shadow:var(--card-shadow); overflow:hidden; transition:transform .3s, box-shadow .3s; height:100%; display:flex; flex-direction:column; }
+    .doctor-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(13,110,253,.13); }
+    .doc-card-top { padding:22px 20px 16px; text-align:center; position:relative; background:linear-gradient(180deg,#f0f4ff 0%,#fff 100%); }
+    .doc-avatar { width:80px; height:80px; border-radius:50%; margin:0 auto 10px; display:flex; align-items:center; justify-content:center; font-size:1.7rem; font-weight:700; color:#fff; border:3px solid #fff; box-shadow:0 4px 16px rgba(0,0,0,.12); }
+    .doc-name { font-size:.97rem; font-weight:700; color:#1a1a2e; margin-bottom:2px; }
+    .doc-specialty { font-size:.76rem; color:#6c757d; margin-bottom:6px; }
+    .dept-badge { background:#e8f4fd; color:#0a58ca; border-radius:12px; padding:2px 10px; font-size:.73rem; font-weight:600; display:inline-block; }
+    .avail-badge { position:absolute; top:12px; right:12px; border-radius:10px; padding:3px 10px; font-size:.72rem; font-weight:600; }
+    .avail-today-badge { background:#d1e7dd; color:#0f5132; }
+    .avail-tomorrow-badge { background:#fff3cd; color:#664d03; }
+    .avail-week-badge { background:#cfe2ff; color:#084298; }
+    .doc-card-body { padding:14px 18px; flex:1; display:flex; flex-direction:column; gap:8px; }
+    .rating-row { display:flex; align-items:center; gap:8px; font-size:.82rem; }
+    .rating-row .stars { color:#ffc107; font-size:.82rem; }
+    .exp-badge { background:#fff3cd; color:#856404; border-radius:10px; padding:2px 9px; font-size:.73rem; font-weight:600; }
+    .qual-pills { display:flex; flex-wrap:wrap; gap:4px; }
+    .qual-pill { background:#f8f9fa; border:1px solid #dee2e6; border-radius:10px; padding:2px 9px; font-size:.72rem; color:#495057; }
+    .opd-info { font-size:.78rem; color:#6c757d; }
+    .lang-row { font-size:.76rem; color:#6c757d; }
+    .doc-actions { padding:12px 16px; border-top:1px solid #f0f0f0; display:flex; gap:8px; }
+    .btn-view-profile { flex:1; font-size:.8rem; border-radius:8px; padding:.4rem .5rem; font-weight:600; }
+    .btn-book-doc { flex:1; font-size:.8rem; border-radius:8px; padding:.4rem .5rem; font-weight:500; }
+
+    /* ─── LIST VIEW ─── */
+    .doctor-list-card { background:#fff; border-radius:14px; box-shadow:var(--card-shadow); padding:18px 22px; display:flex; align-items:center; gap:18px; transition:transform .2s; margin-bottom:14px; }
+    .doctor-list-card:hover { transform:translateX(4px); box-shadow:0 8px 28px rgba(13,110,253,.12); }
+    .doc-list-avatar { width:70px; height:70px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.4rem; font-weight:700; color:#fff; flex-shrink:0; }
+    .doc-list-info { flex:1; }
+    .doc-list-actions { display:flex; flex-direction:column; gap:8px; flex-shrink:0; }
+
+    /* ─── PAGINATION ─── */
+    .pagination .page-link { border-radius:8px; margin:0 2px; border:1.5px solid #dee2e6; color:#495057; font-size:.85rem; }
+    .pagination .page-link:hover, .pagination .page-item.active .page-link { background:var(--primary); color:#fff; border-color:var(--primary); }
+
+    /* ─── AVATAR COLORS ─── */
+    .av-blue   { background:linear-gradient(135deg,#1a6fc4,#0d6efd); }
+    .av-red    { background:linear-gradient(135deg,#c0392b,#e74c3c); }
+    .av-green  { background:linear-gradient(135deg,#0f7a55,#198754); }
+    .av-purple { background:linear-gradient(135deg,#6610f2,#9b59b6); }
+    .av-orange { background:linear-gradient(135deg,#e67e22,#f39c12); }
+    .av-teal   { background:linear-gradient(135deg,#0a7a85,#20c997); }
+    .av-pink   { background:linear-gradient(135deg,#c0395b,#e91e63); }
+    .av-indigo { background:linear-gradient(135deg,#3a0ca3,#4361ee); }
+    .av-cyan   { background:linear-gradient(135deg,#0077b6,#00b4d8); }
+    .av-brown  { background:linear-gradient(135deg,#7b3f00,#b5541d); }
+    .av-olive  { background:linear-gradient(135deg,#3d5a00,#6b8c1a); }
+    .av-navy   { background:linear-gradient(135deg,#023e8a,#0077b6); }
+
+    /* ─── MODAL TABS ─── */
+    .modal-doc-header { padding:28px 32px; position:relative; overflow:hidden; }
+    .modal-doc-header::before { content:''; position:absolute; right:-40px; top:-40px; width:180px; height:180px; background:rgba(255,255,255,.08); border-radius:50%; }
+    .modal-doc-header::after { content:''; position:absolute; left:-20px; bottom:-30px; width:120px; height:120px; background:rgba(255,255,255,.05); border-radius:50%; }
+    .modal-doc-avatar { width:90px; height:90px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem; font-weight:700; color:#fff; border:4px solid rgba(255,255,255,.3); flex-shrink:0; }
+    .nav-tabs-doc .nav-link { font-size:.85rem; font-weight:500; border:none; color:#6c757d; padding:.6rem 1rem; border-bottom:3px solid transparent; }
+    .nav-tabs-doc .nav-link.active { color:var(--primary); border-bottom-color:var(--primary); background:transparent; }
+    .review-card { background:#f8f9fa; border-radius:12px; padding:14px 18px; margin-bottom:12px; }
+    .review-stars { color:#ffc107; font-size:.85rem; }
+    .schedule-table th { font-size:.8rem; background:#f8f9fa; }
+    .schedule-table td { font-size:.82rem; }
+    .time-slot { background:#e8f4fd; color:#0a58ca; border-radius:8px; padding:4px 10px; font-size:.78rem; cursor:pointer; display:inline-block; margin:2px; transition:background .2s; }
+    .time-slot:hover, .time-slot.selected { background:var(--primary); color:#fff; }
+    .time-slot.booked { background:#f8d7da; color:#842029; cursor:not-allowed; }
+
+    /* ─── BOOKING MODAL ─── */
+    .booking-step { display:none; }
+    .booking-step.active { display:block; }
+    .step-progress { display:flex; justify-content:space-between; position:relative; margin-bottom:30px; }
+    .step-progress::before { content:''; position:absolute; top:18px; left:10%; right:10%; height:2px; background:#dee2e6; z-index:0; }
+    .step-dot { width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.85rem; font-weight:700; z-index:1; transition:all .3s; background:#dee2e6; color:#6c757d; flex-shrink:0; }
+    .step-dot.active { background:var(--primary); color:#fff; box-shadow:0 0 0 4px rgba(13,110,253,.2); }
+    .step-dot.done { background:#198754; color:#fff; }
+    .step-label { font-size:.72rem; color:#6c757d; text-align:center; margin-top:6px; }
+    .step-wrapper { text-align:center; }
+    .date-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:6px; }
+    .date-cell { border-radius:8px; padding:8px 4px; text-align:center; cursor:pointer; border:1.5px solid #dee2e6; font-size:.8rem; transition:all .2s; }
+    .date-cell:hover, .date-cell.selected { background:var(--primary); color:#fff; border-color:var(--primary); }
+    .date-cell.today { border-color:var(--primary); color:var(--primary); font-weight:700; }
+    .date-cell.disabled { background:#f8f9fa; color:#adb5bd; cursor:not-allowed; }
+    .confirmation-box { background:#e9f7ef; border-radius:14px; padding:24px; border:1px solid #a3d9b1; }
+
+    /* ─── FOOTER ─── */
+    .main-footer { background:#0d1b2a; color:rgba(255,255,255,.75); padding:60px 0 0; }
+    .footer-heading { color:#fff; font-weight:600; font-size:.95rem; margin-bottom:18px; position:relative; padding-bottom:10px; }
+    .footer-heading::after { content:''; position:absolute; left:0; bottom:0; width:32px; height:2px; background:var(--primary); border-radius:2px; }
+    .footer-links { list-style:none; padding:0; }
+    .footer-links li { margin-bottom:9px; }
+    .footer-links a { color:rgba(255,255,255,.6); text-decoration:none; font-size:.85rem; transition:color .2s; }
+    .footer-links a:hover { color:#fff; }
+    .footer-contact-item { display:flex; gap:12px; margin-bottom:14px; }
+    .footer-contact-item .icon { width:34px; height:34px; background:rgba(255,255,255,.07); border-radius:8px; display:flex; align-items:center; justify-content:center; color:var(--primary); flex-shrink:0; }
+    .footer-contact-item p { margin:0; font-size:.83rem; color:rgba(255,255,255,.6); }
+    .footer-contact-item strong { color:rgba(255,255,255,.85); font-size:.88rem; }
+    .footer-bottom { background:#080f1a; padding:16px 0; margin-top:48px; }
+    .footer-bottom p { font-size:.8rem; color:rgba(255,255,255,.45); margin:0; }
+    .footer-social a { width:32px; height:32px; background:rgba(255,255,255,.08); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; color:rgba(255,255,255,.6); transition:all .25s; font-size:.82rem; text-decoration:none; }
+    .footer-social a:hover { background:var(--primary); color:#fff; }
+
+    /* ─── MISC ─── */
+    .section-badge { background:rgba(13,110,253,.1); color:var(--primary); border-radius:20px; padding:5px 16px; font-size:.78rem; font-weight:600; letter-spacing:.5px; display:inline-block; }
+
+    @media (max-width:991px) {
+      .filter-sidebar { position:static; max-height:none; }
+    }
+    @media (max-width:768px) {
+      .page-hero h1 { font-size:1.9rem; }
+      .hero-search-bar { flex-direction:column; border-radius:16px; }
+      .hero-search-bar select { border-left:none; border-top:1px solid #dee2e6; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     EMERGENCY BANNER
+══════════════════════════════════════════════════════════════════ -->
+<div class="emergency-banner">
+  <div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <div>
+        <span class="blink me-1"><i class="fa-solid fa-circle" style="font-size:.55rem;"></i></span>
+        <strong>24/7 Emergency Services Available</strong>
+        <span class="mx-2">|</span>
+        Emergency Helpline: <a href="tel:+18001234567"><strong>1-800-123-4567</strong></a>
+        <span class="mx-2">|</span>
+        Ambulance: <a href="tel:108"><strong>108</strong></a>
+      </div>
+      <div>
+        <i class="fa-regular fa-clock me-1"></i>
+        OPD Hours: <strong>Mon–Sat 8:00 AM – 8:00 PM</strong>
+        <span class="mx-2">|</span>
+        <a href="appointments.html"><i class="fa-regular fa-calendar-check me-1"></i>Book Online</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TOP BAR
+══════════════════════════════════════════════════════════════════ -->
+<div class="top-bar d-none d-lg-block">
+  <div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex gap-4">
+        <span><i class="fa-solid fa-location-dot me-1" style="color:#0d6efd;"></i>42 Healthcare Avenue, Medical District, NY 10001</span>
+        <a href="mailto:info@medicare-hospital.com"><i class="fa-regular fa-envelope me-1"></i>info@medicare-hospital.com</a>
+        <a href="tel:+12125550199"><i class="fa-solid fa-phone me-1"></i>+1 (212) 555-0199</a>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <span>Follow Us:</span>
+        <div class="d-flex gap-1">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f" style="font-size:.7rem;"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter" style="font-size:.7rem;"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram" style="font-size:.7rem;"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in" style="font-size:.7rem;"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-youtube" style="font-size:.7rem;"></i></a>
+        </div>
+        <a href="patient-portal.html" class="btn btn-sm btn-outline-light py-0 px-2" style="font-size:.76rem;border-radius:4px;">
+          <i class="fa-solid fa-user me-1"></i>Patient Portal
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-xl main-navbar sticky-top">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <div class="brand-logo"><i class="fa-solid fa-hospital-user"></i></div>
+      <div>
+        <div class="hospital-name">MediCare General</div>
+        <div class="hospital-tagline">Hospital &amp; Research Centre</div>
+      </div>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-house me-1"></i>Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="departments.html" data-bs-toggle="dropdown"><i class="fa-solid fa-building-columns me-1"></i>Departments</a>
+          <ul class="dropdown-menu shadow border-0 rounded-3 py-2" style="min-width:220px;">
+            <li><a class="dropdown-item" href="departments.html"><i class="fa-solid fa-th me-2 text-primary"></i>All Departments</a></li>
+            <li><hr class="dropdown-divider my-1"></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-heart-pulse me-2 text-danger"></i>Cardiology</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-brain me-2"></i>Neurology</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bone me-2 text-warning"></i>Orthopedics</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-baby me-2 text-info"></i>Pediatrics</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-venus me-2 text-success"></i>OBG</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link active" href="doctors.html"><i class="fa-solid fa-user-doctor me-1"></i>Doctors</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html"><i class="fa-solid fa-flask-vial me-1"></i>Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="facilities.html"><i class="fa-solid fa-building-shield me-1"></i>Facilities</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fa-solid fa-envelope me-1"></i>Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2 ms-2">
+        <a href="tel:+18001234567" class="btn btn-outline-danger btn-sm d-none d-xl-inline-flex align-items-center gap-1 rounded-pill">
+          <i class="fa-solid fa-phone-volume fa-shake"></i> Emergency
+        </a>
+        <button class="nav-link btn-book-nav border-0 bg-transparent" onclick="openBooking('david-kim')">
+          <i class="fa-regular fa-calendar-plus me-1"></i>Book Appointment
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE HERO
+══════════════════════════════════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="container">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb mb-0" style="background:transparent;">
+        <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house me-1"></i>Home</a></li>
+        <li class="breadcrumb-item active">Find a Doctor</li>
+      </ol>
+    </nav>
+    <h1 class="mb-2 fw-bold">Find Your <span style="color:#90cdf4;">Doctor</span></h1>
+    <p class="lead mb-4">Search from our team of 250+ board-certified physicians and specialists. Filter by department, specialty, availability, and more.</p>
+    <div class="hero-search-bar">
+      <i class="fa-solid fa-magnifying-glass text-muted"></i>
+      <input type="text" id="heroSearch" placeholder="Doctor name, specialty, condition…" />
+      <select id="heroDeptFilter">
+        <option value="">All Departments</option>
+        <option>Cardiology</option>
+        <option>Neurology</option>
+        <option>Orthopedics</option>
+        <option>Oncology</option>
+        <option>Pediatrics</option>
+        <option>OBG</option>
+        <option>Gastroenterology</option>
+        <option>Radiology</option>
+        <option>General Surgery</option>
+        <option>Pulmonology</option>
+        <option>Nephrology</option>
+        <option>Emergency</option>
+      </select>
+      <button class="btn btn-primary"><i class="fa-solid fa-search me-1"></i>Search</button>
+    </div>
+    <div class="d-flex flex-wrap gap-3 mt-3" style="font-size:.82rem;color:rgba(255,255,255,.7);">
+      <span>Popular:</span>
+      <a href="#" style="color:rgba(255,255,255,.85);text-decoration:none;" onclick="quickSearch('Cardiologist')">Cardiologist</a>
+      <a href="#" style="color:rgba(255,255,255,.85);text-decoration:none;" onclick="quickSearch('Neurologist')">Neurologist</a>
+      <a href="#" style="color:rgba(255,255,255,.85);text-decoration:none;" onclick="quickSearch('Orthopedic')">Orthopedic</a>
+      <a href="#" style="color:rgba(255,255,255,.85);text-decoration:none;" onclick="quickSearch('Oncologist')">Oncologist</a>
+      <a href="#" style="color:rgba(255,255,255,.85);text-decoration:none;" onclick="quickSearch('Pediatrician')">Pediatrician</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════════════════════════════ -->
+<section class="py-5">
+  <div class="container-fluid px-4">
+    <div class="row g-4">
+
+      <!-- ─── SIDEBAR ─── -->
+      <div class="col-lg-3 col-xl-2">
+        <div class="filter-sidebar">
+
+          <!-- Search by name -->
+          <div class="sidebar-section">
+            <div class="sidebar-heading"><i class="fa-solid fa-magnifying-glass"></i> Search Doctor</div>
+            <input type="text" id="sidebarSearch" class="sidebar-search" placeholder="Type doctor name…" />
+          </div>
+
+          <!-- Department -->
+          <div class="sidebar-section">
+            <div class="sidebar-heading"><i class="fa-solid fa-building-columns"></i> Department</div>
+            <div class="d-flex flex-column gap-2">
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" value="cardiology" id="dc1"><label class="form-check-label" for="dc1">Cardiology <span class="dept-count">28</span></label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" value="neurology" id="dc2"><label class="form-check-label" for="dc2">Neurology <span class="dept-count">22</span></label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" value="orthopedics" id="dc3"><label class="form-check-label" for="dc3">Orthopedics <span class="dept-count">19</span></label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" value="oncology" id="dc4"><label class="form-check-label" for="dc4">Oncology <span class="dept-count">18</span></label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" value="pediatrics" id="dc5"><label class="form-check-label" for="dc5">Pediatrics <span class="dept-count">24</span></label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" value="obgyn" id="dc6"><label class="form-check-label" for="dc6">OB&amp;Gynecology <span class="dept-count">16</span></label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" value="gastro" id="dc7"><label class="form-check-label" for="dc7">Gastroenterology <span class="dept-count">14</span></label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" value="radiology" id="dc8"><label class="form-check-label" for="dc8">Radiology <span class="dept-count">12</span></label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" value="surgery" id="dc9"><label class="form-check-label" for="dc9">Gen. Surgery <span class="dept-count">20</span></label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" value="pulmonology" id="dc10"><label class="form-check-label" for="dc10">Pulmonology <span class="dept-count">13</span></label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" value="nephro" id="dc11"><label class="form-check-label" for="dc11">Nephrology <span class="dept-count">15</span></label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" value="emergency" id="dc12"><label class="form-check-label" for="dc12">Emergency <span class="dept-count">35</span></label></div>
+            </div>
+          </div>
+
+          <!-- Specialization -->
+          <div class="sidebar-section">
+            <div class="sidebar-heading"><i class="fa-solid fa-stethoscope"></i> Specialization</div>
+            <select class="form-select form-select-sm" id="filterSpec" style="font-size:.83rem;border-radius:8px;">
+              <option value="">All Specializations</option>
+              <option>Interventional Cardiology</option>
+              <option>Electrophysiology</option>
+              <option>Cardiac Surgery</option>
+              <option>Stroke Neurology</option>
+              <option>Epilepsy</option>
+              <option>Spine Surgery</option>
+              <option>Joint Replacement</option>
+              <option>Sports Medicine</option>
+              <option>Medical Oncology</option>
+              <option>Radiation Oncology</option>
+              <option>Neonatology</option>
+              <option>Fetal Medicine</option>
+              <option>Hepatology</option>
+              <option>Interventional Radiology</option>
+              <option>Laparoscopic Surgery</option>
+              <option>Bariatric Surgery</option>
+              <option>Renal Transplant</option>
+              <option>Sleep Medicine</option>
+            </select>
+          </div>
+
+          <!-- Availability -->
+          <div class="sidebar-section">
+            <div class="sidebar-heading"><i class="fa-solid fa-calendar-check"></i> Availability</div>
+            <div class="avail-radio d-flex flex-column gap-2">
+              <div class="form-check"><input class="form-check-input" type="radio" name="avail" id="avAll" value="any" checked><label class="form-check-label" for="avAll">Any Time</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="avail" id="avToday" value="today"><label class="form-check-label avail-today" for="avToday"><i class="fa-solid fa-circle-check text-success me-1"></i>Available Today</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="avail" id="avWeek" value="week"><label class="form-check-label" for="avWeek">This Week</label></div>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div class="sidebar-section">
+            <div class="sidebar-heading"><i class="fa-solid fa-trophy"></i> Experience</div>
+            <div class="d-flex flex-column gap-2">
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" id="exp1"><label class="form-check-label" for="exp1">0 – 5 Years</label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" id="exp2"><label class="form-check-label" for="exp2">5 – 10 Years</label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" id="exp3"><label class="form-check-label" for="exp3">10 – 20 Years</label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" id="exp4"><label class="form-check-label" for="exp4">20+ Years</label></div>
+            </div>
+          </div>
+
+          <!-- Language -->
+          <div class="sidebar-section">
+            <div class="sidebar-heading"><i class="fa-solid fa-language"></i> Language</div>
+            <div class="d-flex flex-column gap-2">
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" id="lang1"><label class="form-check-label" for="lang1">English</label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" id="lang2"><label class="form-check-label" for="lang2">Hindi</label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" id="lang3"><label class="form-check-label" for="lang3">Spanish</label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" id="lang4"><label class="form-check-label" for="lang4">French</label></div>
+              <div class="form-check filter-check"><input class="form-check-input" type="checkbox" id="lang5"><label class="form-check-label" for="lang5">Arabic</label></div>
+            </div>
+          </div>
+
+          <!-- Gender -->
+          <div class="sidebar-section">
+            <div class="sidebar-heading"><i class="fa-solid fa-venus-mars"></i> Gender</div>
+            <div class="d-flex gap-3">
+              <div class="form-check"><input class="form-check-input" type="radio" name="gender" id="gAll" value="any" checked><label class="form-check-label" for="gAll" style="font-size:.84rem;">Any</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="gender" id="gMale"><label class="form-check-label" for="gMale" style="font-size:.84rem;">Male</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="gender" id="gFemale"><label class="form-check-label" for="gFemale" style="font-size:.84rem;">Female</label></div>
+            </div>
+          </div>
+
+          <!-- Rating -->
+          <div class="sidebar-section">
+            <div class="sidebar-heading"><i class="fa-solid fa-star"></i> Minimum Rating</div>
+            <div class="star-filter d-flex flex-column gap-2">
+              <div class="form-check"><input class="form-check-input" type="radio" name="rating" id="r0" value="0" checked><label class="form-check-label" for="r0" style="font-size:.84rem;">Any Rating</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="rating" id="r4" value="4"><label class="form-check-label" for="r4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 4.0+</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="rating" id="r45" value="4.5"><label class="form-check-label" for="r45"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 4.5+</label></div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="d-flex flex-column gap-2">
+            <button class="btn btn-outline-danger btn-clear-filters" onclick="clearAllFilters()"><i class="fa-solid fa-xmark me-1"></i>Clear All Filters</button>
+            <button class="btn btn-outline-primary btn-location"><i class="fa-solid fa-location-crosshairs me-1"></i>Find Nearest Doctor</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ─── DOCTORS GRID ─── -->
+      <div class="col-lg-9 col-xl-10">
+
+        <!-- Sort Bar -->
+        <div class="sort-bar">
+          <div>
+            <span id="doc-results-count" class="fw-600" style="font-size:.9rem;">Showing <strong>24</strong> doctors</span>
+            <span class="text-muted ms-2" style="font-size:.82rem;">across all departments</span>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <label class="text-muted" style="font-size:.83rem;">Sort by:</label>
+            <select class="form-select form-select-sm" id="docSort" style="width:auto;">
+              <option>Relevance</option>
+              <option>Experience (High–Low)</option>
+              <option>Rating (High–Low)</option>
+              <option>Availability</option>
+              <option>Name (A–Z)</option>
+            </select>
+            <div class="view-toggle btn-group" role="group">
+              <button type="button" class="btn btn-primary" id="gridViewBtn" onclick="setView('grid')"><i class="fa-solid fa-th-large"></i></button>
+              <button type="button" class="btn btn-outline-secondary" id="listViewBtn" onclick="setView('list')"><i class="fa-solid fa-list"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- GRID VIEW -->
+        <div id="grid-view">
+          <div class="row g-3" id="doctors-grid">
+
+            <!-- Doctor 1 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="cardiology" data-avail="today" data-exp="24" data-rating="4.9" data-name="Dr. David Kim">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-red">DK</div>
+                  <div class="doc-name">Dr. David Kim</div>
+                  <div class="doc-specialty">Senior Cardiologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-heart-pulse me-1"></i>Cardiology</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★★</span><strong>4.9</strong><span class="text-muted">(312 reviews)</span><span class="exp-badge ms-auto">24 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MD</span><span class="qual-pill">FACC</span><span class="qual-pill">PhD</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon–Fri: 8AM–1PM, 4–7PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Korean</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('david-kim')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('david-kim')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 2 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="neurology" data-avail="today" data-exp="18" data-rating="4.8" data-name="Dr. Sanya Rostova">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-purple">SR</div>
+                  <div class="doc-name">Dr. Sanya Rostova</div>
+                  <div class="doc-specialty">Senior Neurologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-brain me-1"></i>Neurology</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★★</span><strong>4.8</strong><span class="text-muted">(278 reviews)</span><span class="exp-badge ms-auto">18 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MD</span><span class="qual-pill">DM (Neuro)</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Tue, Thu, Sat: 9AM–2PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Russian, French</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('sanya-rostova')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('sanya-rostova')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 3 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="orthopedics" data-avail="today" data-exp="21" data-rating="4.9" data-name="Dr. Marcus Patel">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-orange">MP</div>
+                  <div class="doc-name">Dr. Marcus Patel</div>
+                  <div class="doc-specialty">Orthopaedic Surgeon</div>
+                  <span class="dept-badge"><i class="fa-solid fa-bone me-1"></i>Orthopedics</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★★</span><strong>4.9</strong><span class="text-muted">(341 reviews)</span><span class="exp-badge ms-auto">21 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MS</span><span class="qual-pill">DNB</span><span class="qual-pill">FRCS</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon, Wed, Fri: 8AM–12PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Hindi, Gujarati</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('marcus-patel')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('marcus-patel')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 4 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="oncology" data-avail="tomorrow" data-exp="15" data-rating="4.7" data-name="Dr. Aisha Nwosu">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-tomorrow-badge"><i class="fa-solid fa-clock me-1" style="font-size:.7rem;"></i>Tomorrow</span>
+                  <div class="doc-avatar av-teal">AN</div>
+                  <div class="doc-name">Dr. Aisha Nwosu</div>
+                  <div class="doc-specialty">Medical Oncologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-ribbon me-1"></i>Oncology</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★☆</span><strong>4.7</strong><span class="text-muted">(199 reviews)</span><span class="exp-badge ms-auto">15 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MD</span><span class="qual-pill">DM (Onco)</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon, Wed: 10AM–2PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, French, Igbo</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('aisha-nwosu')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('aisha-nwosu')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 5 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="pediatrics" data-avail="today" data-exp="16" data-rating="4.8" data-name="Dr. Rachel Green">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-cyan">RG</div>
+                  <div class="doc-name">Dr. Rachel Green</div>
+                  <div class="doc-specialty">Paediatrician & Neonatologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-baby me-1"></i>Pediatrics</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★★</span><strong>4.8</strong><span class="text-muted">(267 reviews)</span><span class="exp-badge ms-auto">16 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MD</span><span class="qual-pill">DCH</span><span class="qual-pill">FAAP</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Daily: 9AM–1PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Spanish</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('rachel-green')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('rachel-green')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 6 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="obgyn" data-avail="today" data-exp="20" data-rating="4.9" data-name="Dr. Priya Sharma">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-pink">PS</div>
+                  <div class="doc-name">Dr. Priya Sharma</div>
+                  <div class="doc-specialty">Obstetrician & Gynaecologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-venus me-1"></i>OBG</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★★</span><strong>4.9</strong><span class="text-muted">(408 reviews)</span><span class="exp-badge ms-auto">20 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MS (OBG)</span><span class="qual-pill">FRCOG</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon–Sat: 10AM–2PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Hindi, Punjabi</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('priya-sharma')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('priya-sharma')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 7 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="gastro" data-avail="week" data-exp="17" data-rating="4.6" data-name="Dr. Vikram Kapoor">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-week-badge"><i class="fa-regular fa-calendar me-1"></i>This Week</span>
+                  <div class="doc-avatar av-brown">VK</div>
+                  <div class="doc-name">Dr. Vikram Kapoor</div>
+                  <div class="doc-specialty">Gastroenterologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-stomach me-1"></i>Gastroenterology</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★☆</span><strong>4.6</strong><span class="text-muted">(183 reviews)</span><span class="exp-badge ms-auto">17 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">DM (Gastro)</span><span class="qual-pill">MRCP</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Tue, Thu: 11AM–3PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Hindi</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('vikram-kapoor')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('vikram-kapoor')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 8 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="radiology" data-avail="today" data-exp="22" data-rating="4.7" data-name="Dr. James Thornton">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-indigo">JT</div>
+                  <div class="doc-name">Dr. James Thornton</div>
+                  <div class="doc-specialty">Interventional Radiologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-radiation me-1"></i>Radiology</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★☆</span><strong>4.7</strong><span class="text-muted">(214 reviews)</span><span class="exp-badge ms-auto">22 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MD</span><span class="qual-pill">FRCR</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon–Fri: 9AM–5PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('james-thornton')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('james-thornton')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 9 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="surgery" data-avail="today" data-exp="19" data-rating="4.8" data-name="Dr. Benjamin Walsh">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-green">BW</div>
+                  <div class="doc-name">Dr. Benjamin Walsh</div>
+                  <div class="doc-specialty">Laparoscopic Surgeon</div>
+                  <span class="dept-badge"><i class="fa-solid fa-scalpel me-1"></i>Gen. Surgery</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★★</span><strong>4.8</strong><span class="text-muted">(295 reviews)</span><span class="exp-badge ms-auto">19 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MS</span><span class="qual-pill">FRCS</span><span class="qual-pill">FACS</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon, Wed, Fri: 9AM–1PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Irish</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('benjamin-walsh')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('benjamin-walsh')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 10 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="pulmonology" data-avail="tomorrow" data-exp="14" data-rating="4.7" data-name="Dr. Sophia Chen">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-tomorrow-badge"><i class="fa-solid fa-clock me-1" style="font-size:.7rem;"></i>Tomorrow</span>
+                  <div class="doc-avatar av-olive">SC</div>
+                  <div class="doc-name">Dr. Sophia Chen</div>
+                  <div class="doc-specialty">Pulmonologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-lungs me-1"></i>Pulmonology</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★☆</span><strong>4.7</strong><span class="text-muted">(156 reviews)</span><span class="exp-badge ms-auto">14 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">DM (Pulm)</span><span class="qual-pill">FCCP</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Tue, Thu, Sat: 9AM–1PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Mandarin</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('sophia-chen')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('sophia-chen')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 11 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="nephro" data-avail="today" data-exp="25" data-rating="4.9" data-name="Dr. Arjun Reddy">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-navy">AR</div>
+                  <div class="doc-name">Dr. Arjun Reddy</div>
+                  <div class="doc-specialty">Nephrologist & Urologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-kidneys me-1"></i>Nephrology</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★★</span><strong>4.9</strong><span class="text-muted">(321 reviews)</span><span class="exp-badge ms-auto">25 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">DM (Nephro)</span><span class="qual-pill">MCh (Uro)</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon–Fri: 8AM–12PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Telugu, Hindi</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('arjun-reddy')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('arjun-reddy')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 12 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="emergency" data-avail="today" data-exp="13" data-rating="4.6" data-name="Dr. Laura Martinez">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-red">LM</div>
+                  <div class="doc-name">Dr. Laura Martinez</div>
+                  <div class="doc-specialty">Emergency Medicine Physician</div>
+                  <span class="dept-badge"><i class="fa-solid fa-truck-medical me-1"></i>Emergency</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★☆</span><strong>4.6</strong><span class="text-muted">(189 reviews)</span><span class="exp-badge ms-auto">13 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MD</span><span class="qual-pill">FAEM</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>24/7 Emergency</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Spanish</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('laura-martinez')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('laura-martinez')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 13 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="cardiology" data-avail="today" data-exp="11" data-rating="4.5" data-name="Dr. Elena Vasquez">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-blue">EV</div>
+                  <div class="doc-name">Dr. Elena Vasquez</div>
+                  <div class="doc-specialty">Cardiologist – Echo Specialist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-heart-pulse me-1"></i>Cardiology</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★½</span><strong>4.5</strong><span class="text-muted">(142 reviews)</span><span class="exp-badge ms-auto">11 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MD</span><span class="qual-pill">FACC</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon, Tue, Thu: 10AM–3PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Spanish, Portuguese</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('elena-vasquez')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('elena-vasquez')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 14 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="neurology" data-avail="week" data-exp="9" data-rating="4.4" data-name="Dr. Omar Hassan">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-week-badge"><i class="fa-regular fa-calendar me-1"></i>This Week</span>
+                  <div class="doc-avatar av-purple">OH</div>
+                  <div class="doc-name">Dr. Omar Hassan</div>
+                  <div class="doc-specialty">Neurosurgeon</div>
+                  <span class="dept-badge"><i class="fa-solid fa-brain me-1"></i>Neurosurgery</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★☆</span><strong>4.4</strong><span class="text-muted">(97 reviews)</span><span class="exp-badge ms-auto">9 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MCh (Neuro)</span><span class="qual-pill">FRCS</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Wed, Fri: 9AM–1PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Arabic, French</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('omar-hassan')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('omar-hassan')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 15 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="pediatrics" data-avail="today" data-exp="8" data-rating="4.5" data-name="Dr. Mei-Ling Park">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-cyan">MP</div>
+                  <div class="doc-name">Dr. Mei-Ling Park</div>
+                  <div class="doc-specialty">Paediatric Cardiologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-baby me-1"></i>Pediatrics</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★½</span><strong>4.5</strong><span class="text-muted">(113 reviews)</span><span class="exp-badge ms-auto">8 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MD</span><span class="qual-pill">DCH</span><span class="qual-pill">Paed Cardio</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon–Fri: 8:30AM–1PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Korean, Mandarin</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('mei-ling-park')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('mei-ling-park')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor 16 -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="obgyn" data-avail="today" data-exp="12" data-rating="4.7" data-name="Dr. Fatima Al-Rashid">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-pink">FA</div>
+                  <div class="doc-name">Dr. Fatima Al-Rashid</div>
+                  <div class="doc-specialty">Gynaecologic Oncologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-venus me-1"></i>OBG</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★☆</span><strong>4.7</strong><span class="text-muted">(168 reviews)</span><span class="exp-badge ms-auto">12 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MS (OBG)</span><span class="qual-pill">Fellowship (GynOnco)</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon, Wed, Sat: 10AM–2PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Arabic, Urdu</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('fatima-al-rashid')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('fatima-al-rashid')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctors 17-24 (condensed) -->
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="cardiology" data-avail="tomorrow" data-exp="30" data-rating="5.0" data-name="Dr. Thomas Nakamura">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-tomorrow-badge"><i class="fa-solid fa-clock me-1" style="font-size:.7rem;"></i>Tomorrow</span>
+                  <div class="doc-avatar av-red">TN</div>
+                  <div class="doc-name">Dr. Thomas Nakamura</div>
+                  <div class="doc-specialty">Cardiac Surgeon</div>
+                  <span class="dept-badge"><i class="fa-solid fa-heart-pulse me-1"></i>Cardiology</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★★</span><strong>5.0</strong><span class="text-muted">(512 reviews)</span><span class="exp-badge ms-auto">30 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MCh (CVT)</span><span class="qual-pill">FRCS</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Tue, Thu: 9AM–12PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Japanese</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('thomas-nakamura')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('thomas-nakamura')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="surgery" data-avail="today" data-exp="7" data-rating="4.3" data-name="Dr. Ananya Krishnan">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-green">AK</div>
+                  <div class="doc-name">Dr. Ananya Krishnan</div>
+                  <div class="doc-specialty">Bariatric & Metabolic Surgeon</div>
+                  <span class="dept-badge"><i class="fa-solid fa-scalpel me-1"></i>Gen. Surgery</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★☆</span><strong>4.3</strong><span class="text-muted">(88 reviews)</span><span class="exp-badge ms-auto">7 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MS</span><span class="qual-pill">FMBS</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon, Wed, Fri: 2PM–6PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Tamil, Malayalam</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('ananya-krishnan')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('ananya-krishnan')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="nephro" data-avail="week" data-exp="16" data-rating="4.6" data-name="Dr. Gabriel Osei">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-week-badge"><i class="fa-regular fa-calendar me-1"></i>This Week</span>
+                  <div class="doc-avatar av-navy">GO</div>
+                  <div class="doc-name">Dr. Gabriel Osei</div>
+                  <div class="doc-specialty">Nephrologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-kidneys me-1"></i>Nephrology</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★☆</span><strong>4.6</strong><span class="text-muted">(134 reviews)</span><span class="exp-badge ms-auto">16 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">DM (Nephro)</span><span class="qual-pill">MRCP</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon, Wed: 8AM–12PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, French, Akan</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('gabriel-osei')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('gabriel-osei')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="orthopedics" data-avail="today" data-exp="10" data-rating="4.5" data-name="Dr. Charlotte Dubois">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-orange">CD</div>
+                  <div class="doc-name">Dr. Charlotte Dubois</div>
+                  <div class="doc-specialty">Sports Medicine & Arthroscopy</div>
+                  <span class="dept-badge"><i class="fa-solid fa-bone me-1"></i>Orthopedics</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★½</span><strong>4.5</strong><span class="text-muted">(127 reviews)</span><span class="exp-badge ms-auto">10 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MS</span><span class="qual-pill">DNB</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Tue, Thu, Sat: 9AM–1PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, French</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('charlotte-dubois')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('charlotte-dubois')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="oncology" data-avail="today" data-exp="20" data-rating="4.8" data-name="Dr. Samuel Adeyemi">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-teal">SA</div>
+                  <div class="doc-name">Dr. Samuel Adeyemi</div>
+                  <div class="doc-specialty">Radiation Oncologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-ribbon me-1"></i>Oncology</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★★</span><strong>4.8</strong><span class="text-muted">(221 reviews)</span><span class="exp-badge ms-auto">20 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MD</span><span class="qual-pill">DNB (Rad Onco)</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon–Fri: 9AM–2PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Yoruba, French</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('samuel-adeyemi')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('samuel-adeyemi')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="gastro" data-avail="tomorrow" data-exp="12" data-rating="4.5" data-name="Dr. Natalia Ivanova">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-tomorrow-badge"><i class="fa-solid fa-clock me-1" style="font-size:.7rem;"></i>Tomorrow</span>
+                  <div class="doc-avatar av-brown">NI</div>
+                  <div class="doc-name">Dr. Natalia Ivanova</div>
+                  <div class="doc-specialty">Hepatologist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-stomach me-1"></i>Gastroenterology</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★½</span><strong>4.5</strong><span class="text-muted">(101 reviews)</span><span class="exp-badge ms-auto">12 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">DM (Gastro)</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon, Thu: 10AM–2PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Russian</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('natalia-ivanova')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('natalia-ivanova')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-md-6 doc-item" data-dept="pulmonology" data-avail="today" data-exp="6" data-rating="4.2" data-name="Dr. Kofi Mensah">
+              <div class="doctor-card">
+                <div class="doc-card-top">
+                  <span class="avail-badge avail-today-badge"><i class="fa-solid fa-circle me-1" style="font-size:.45rem;"></i>Today</span>
+                  <div class="doc-avatar av-olive">KM</div>
+                  <div class="doc-name">Dr. Kofi Mensah</div>
+                  <div class="doc-specialty">Sleep Medicine Specialist</div>
+                  <span class="dept-badge"><i class="fa-solid fa-lungs me-1"></i>Pulmonology</span>
+                </div>
+                <div class="doc-card-body">
+                  <div class="rating-row"><span class="stars">★★★★☆</span><strong>4.2</strong><span class="text-muted">(74 reviews)</span><span class="exp-badge ms-auto">6 Yrs</span></div>
+                  <div class="qual-pills"><span class="qual-pill">MD</span><span class="qual-pill">Sleep Med</span></div>
+                  <div class="opd-info"><i class="fa-regular fa-clock me-1"></i>Mon, Wed, Fri: 10AM–4PM</div>
+                  <div class="lang-row"><i class="fa-solid fa-language me-1"></i>English, Twi, French</div>
+                </div>
+                <div class="doc-actions">
+                  <button class="btn btn-primary btn-view-profile" onclick="openDocModal('kofi-mensah')"><i class="fa-solid fa-eye me-1"></i>Profile</button>
+                  <button class="btn btn-outline-success btn-book-doc" onclick="openBooking('kofi-mensah')"><i class="fa-regular fa-calendar-plus me-1"></i>Book</button>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /#doctors-grid -->
+        </div><!-- /#grid-view -->
+
+        <!-- LIST VIEW (hidden by default) -->
+        <div id="list-view" style="display:none;">
+          <div id="doctors-list">
+            <!-- list items injected by JS or shown on toggle -->
+            <div class="doctor-list-card">
+              <div class="doc-list-avatar av-red">DK</div>
+              <div class="doc-list-info">
+                <div class="d-flex align-items-center gap-2 flex-wrap">
+                  <span class="fw-700">Dr. David Kim</span>
+                  <span class="dept-badge">Cardiology</span>
+                  <span class="avail-badge avail-today-badge">Today</span>
+                </div>
+                <div class="text-muted" style="font-size:.83rem;">Senior Cardiologist · MD, FACC, PhD · 24 Yrs Experience</div>
+                <div class="d-flex gap-3 mt-1" style="font-size:.8rem;">
+                  <span class="stars" style="color:#ffc107;">★★★★★</span><span>4.9 (312)</span>
+                  <span><i class="fa-regular fa-clock me-1"></i>Mon–Fri: 8AM–1PM</span>
+                  <span><i class="fa-solid fa-language me-1"></i>English, Korean</span>
+                </div>
+              </div>
+              <div class="doc-list-actions">
+                <button class="btn btn-primary btn-sm rounded-pill" onclick="openDocModal('david-kim')">View Profile</button>
+                <button class="btn btn-outline-success btn-sm rounded-pill" onclick="openBooking('david-kim')">Book</button>
+              </div>
+            </div>
+            <!-- More list items would be here; omitted for brevity – JS clones from grid data -->
+            <p class="text-center text-muted py-3" style="font-size:.85rem;"><i class="fa-solid fa-info-circle me-1"></i>Switch to grid view for all 24 doctors.</p>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="d-flex justify-content-between align-items-center mt-4 flex-wrap gap-2">
+          <span class="text-muted" style="font-size:.83rem;">Showing 1–24 of 236 doctors</span>
+          <nav>
+            <ul class="pagination mb-0">
+              <li class="page-item disabled"><a class="page-link" href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#"><span>…</span></a></li>
+              <li class="page-item"><a class="page-link" href="#">10</a></li>
+              <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
+            </ul>
+          </nav>
+        </div>
+
+      </div><!-- /col main -->
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DOCTOR PROFILE MODAL
+══════════════════════════════════════════════════════════════════ -->
+<div class="modal fade" id="docProfileModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content border-0 overflow-hidden">
+
+      <!-- Header -->
+      <div class="modal-doc-header av-red" id="profileModalHeader" style="color:#fff;">
+        <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+        <div class="d-flex align-items-center gap-3">
+          <div class="modal-doc-avatar av-red" id="profileAvatar">DK</div>
+          <div>
+            <h3 class="mb-1 fw-bold" id="profileName">Dr. David Kim</h3>
+            <div style="opacity:.85;" id="profileSpecialty">Senior Cardiologist</div>
+            <div class="d-flex flex-wrap gap-3 mt-2" style="font-size:.82rem;">
+              <span><i class="fa-solid fa-star me-1" style="color:#ffc107;"></i>4.9 (312 reviews)</span>
+              <span><i class="fa-solid fa-briefcase me-1"></i>24 Years Exp.</span>
+              <span><i class="fa-solid fa-building-columns me-1"></i>Cardiology</span>
+              <span class="badge bg-success">Available Today</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="border-bottom px-4 pt-2">
+        <ul class="nav nav-tabs-doc nav-tabs border-0 gap-2" id="profileTabs" role="tablist">
+          <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-overview">Overview</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-schedule">Schedule</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-reviews">Reviews</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-gallery">Gallery</button></li>
+        </ul>
+      </div>
+
+      <div class="modal-body p-0">
+        <div class="row g-0">
+          <!-- Left: tab content -->
+          <div class="col-lg-8 p-4">
+            <div class="tab-content" id="profileTabContent">
+
+              <!-- OVERVIEW TAB -->
+              <div class="tab-pane fade show active" id="tab-overview">
+                <h5 class="fw-600 mb-3">About Dr. David Kim</h5>
+                <p class="text-muted" style="font-size:.88rem;line-height:1.8;">
+                  Dr. David Kim is a senior interventional cardiologist and cardiac surgeon with over 24 years of experience treating complex cardiovascular conditions. He is the Head of the Cardiology Department at MediCare General Hospital and holds the prestigious Fellow of the American College of Cardiology (FACC) designation. He completed his MD from Johns Hopkins School of Medicine and his cardiology fellowship at Mayo Clinic. He has performed over 3,500 interventional cardiac procedures including angioplasty, stenting, TAVI, and electrophysiology studies.
+                </p>
+
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <h6 class="fw-600 mb-2"><i class="fa-solid fa-graduation-cap text-primary me-2"></i>Qualifications</h6>
+                    <ul class="list-unstyled" style="font-size:.85rem;">
+                      <li><i class="fa-solid fa-check text-success me-2"></i>MD – Johns Hopkins University</li>
+                      <li><i class="fa-solid fa-check text-success me-2"></i>Cardiology Fellowship – Mayo Clinic</li>
+                      <li><i class="fa-solid fa-check text-success me-2"></i>Interventional Cardiology – Stanford</li>
+                      <li><i class="fa-solid fa-check text-success me-2"></i>FACC – American College of Cardiology</li>
+                      <li><i class="fa-solid fa-check text-success me-2"></i>PhD (Cardiovascular Research)</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="fw-600 mb-2"><i class="fa-solid fa-trophy text-warning me-2"></i>Awards & Recognition</h6>
+                    <ul class="list-unstyled" style="font-size:.85rem;">
+                      <li><i class="fa-solid fa-medal text-warning me-2"></i>Best Cardiologist Award 2023</li>
+                      <li><i class="fa-solid fa-medal text-warning me-2"></i>National Heart Foundation Award</li>
+                      <li><i class="fa-solid fa-medal text-warning me-2"></i>50+ Peer-Reviewed Publications</li>
+                      <li><i class="fa-solid fa-medal text-warning me-2"></i>Top 1% Cardiologists – US News</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h6 class="fw-600 mb-2"><i class="fa-solid fa-stethoscope text-info me-2"></i>Conditions Treated</h6>
+                <div class="mb-3">
+                  <span class="badge bg-light text-dark border me-1 mb-1">Coronary Artery Disease</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">Heart Failure</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">Atrial Fibrillation</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">Valve Disease</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">Aortic Stenosis</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">Hypertension</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">Cardiomyopathy</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">Pericarditis</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">Congenital CHD</span>
+                </div>
+
+                <h6 class="fw-600 mb-2"><i class="fa-solid fa-syringe text-danger me-2"></i>Procedures Performed</h6>
+                <div>
+                  <span class="badge bg-light text-dark border me-1 mb-1">Coronary Angiography</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">PCI / Stenting</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">TAVI</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">Electrophysiology Study</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">Cardiac Ablation</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">Pacemaker Implant</span>
+                  <span class="badge bg-light text-dark border me-1 mb-1">CABG Assistance</span>
+                </div>
+              </div>
+
+              <!-- SCHEDULE TAB -->
+              <div class="tab-pane fade" id="tab-schedule">
+                <h5 class="fw-600 mb-3">Weekly OPD Schedule</h5>
+                <table class="table table-bordered table-hover schedule-table mb-4">
+                  <thead>
+                    <tr>
+                      <th>Day</th><th>Morning</th><th>Evening</th><th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>Monday</strong></td><td>8:00 AM – 1:00 PM</td><td>4:00 PM – 7:00 PM</td><td><span class="badge bg-success">Open</span></td></tr>
+                    <tr><td><strong>Tuesday</strong></td><td>8:00 AM – 1:00 PM</td><td>4:00 PM – 7:00 PM</td><td><span class="badge bg-success">Open</span></td></tr>
+                    <tr><td><strong>Wednesday</strong></td><td colspan="2" class="text-center text-muted">Academic Day (Research)</td><td><span class="badge bg-warning text-dark">Limited</span></td></tr>
+                    <tr><td><strong>Thursday</strong></td><td>8:00 AM – 1:00 PM</td><td>4:00 PM – 7:00 PM</td><td><span class="badge bg-success">Open</span></td></tr>
+                    <tr><td><strong>Friday</strong></td><td>8:00 AM – 1:00 PM</td><td>4:00 PM – 7:00 PM</td><td><span class="badge bg-success">Open</span></td></tr>
+                    <tr><td><strong>Saturday</strong></td><td>9:00 AM – 12:00 PM</td><td>—</td><td><span class="badge bg-success">Open</span></td></tr>
+                    <tr><td><strong>Sunday</strong></td><td colspan="2" class="text-center text-muted">Emergency Only</td><td><span class="badge bg-secondary">Emergency</span></td></tr>
+                  </tbody>
+                </table>
+                <h6 class="fw-600 mb-2">Next Available Slots – Today (Wed, Oct 28)</h6>
+                <div class="mb-3">
+                  <span class="time-slot" onclick="selectSlot(this)">9:00 AM</span>
+                  <span class="time-slot booked">9:30 AM</span>
+                  <span class="time-slot" onclick="selectSlot(this)">10:00 AM</span>
+                  <span class="time-slot booked">10:30 AM</span>
+                  <span class="time-slot" onclick="selectSlot(this)">11:00 AM</span>
+                  <span class="time-slot" onclick="selectSlot(this)">11:30 AM</span>
+                  <span class="time-slot booked">4:00 PM</span>
+                  <span class="time-slot" onclick="selectSlot(this)">4:30 PM</span>
+                  <span class="time-slot" onclick="selectSlot(this)">5:00 PM</span>
+                </div>
+                <p style="font-size:.8rem;color:#6c757d;"><span class="time-slot" style="cursor:default;">Available</span> &nbsp; <span class="time-slot booked" style="cursor:default;">Booked</span></p>
+                <button class="btn btn-success rounded-pill" onclick="openBooking('david-kim')"><i class="fa-regular fa-calendar-plus me-1"></i>Book Selected Slot</button>
+              </div>
+
+              <!-- REVIEWS TAB -->
+              <div class="tab-pane fade" id="tab-reviews">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <div style="font-size:3rem;font-weight:800;color:#1a1a2e;">4.9</div>
+                  <div>
+                    <div style="color:#ffc107;font-size:1.1rem;">★★★★★</div>
+                    <div style="font-size:.82rem;color:#6c757d;">Based on 312 patient reviews</div>
+                  </div>
+                </div>
+
+                <div class="review-card">
+                  <div class="d-flex justify-content-between mb-1">
+                    <strong style="font-size:.88rem;">Jennifer Adams</strong>
+                    <span class="review-stars">★★★★★</span>
+                  </div>
+                  <div style="font-size:.78rem;color:#6c757d;" class="mb-1">Verified Patient · October 2026</div>
+                  <p style="font-size:.84rem;margin:0;color:#4a5568;">"Dr. Kim is absolutely outstanding. He took time to explain my condition in detail, answered all my questions patiently, and the procedure was smooth. I felt completely at ease throughout. Highly recommend him to anyone with cardiac concerns."</p>
+                </div>
+
+                <div class="review-card">
+                  <div class="d-flex justify-content-between mb-1">
+                    <strong style="font-size:.88rem;">Robert Nguyen</strong>
+                    <span class="review-stars">★★★★★</span>
+                  </div>
+                  <div style="font-size:.78rem;color:#6c757d;" class="mb-1">Verified Patient · September 2026</div>
+                  <p style="font-size:.84rem;margin:0;color:#4a5568;">"Had my bypass surgery under Dr. Kim's supervision. He is a true master of his craft. The whole team was excellent and the post-op care was impeccable. I'm back to normal life now, thanks to him."</p>
+                </div>
+
+                <div class="review-card">
+                  <div class="d-flex justify-content-between mb-1">
+                    <strong style="font-size:.88rem;">Maria Gonzalez</strong>
+                    <span class="review-stars">★★★★★</span>
+                  </div>
+                  <div style="font-size:.78rem;color:#6c757d;" class="mb-1">Verified Patient · August 2026</div>
+                  <p style="font-size:.84rem;margin:0;color:#4a5568;">"I visited for a second opinion on my AF. Dr. Kim's thorough evaluation identified issues my previous doctor had missed. His ablation procedure has given me my life back. Cannot thank him enough."</p>
+                </div>
+
+                <div class="review-card">
+                  <div class="d-flex justify-content-between mb-1">
+                    <strong style="font-size:.88rem;">Daniel Park</strong>
+                    <span class="review-stars">★★★★☆</span>
+                  </div>
+                  <div style="font-size:.78rem;color:#6c757d;" class="mb-1">Verified Patient · July 2026</div>
+                  <p style="font-size:.84rem;margin:0;color:#4a5568;">"Excellent doctor, very knowledgeable and professional. Only reason for 4 stars is the wait time was a bit long, but once inside the consultation was worth every minute. Very happy with my treatment outcome."</p>
+                </div>
+
+                <div class="review-card">
+                  <div class="d-flex justify-content-between mb-1">
+                    <strong style="font-size:.88rem;">Susan Mitchell</strong>
+                    <span class="review-stars">★★★★★</span>
+                  </div>
+                  <div style="font-size:.78rem;color:#6c757d;" class="mb-1">Verified Patient · June 2026</div>
+                  <p style="font-size:.84rem;margin:0;color:#4a5568;">"Dr. Kim saved my husband's life during a massive heart attack. The speed and precision with which he and his team acted was extraordinary. We are forever grateful."</p>
+                </div>
+
+              </div>
+
+              <!-- GALLERY TAB -->
+              <div class="tab-pane fade" id="tab-gallery">
+                <h5 class="fw-600 mb-3">Photos &amp; Media</h5>
+                <div class="row g-3">
+                  <div class="col-4"><div style="height:140px;border-radius:12px;background:linear-gradient(135deg,#e8f4fd,#cfe2ff);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#6c757d;"><i class="fa-solid fa-image fa-2x"></i><small>Clinic Photo</small></div></div>
+                  <div class="col-4"><div style="height:140px;border-radius:12px;background:linear-gradient(135deg,#d1e7dd,#a3cfbb);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#6c757d;"><i class="fa-solid fa-microscope fa-2x"></i><small>Lab Photo</small></div></div>
+                  <div class="col-4"><div style="height:140px;border-radius:12px;background:linear-gradient(135deg,#fff3cd,#ffecb5);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#6c757d;"><i class="fa-solid fa-award fa-2x"></i><small>Awards</small></div></div>
+                  <div class="col-4"><div style="height:140px;border-radius:12px;background:linear-gradient(135deg,#f8d7da,#f1aeb5);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#6c757d;"><i class="fa-solid fa-graduation-cap fa-2x"></i><small>Conference</small></div></div>
+                  <div class="col-4"><div style="height:140px;border-radius:12px;background:linear-gradient(135deg,#e8f4fd,#9ec5fe);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#6c757d;"><i class="fa-solid fa-heart-pulse fa-2x"></i><small>Procedure</small></div></div>
+                  <div class="col-4"><div style="height:140px;border-radius:12px;background:linear-gradient(135deg,#e2d9f3,#c5b3e6);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#6c757d;"><i class="fa-solid fa-users fa-2x"></i><small>Team</small></div></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right: booking sidebar -->
+          <div class="col-lg-4 border-start" style="background:#f8faff;">
+            <div class="p-4 position-sticky" style="top:0;">
+              <div class="card border-0 shadow-sm rounded-3 mb-3">
+                <div class="card-body">
+                  <h6 class="fw-600 mb-3"><i class="fa-regular fa-calendar-plus text-primary me-2"></i>Book Appointment</h6>
+                  <div class="mb-2">
+                    <label class="form-label" style="font-size:.8rem;font-weight:600;">Select Date</label>
+                    <input type="date" class="form-control form-control-sm" style="border-radius:8px;" />
+                  </div>
+                  <div class="mb-2">
+                    <label class="form-label" style="font-size:.8rem;font-weight:600;">Time Slot</label>
+                    <select class="form-select form-select-sm" style="border-radius:8px;">
+                      <option>9:00 AM</option>
+                      <option>10:00 AM</option>
+                      <option>11:00 AM</option>
+                      <option>11:30 AM</option>
+                      <option>4:30 PM</option>
+                      <option>5:00 PM</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" style="font-size:.8rem;font-weight:600;">Your Name</label>
+                    <input type="text" class="form-control form-control-sm" placeholder="Full name" style="border-radius:8px;" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label" style="font-size:.8rem;font-weight:600;">Phone</label>
+                    <input type="tel" class="form-control form-control-sm" placeholder="+1 (555) 000-0000" style="border-radius:8px;" />
+                  </div>
+                  <button class="btn btn-primary w-100 rounded-pill fw-600" onclick="openBooking('david-kim')"><i class="fa-regular fa-calendar-check me-1"></i>Confirm Booking</button>
+                </div>
+              </div>
+              <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-body" style="font-size:.82rem;">
+                  <h6 class="fw-600 mb-2"><i class="fa-solid fa-phone text-success me-2"></i>Quick Contact</h6>
+                  <div class="mb-1"><i class="fa-solid fa-phone text-muted me-2"></i><a href="tel:+12125550210">+1 (212) 555-0210</a></div>
+                  <div class="mb-1"><i class="fa-regular fa-envelope text-muted me-2"></i><a href="mailto:dr.kim@medicare.com">dr.kim@medicare.com</a></div>
+                  <div><i class="fa-solid fa-location-dot text-muted me-2"></i>Block A, 3rd Floor, Room 312</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal"><i class="fa-solid fa-xmark me-1"></i>Close</button>
+        <button class="btn btn-primary rounded-pill" onclick="openBooking('david-kim')"><i class="fa-regular fa-calendar-plus me-1"></i>Book Appointment</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     APPOINTMENT BOOKING MODAL
+══════════════════════════════════════════════════════════════════ -->
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content border-0">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-700"><i class="fa-regular fa-calendar-plus text-primary me-2"></i>Book an Appointment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body px-4 pt-3">
+
+        <!-- Step Progress -->
+        <div class="step-progress mb-4">
+          <div class="step-wrapper">
+            <div class="step-dot active" id="step-dot-1">1</div>
+            <div class="step-label">Doctor</div>
+          </div>
+          <div class="step-wrapper">
+            <div class="step-dot" id="step-dot-2">2</div>
+            <div class="step-label">Date & Time</div>
+          </div>
+          <div class="step-wrapper">
+            <div class="step-dot" id="step-dot-3">3</div>
+            <div class="step-label">Patient Info</div>
+          </div>
+          <div class="step-wrapper">
+            <div class="step-dot" id="step-dot-4">4</div>
+            <div class="step-label">Confirm</div>
+          </div>
+        </div>
+
+        <!-- STEP 1: Department + Doctor -->
+        <div class="booking-step active" id="bstep-1">
+          <h6 class="fw-600 mb-3"><i class="fa-solid fa-1 text-primary me-2"></i>Select Department &amp; Doctor</h6>
+          <div class="mb-3">
+            <label class="form-label fw-500">Department *</label>
+            <select class="form-select" id="book-dept">
+              <option value="">-- Choose Department --</option>
+              <option>Cardiology</option>
+              <option>Neurology</option>
+              <option>Orthopedics</option>
+              <option>Oncology</option>
+              <option>Pediatrics</option>
+              <option>OB &amp; Gynecology</option>
+              <option>Gastroenterology</option>
+              <option>Radiology</option>
+              <option>General Surgery</option>
+              <option>Pulmonology</option>
+              <option>Nephrology</option>
+              <option>Emergency Medicine</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-500">Doctor *</label>
+            <select class="form-select" id="book-doctor">
+              <option value="">-- Choose Doctor --</option>
+              <option>Dr. David Kim (Cardiology)</option>
+              <option>Dr. Sanya Rostova (Neurology)</option>
+              <option>Dr. Marcus Patel (Orthopedics)</option>
+              <option>Dr. Aisha Nwosu (Oncology)</option>
+              <option>Dr. Rachel Green (Pediatrics)</option>
+              <option>Dr. Priya Sharma (OBG)</option>
+              <option>Dr. Vikram Kapoor (Gastroenterology)</option>
+              <option>Dr. James Thornton (Radiology)</option>
+              <option>Dr. Benjamin Walsh (General Surgery)</option>
+              <option>Dr. Sophia Chen (Pulmonology)</option>
+              <option>Dr. Arjun Reddy (Nephrology)</option>
+              <option>Dr. Laura Martinez (Emergency)</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-500">Visit Type *</label>
+            <div class="d-flex gap-3">
+              <div class="form-check"><input class="form-check-input" type="radio" name="visitType" id="vt1" value="opd" checked><label class="form-check-label" for="vt1">OPD Consultation</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="visitType" id="vt2" value="tele"><label class="form-check-label" for="vt2">Tele-Consultation</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="visitType" id="vt3" value="emergency"><label class="form-check-label" for="vt3">Emergency</label></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Date + Time Slot -->
+        <div class="booking-step" id="bstep-2">
+          <h6 class="fw-600 mb-3"><i class="fa-solid fa-2 text-primary me-2"></i>Select Date &amp; Time</h6>
+          <div class="mb-3">
+            <label class="form-label fw-500">Select Date *</label>
+            <div class="d-flex gap-1 flex-wrap mb-2" style="font-size:.8rem;font-weight:600;color:#6c757d;">
+              <span style="width:calc(100%/7);text-align:center;">S</span><span style="width:calc(100%/7);text-align:center;">M</span><span style="width:calc(100%/7);text-align:center;">T</span><span style="width:calc(100%/7);text-align:center;">W</span><span style="width:calc(100%/7);text-align:center;">T</span><span style="width:calc(100%/7);text-align:center;">F</span><span style="width:calc(100%/7);text-align:center;">S</span>
+            </div>
+            <div class="date-grid" id="calendar-grid"></div>
+            <div class="mt-2" style="font-size:.78rem;color:#6c757d;"><strong style="color:var(--primary);">November 2026</strong></div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-500">Available Time Slots *</label>
+            <div id="booking-time-slots">
+              <span class="time-slot" onclick="selectSlot(this)">9:00 AM</span>
+              <span class="time-slot booked">9:30 AM</span>
+              <span class="time-slot" onclick="selectSlot(this)">10:00 AM</span>
+              <span class="time-slot booked">10:30 AM</span>
+              <span class="time-slot" onclick="selectSlot(this)">11:00 AM</span>
+              <span class="time-slot" onclick="selectSlot(this)">11:30 AM</span>
+              <span class="time-slot" onclick="selectSlot(this)">2:00 PM</span>
+              <span class="time-slot booked">2:30 PM</span>
+              <span class="time-slot" onclick="selectSlot(this)">3:00 PM</span>
+              <span class="time-slot" onclick="selectSlot(this)">4:00 PM</span>
+              <span class="time-slot" onclick="selectSlot(this)">4:30 PM</span>
+              <span class="time-slot" onclick="selectSlot(this)">5:00 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: Patient Details -->
+        <div class="booking-step" id="bstep-3">
+          <h6 class="fw-600 mb-3"><i class="fa-solid fa-3 text-primary me-2"></i>Patient Information</h6>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label fw-500">Full Name *</label>
+              <input type="text" class="form-control" placeholder="Enter full name" required />
+            </div>
+            <div class="col-md-3">
+              <label class="form-label fw-500">Age *</label>
+              <input type="number" class="form-control" placeholder="Age" min="0" max="120" required />
+            </div>
+            <div class="col-md-3">
+              <label class="form-label fw-500">Gender *</label>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-500">Phone Number *</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                <input type="tel" class="form-control" placeholder="+1 (555) 000-0000" required />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-500">Email Address</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+                <input type="email" class="form-control" placeholder="your@email.com" />
+              </div>
+            </div>
+            <div class="col-12">
+              <label class="form-label fw-500">Reason for Visit *</label>
+              <textarea class="form-control" rows="3" placeholder="Describe your symptoms or reason for the appointment…" required></textarea>
+            </div>
+            <div class="col-12">
+              <label class="form-label fw-500">Existing Conditions (Optional)</label>
+              <input type="text" class="form-control" placeholder="e.g. Diabetes, Hypertension, Asthma…" />
+            </div>
+            <div class="col-12">
+              <label class="form-label fw-500">Upload Reports (Optional)</label>
+              <input type="file" class="form-control" accept=".pdf,.jpg,.png" multiple />
+              <div class="form-text">PDF, JPG, PNG up to 10MB each</div>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="tcCheck" required>
+                <label class="form-check-label" for="tcCheck" style="font-size:.85rem;">
+                  I agree to the <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy Policy</a>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4: Confirmation -->
+        <div class="booking-step" id="bstep-4">
+          <h6 class="fw-600 mb-3"><i class="fa-solid fa-4 text-primary me-2"></i>Review &amp; Confirm</h6>
+          <div class="confirmation-box">
+            <div class="text-center mb-3">
+              <div style="width:60px;height:60px;background:#d1e7dd;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;"><i class="fa-solid fa-calendar-check fa-xl text-success"></i></div>
+              <h5 class="fw-700 text-success">Almost Done!</h5>
+              <p class="text-muted mb-0" style="font-size:.85rem;">Please review your appointment details before confirming.</p>
+            </div>
+            <hr>
+            <div class="row g-2" style="font-size:.88rem;">
+              <div class="col-5 fw-600 text-muted">Department:</div><div class="col-7">Cardiology</div>
+              <div class="col-5 fw-600 text-muted">Doctor:</div><div class="col-7">Dr. David Kim</div>
+              <div class="col-5 fw-600 text-muted">Visit Type:</div><div class="col-7">OPD Consultation</div>
+              <div class="col-5 fw-600 text-muted">Date:</div><div class="col-7">Wednesday, 29 Oct 2026</div>
+              <div class="col-5 fw-600 text-muted">Time:</div><div class="col-7">10:00 AM</div>
+              <div class="col-5 fw-600 text-muted">Patient:</div><div class="col-7">John Doe</div>
+              <div class="col-5 fw-600 text-muted">Phone:</div><div class="col-7">+1 (555) 123-4567</div>
+            </div>
+            <hr>
+            <div class="d-flex align-items-start gap-2" style="font-size:.82rem;color:#6c757d;">
+              <i class="fa-solid fa-circle-info text-primary mt-1"></i>
+              <span>A confirmation SMS and email will be sent to you. Please arrive 15 minutes before your scheduled time. Carry a valid ID and previous medical reports if any.</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.modal-body -->
+
+      <div class="modal-footer border-top">
+        <button class="btn btn-outline-secondary rounded-pill" id="btn-prev" onclick="stepNav(-1)" style="display:none;"><i class="fa-solid fa-chevron-left me-1"></i>Previous</button>
+        <button class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal" id="btn-cancel">Cancel</button>
+        <button class="btn btn-primary rounded-pill" id="btn-next" onclick="stepNav(1)">Next <i class="fa-solid fa-chevron-right ms-1"></i></button>
+        <button class="btn btn-success rounded-pill" id="btn-submit" style="display:none;" onclick="submitBooking()"><i class="fa-solid fa-check me-1"></i>Confirm Appointment</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════════════ -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none mb-3">
+          <div style="width:44px;height:44px;background:linear-gradient(135deg,#0d6efd,#6610f2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;"><i class="fa-solid fa-hospital-user"></i></div>
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;font-weight:700;">MediCare General</div>
+            <div style="font-size:.7rem;color:rgba(255,255,255,.5);letter-spacing:.5px;">Hospital &amp; Research Centre</div>
+          </div>
+        </a>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.7;">Delivering compassionate, evidence-based healthcare to our community since 1987. Accredited by JCI and NABH.</p>
+        <div class="d-flex gap-2 flex-wrap mt-3">
+          <span class="badge" style="background:rgba(255,255,255,.1);font-size:.72rem;"><i class="fa-solid fa-shield-halved me-1"></i>JCI Accredited</span>
+          <span class="badge" style="background:rgba(255,255,255,.1);font-size:.72rem;"><i class="fa-solid fa-award me-1"></i>NABH Certified</span>
+        </div>
+        <div class="footer-social d-flex gap-2 mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4">
+        <h6 class="footer-heading">Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="departments.html">Departments</a></li>
+          <li><a href="doctors.html">Find a Doctor</a></li>
+          <li><a href="appointments.html">Book Appointment</a></li>
+          <li><a href="patients.html">Patient Portal</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-4">
+        <h6 class="footer-heading">Our Services</h6>
+        <ul class="footer-links">
+          <li><a href="#">Emergency Care</a></li>
+          <li><a href="#">Diagnostics &amp; Lab</a></li>
+          <li><a href="#">Radiology</a></li>
+          <li><a href="#">Surgery</a></li>
+          <li><a href="#">ICU &amp; Critical Care</a></li>
+          <li><a href="#">Blood Bank</a></li>
+          <li><a href="#">Pharmacy</a></li>
+          <li><a href="#">Health Packages</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <h6 class="footer-heading">Get in Touch</h6>
+        <div class="footer-contact-item">
+          <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div><strong>Address</strong><p>42 Healthcare Avenue, Medical District<br>New York, NY 10001, USA</p></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="icon"><i class="fa-solid fa-phone"></i></div>
+          <div><strong>Phone</strong><p><a href="tel:+12125550199" style="color:inherit;">+1 (212) 555-0199</a> (General)<br><a href="tel:+18001234567" style="color:inherit;">1-800-123-4567</a> (Toll-Free)</p></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="icon"><i class="fa-regular fa-clock"></i></div>
+          <div><strong>Working Hours</strong><p>OPD: Mon–Sat 8:00 AM – 8:00 PM<br>Emergency: 24 Hours / 7 Days</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <p>© 2026 MediCare General Hospital &amp; Research Centre. All Rights Reserved.</p>
+        <div class="d-flex gap-3">
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:.78rem;text-decoration:none;">Privacy Policy</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:.78rem;text-decoration:none;">Terms of Use</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:.78rem;text-decoration:none;">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/filter.js"></script>
+
+<script>
+  /* ── View Toggle ── */
+  function setView(v) {
+    if (v === 'grid') {
+      document.getElementById('grid-view').style.display = '';
+      document.getElementById('list-view').style.display = 'none';
+      document.getElementById('gridViewBtn').classList.replace('btn-outline-secondary','btn-primary');
+      document.getElementById('listViewBtn').classList.replace('btn-primary','btn-outline-secondary');
+    } else {
+      document.getElementById('grid-view').style.display = 'none';
+      document.getElementById('list-view').style.display = '';
+      document.getElementById('listViewBtn').classList.replace('btn-outline-secondary','btn-primary');
+      document.getElementById('gridViewBtn').classList.replace('btn-primary','btn-outline-secondary');
+    }
+  }
+
+  /* ── Open Doctor Profile Modal ── */
+  function openDocModal(key) {
+    const modal = new bootstrap.Modal(document.getElementById('docProfileModal'));
+    modal.show();
+  }
+
+  /* ── Open Booking Modal ── */
+  function openBooking(key) {
+    currentStep = 1;
+    updateStepUI();
+    const modal = new bootstrap.Modal(document.getElementById('bookingModal'));
+    modal.show();
+  }
+
+  /* ── Quick Hero Search ── */
+  function quickSearch(term) {
+    document.getElementById('heroSearch').value = term;
+    filterDoctors();
+  }
+
+  /* ── Doctor Filter Logic ── */
+  const docItems = document.querySelectorAll('.doc-item');
+  const sidebarSearch = document.getElementById('sidebarSearch');
+  const docResultsCount = document.getElementById('doc-results-count');
+
+  function filterDoctors() {
+    const query = (document.getElementById('heroSearch').value || sidebarSearch.value || '').toLowerCase();
+    const checkedDepts = [...document.querySelectorAll('.filter-check input[type=checkbox]:checked')].map(c => c.value);
+    const avail = document.querySelector('input[name="avail"]:checked')?.value || 'any';
+    let visible = 0;
+    docItems.forEach(item => {
+      const name = item.dataset.name?.toLowerCase() || '';
+      const dept = item.dataset.dept || '';
+      const itemAvail = item.dataset.avail || '';
+      const matchName = name.includes(query);
+      const matchDept = checkedDepts.length === 0 || checkedDepts.includes(dept);
+      const matchAvail = avail === 'any' || itemAvail === avail;
+      if (matchName && matchDept && matchAvail) { item.style.display = ''; visible++; }
+      else { item.style.display = 'none'; }
+    });
+    docResultsCount.innerHTML = `Showing <strong>${visible}</strong> doctors`;
+  }
+
+  sidebarSearch.addEventListener('input', filterDoctors);
+  document.getElementById('heroSearch').addEventListener('input', filterDoctors);
+  document.querySelectorAll('.filter-check input, input[name="avail"]').forEach(el => el.addEventListener('change', filterDoctors));
+
+  function clearAllFilters() {
+    document.getElementById('sidebarSearch').value = '';
+    document.getElementById('heroSearch').value = '';
+    document.querySelectorAll('.filter-check input').forEach(c => c.checked = false);
+    document.getElementById('avAll').checked = true;
+    document.getElementById('gAll').checked = true;
+    document.getElementById('r0').checked = true;
+    filterDoctors();
+  }
+
+  /* ── Time Slot Selection ── */
+  function selectSlot(el) {
+    if (el.classList.contains('booked')) return;
+    document.querySelectorAll('.time-slot.selected').forEach(s => s.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+
+  /* ── Booking Step Logic ── */
+  let currentStep = 1;
+  const totalSteps = 4;
+
+  function updateStepUI() {
+    for (let i = 1; i <= totalSteps; i++) {
+      const step = document.getElementById(`bstep-${i}`);
+      const dot  = document.getElementById(`step-dot-${i}`);
+      if (step) step.classList.toggle('active', i === currentStep);
+      if (dot) {
+        dot.classList.remove('active', 'done');
+        if (i < currentStep) dot.classList.add('done');
+        else if (i === currentStep) dot.classList.add('active');
+      }
+    }
+    document.getElementById('btn-prev').style.display   = currentStep > 1 ? '' : 'none';
+    document.getElementById('btn-cancel').style.display = currentStep === 1 ? '' : 'none';
+    document.getElementById('btn-next').style.display   = currentStep < totalSteps ? '' : 'none';
+    document.getElementById('btn-submit').style.display = currentStep === totalSteps ? '' : 'none';
+  }
+
+  function stepNav(dir) {
+    currentStep = Math.max(1, Math.min(totalSteps, currentStep + dir));
+    updateStepUI();
+  }
+
+  function submitBooking() {
+    const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
+    modal.hide();
+    setTimeout(() => {
+      const toast = document.createElement('div');
+      toast.className = 'position-fixed bottom-0 end-0 p-3';
+      toast.style.zIndex = '9999';
+      toast.innerHTML = `<div class="toast show align-items-center text-white bg-success border-0 shadow-lg" style="border-radius:12px;">
+        <div class="d-flex"><div class="toast-body"><i class="fa-solid fa-circle-check me-2"></i><strong>Appointment Confirmed!</strong> A confirmation has been sent to your phone &amp; email.</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" onclick="this.closest('.position-fixed').remove()"></button></div></div>`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 5500);
+    }, 400);
+  }
+
+  /* ── Calendar Grid ── */
+  function buildCalendar() {
+    const grid = document.getElementById('calendar-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    const today = new Date();
+    const firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
+    const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+    for (let i = 0; i < firstDay; i++) {
+      const cell = document.createElement('div');
+      cell.className = 'date-cell disabled';
+      grid.appendChild(cell);
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const cell = document.createElement('div');
+      cell.className = 'date-cell';
+      cell.textContent = d;
+      if (d === today.getDate()) cell.classList.add('today');
+      if (d < today.getDate()) cell.classList.add('disabled');
+      else cell.onclick = function() {
+        document.querySelectorAll('.date-cell.selected').forEach(c => c.classList.remove('selected'));
+        this.classList.add('selected');
+      };
+      grid.appendChild(cell);
+    }
+  }
+  buildCalendar();
+</script>
+</body>
+</html>

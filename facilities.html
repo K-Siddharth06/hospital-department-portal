@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World-Class Facilities & Infrastructure | MediCare General Hospital</title>
+  <meta name="description" content="Explore state-of-the-art facilities at MediCare General Hospital: 500+ beds, 25 advanced OTs, 60 ICU beds, 3T MRI, robotic surgery suites, 24/7 pharmacy, and luxury patient accommodations." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a2342'/><path d='M50 20 v60 M20 50 h60' stroke='%2300b4d8' stroke-width='16' stroke-linecap='round'/></svg>" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <!-- Google Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* In-page styling enhancements for Facilities Showcase */
+    :root {
+      --mc-navy: #0a2342;
+      --mc-teal: #00b4d8;
+      --mc-teal-dark: #0077b6;
+      --mc-teal-light: #caf0f8;
+      --mc-red: #e63946;
+      --mc-bg: #f8fafc;
+      --mc-text: #334155;
+      --mc-heading: #0f172a;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--mc-text);
+      background-color: #fff;
+    }
+
+    .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Emergency Strip */
+    .top-emergency-strip {
+      background: #e63946;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      padding: 7px 0;
+    }
+    .pulse-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      background: #fff;
+      border-radius: 50%;
+      margin-right: 6px;
+      animation: pulseAnim 1.4s infinite;
+    }
+    @keyframes pulseAnim {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+      70% { transform: scale(1.2); box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+    }
+
+    /* Top Bar */
+    .header-topbar {
+      background: #07192f;
+      color: #94a3b8;
+      font-size: 0.82rem;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .header-topbar a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .header-topbar a:hover {
+      color: #00b4d8;
+    }
+
+    /* Navbar */
+    .main-navbar {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+    }
+    .brand-logo-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0a2342 0%, #00b4d8 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-right: 12px;
+      box-shadow: 0 4px 12px rgba(0, 180, 216, 0.3);
+    }
+    .brand-text-main {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #0a2342;
+      line-height: 1.1;
+    }
+    .brand-text-main span {
+      color: #00b4d8;
+    }
+    .brand-text-sub {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #64748b;
+      font-weight: 600;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: #1e293b !important;
+      padding: 0.6rem 0.9rem !important;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #00b4d8 !important;
+      background: rgba(0, 180, 216, 0.08);
+    }
+
+    /* Hero Banner */
+    .facilities-hero {
+      background: linear-gradient(135deg, #06182c 0%, #0a2f58 60%, #084c78 100%);
+      color: #fff;
+      padding: 85px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .facilities-hero::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 180, 216, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Stat Box in Hero */
+    .hero-stat-card {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 22px 18px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .hero-stat-card:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-4px);
+    }
+    .hero-stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #00b4d8;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    .hero-stat-label {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 600;
+    }
+
+    /* Facility Feature Cards */
+    .facility-card {
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid #e2e8f0;
+      padding: 28px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .facility-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 36px rgba(0, 180, 216, 0.15);
+      border-color: #00b4d8;
+    }
+    .facility-icon-wrap {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+    }
+    .facility-card:hover .facility-icon-wrap {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .facility-badge {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 30px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* Interactive Floor Plan */
+    .floor-pill-btn {
+      border: 1px solid #cbd5e1;
+      background: #fff;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-align: left;
+      transition: all 0.25s;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .floor-pill-btn:hover, .floor-pill-btn.active {
+      background: #0a2342;
+      color: #fff;
+      border-color: #0a2342;
+      box-shadow: 0 6px 18px rgba(10, 35, 66, 0.25);
+    }
+    .floor-detail-display {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    /* Room Cards */
+    .room-tier-card {
+      background: #fff;
+      border-radius: 20px;
+      border: 2px solid #e2e8f0;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.35s;
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .room-tier-card.featured {
+      border-color: #00b4d8;
+      box-shadow: 0 12px 32px rgba(0, 180, 216, 0.16);
+      transform: scale(1.03);
+    }
+    .room-tier-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #00b4d8, #0077b6);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 16px;
+      border-radius: 30px;
+    }
+    .room-price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #0a2342;
+      margin: 15px 0 5px;
+    }
+    .room-price span {
+      font-size: 0.95rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    /* Tech Highlighting Cards */
+    .tech-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 24px;
+      height: 100%;
+      transition: all 0.3s;
+    }
+    .tech-card:hover {
+      border-color: #00b4d8;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Footer styling */
+    .site-footer {
+      background: #07192f;
+      color: #94a3b8;
+      padding: 70px 0 25px;
+      font-size: 0.92rem;
+    }
+    .site-footer h5 {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 22px;
+      position: relative;
+    }
+    .site-footer h5::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 32px;
+      height: 3px;
+      background: #00b4d8;
+      border-radius: 2px;
+    }
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-links li {
+      margin-bottom: 11px;
+    }
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .footer-links a:hover {
+      color: #00b4d8;
+      padding-left: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       1. TOP EMERGENCY BANNER
+  ============================================================ -->
+  <div class="top-emergency-strip">
+    <div class="container-fluid px-lg-5">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div>
+          <span class="pulse-dot"></span>
+          <strong>24/7 Level 1 Trauma & Emergency Hotline:</strong>
+          <a href="tel:108" class="text-white text-decoration-underline ms-1 me-2 fw-bold">Call 108</a>
+          <span class="d-none d-md-inline text-white-50">|</span>
+          <span class="ms-2 d-none d-sm-inline"><i class="fa-solid fa-truck-medical me-1"></i> Ambulance Dispatch: <strong>+1 (800) 911-MEDI</strong></span>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <span class="d-none d-lg-inline text-white-50"><i class="fa-solid fa-shield-heart me-1"></i> JCI & NABH Accredited Facility</span>
+          <a href="contact.html" class="badge bg-white text-danger text-decoration-none px-2 py-1">Quick Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       2. TOP CONTACT BAR
+  ============================================================ -->
+  <div class="header-topbar d-none d-lg-block">
+    <div class="container-fluid px-lg-5">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span class="me-3"><i class="fa-solid fa-location-dot text-info me-1"></i> 42 Wellness Boulevard, Healthcare City</span>
+          <span class="me-3"><i class="fa-solid fa-clock text-info me-1"></i> Visiting Hours: 10:00 AM – 1:00 PM & 4:30 PM – 7:30 PM</span>
+        </div>
+        <div class="col-lg-5 text-end">
+          <span class="me-3"><i class="fa-solid fa-envelope text-info me-1"></i> facilities@medicarehospital.org</span>
+          <a href="tel:+18006243427" class="me-2"><i class="fa-solid fa-phone text-info me-1"></i> +1 (800) 624-3427</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       3. MAIN STICKY NAVBAR
+  ============================================================ -->
+  <nav class="navbar navbar-expand-lg main-navbar sticky-top">
+    <div class="container-fluid px-lg-5">
+      <!-- Hospital Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <div class="brand-logo-box">
+          <i class="fa-solid fa-hospital"></i>
+        </div>
+        <div>
+          <div class="brand-text-main">Medi<span>Care</span></div>
+          <div class="brand-text-sub">General Hospital</div>
+        </div>
+      </a>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarMenu" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars-staggered text-navy fs-4"></i>
+      </button>
+
+      <!-- Nav Items -->
+      <div class="collapse navbar-collapse" id="mainNavbarMenu">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"><i class="fa-solid fa-house-chimney fa-xs me-1"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="departments.html"><i class="fa-solid fa-hospital-user fa-xs me-1"></i> Departments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="doctors.html"><i class="fa-solid fa-user-doctor fa-xs me-1"></i> Doctors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html"><i class="fa-solid fa-hand-holding-medical fa-xs me-1"></i> Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="facilities.html"><i class="fa-solid fa-building-columns fa-xs me-1"></i> Facilities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html"><i class="fa-solid fa-phone-volume fa-xs me-1"></i> Contact</a>
+          </li>
+        </ul>
+
+        <!-- Action CTAs -->
+        <div class="d-flex align-items-center gap-2">
+          <a href="tel:108" class="btn btn-sm btn-outline-danger rounded-pill px-3 fw-bold">
+            <i class="fa-solid fa-truck-medical me-1"></i> Emergency
+          </a>
+          <a href="contact.html#appointment" class="btn btn-sm btn-primary rounded-pill px-3 fw-semibold" style="background:#00b4d8; border-color:#00b4d8;">
+            <i class="fa-regular fa-calendar-check me-1"></i> Book Appointment
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       4. HERO BANNER & STATS STRIP
+  ============================================================ -->
+  <header class="facilities-hero">
+    <div class="container px-lg-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-3">
+          <li class="breadcrumb-item"><a href="index.html" class="text-info text-decoration-none"><i class="fa-solid fa-house fa-xs me-1"></i>Home</a></li>
+          <li class="breadcrumb-item active text-white" aria-current="page">Facilities & Infrastructure</li>
+        </ol>
+      </nav>
+
+      <div class="row align-items-center gy-4 mb-5">
+        <div class="col-lg-8">
+          <span class="badge bg-info text-dark px-3 py-2 rounded-pill fw-bold mb-3 text-uppercase letter-spacing-1">
+            <i class="fa-solid fa-award me-1"></i> World-Class Infrastructure
+          </span>
+          <h1 class="display-4 fw-bold font-display text-white mb-3">
+            Advanced Medical Facilities Designed for Healing & Precision
+          </h1>
+          <p class="lead text-light opacity-90 mb-0" style="max-width: 720px; font-weight: 300;">
+            MediCare General Hospital spans over 1,200,000 sq. ft. of cutting-edge clinical spaces, robotic surgical wings, specialized intensive care units, and comfortable healing suites tailored to international standards.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <a href="#floor-map" class="btn btn-outline-light rounded-pill px-4 py-2 me-2 mb-2">
+            <i class="fa-solid fa-map-location-dot me-2"></i> Interactive Floor Map
+          </a>
+          <a href="#virtual-tour" class="btn btn-info text-dark rounded-pill px-4 py-2 mb-2 fw-semibold">
+            <i class="fa-solid fa-street-view me-2"></i> Virtual Tour
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Ribbon -->
+      <div class="row g-3">
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="hero-stat-card">
+            <div class="hero-stat-number">550+</div>
+            <div class="hero-stat-label">Total Beds</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="hero-stat-card">
+            <div class="hero-stat-number">25</div>
+            <div class="hero-stat-label">Modular OTs</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="hero-stat-card">
+            <div class="hero-stat-number">65</div>
+            <div class="hero-stat-label">Critical ICUs</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="hero-stat-card">
+            <div class="hero-stat-number">10</div>
+            <div class="hero-stat-label">Tower Floors</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="hero-stat-card">
+            <div class="hero-stat-number">24/7</div>
+            <div class="hero-stat-label">Pharmacy & Lab</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="hero-stat-card">
+            <div class="hero-stat-number">100%</div>
+            <div class="hero-stat-label">HEPA Filtered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       5. CORE HOSPITAL FACILITIES SHOWCASE
+  ============================================================ -->
+  <section class="py-5" style="background-color: #f8fafc;">
+    <div class="container px-lg-4 py-4">
+      <div class="text-center mb-5">
+        <span class="text-primary fw-bold text-uppercase letter-spacing-1">Pillars of Care</span>
+        <h2 class="font-display fw-bold text-navy mt-1">Specialized Medical Infrastructure</h2>
+        <p class="text-muted mx-auto" style="max-width: 650px;">
+          From emergency triage to post-operative recovery, our purpose-built medical suites ensure the fastest response times and lowest infection rates.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Facility 1: Emergency & Trauma -->
+        <div class="col-md-6 col-lg-4">
+          <div class="facility-card">
+            <span class="facility-badge bg-danger text-white">24/7 Emergency</span>
+            <div class="facility-icon-wrap" style="background:#fee2e2; color:#ef4444;">
+              <i class="fa-solid fa-truck-medical"></i>
+            </div>
+            <h4 class="fw-bold text-navy mb-2">Level-1 Trauma & Emergency Wing</h4>
+            <p class="text-muted small mb-3">
+              Equipped with 18 dedicated resuscitation bays, immediate trauma triage, dedicated emergency CT scanner, and direct helipad transport link.
+            </p>
+            <ul class="list-unstyled small text-secondary mb-4 mt-auto">
+              <li><i class="fa-solid fa-check text-success me-2"></i> Dedicated emergency triage nurses</li>
+              <li><i class="fa-solid fa-check text-success me-2"></i> Direct catheterization lab transfer</li>
+              <li><i class="fa-solid fa-check text-success me-2"></i> Zero-wait disaster response suite</li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <span class="small fw-semibold text-secondary"><i class="fa-solid fa-location-dot me-1 text-primary"></i> Ground Floor (Wing A)</span>
+              <a href="tel:108" class="btn btn-sm btn-outline-danger rounded-pill px-3">Call Hotline</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facility 2: Modular OTs -->
+        <div class="col-md-6 col-lg-4">
+          <div class="facility-card">
+            <span class="facility-badge bg-primary text-white">Robotic Enabled</span>
+            <div class="facility-icon-wrap" style="background:#e0f2fe; color:#0284c7;">
+              <i class="fa-solid fa-procedures"></i>
+            </div>
+            <h4 class="fw-bold text-navy mb-2">25 Modular Operation Theatres</h4>
+            <p class="text-muted small mb-3">
+              Laminar airflow with HEPA-filtered cleanrooms, digital surgical integration panels, and Da Vinci Xi Robotic Surgery suites for sub-millimeter precision.
+            </p>
+            <ul class="list-unstyled small text-secondary mb-4 mt-auto">
+              <li><i class="fa-solid fa-check text-success me-2"></i> Class 100 sterile environment</li>
+              <li><i class="fa-solid fa-check text-success me-2"></i> Integrated 4K laparoscopic imaging</li>
+              <li><i class="fa-solid fa-check text-success me-2"></i> Intraoperative MRI & fluoroscopy</li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <span class="small fw-semibold text-secondary"><i class="fa-solid fa-location-dot me-1 text-primary"></i> 3rd & 4th Floors</span>
+              <span class="badge bg-light text-dark border">Surgeon Supervised</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facility 3: Intensive Care Units -->
+        <div class="col-md-6 col-lg-4">
+          <div class="facility-card">
+            <span class="facility-badge bg-info text-dark">1:1 Nurse Ratio</span>
+            <div class="facility-icon-wrap" style="background:#e0f2fe; color:#0369a1;">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <h4 class="fw-bold text-navy mb-2">Comprehensive Intensive Care</h4>
+            <p class="text-muted small mb-3">
+              65 isolation and multi-parameter monitored beds divided into MICU, SICU, CCU, NICU (Neonatal), and PICU (Pediatric) with central telemetry.
+            </p>
+            <ul class="list-unstyled small text-secondary mb-4 mt-auto">
+              <li><i class="fa-solid fa-check text-success me-2"></i> Dedicated ECMO & dialysis bays</li>
+              <li><i class="fa-solid fa-check text-success me-2"></i> Negative pressure airborne isolation</li>
+              <li><i class="fa-solid fa-check text-success me-2"></i> 24/7 Intensivist bedside presence</li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <span class="small fw-semibold text-secondary"><i class="fa-solid fa-location-dot me-1 text-primary"></i> 2nd Floor (Tower B)</span>
+              <span class="badge bg-light text-dark border">Strict Sterility</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facility 4: Radiology & Imaging -->
+        <div class="col-md-6 col-lg-4">
+          <div class="facility-card">
+            <span class="facility-badge bg-success text-white">Full Digital</span>
+            <div class="facility-icon-wrap" style="background:#dcfce7; color:#16a34a;">
+              <i class="fa-solid fa-radiation"></i>
+            </div>
+            <h4 class="fw-bold text-navy mb-2">Advanced Diagnostic Radiology</h4>
+            <p class="text-muted small mb-3">
+              3.0 Tesla Silent MRI, 256-Slice Dual-Source Cardiac CT, 4D Ultrasound, Digital Mammography with 3D Tomosynthesis, and Bone Densitometry (DEXA).
+            </p>
+            <ul class="list-unstyled small text-secondary mb-4 mt-auto">
+              <li><i class="fa-solid fa-check text-success me-2"></i> Cloud PACS digital reports in 2 hours</li>
+              <li><i class="fa-solid fa-check text-success me-2"></i> Ultra-low radiation dose protocols</li>
+              <li><i class="fa-solid fa-check text-success me-2"></i> Non-claustrophobic wide-bore scanner</li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <span class="small fw-semibold text-secondary"><i class="fa-solid fa-location-dot me-1 text-primary"></i> 1st Basement Level</span>
+              <a href="services.html" class="btn btn-sm btn-outline-primary rounded-pill px-3">Book Scan</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facility 5: Robotic & Automated Pharmacy -->
+        <div class="col-md-6 col-lg-4">
+          <div class="facility-card">
+            <span class="facility-badge bg-warning text-dark">24 Hours Open</span>
+            <div class="facility-icon-wrap" style="background:#fef3c7; color:#d97706;">
+              <i class="fa-solid fa-pills"></i>
+            </div>
+            <h4 class="fw-bold text-navy mb-2">24/7 Smart Inpatient Pharmacy</h4>
+            <p class="text-muted small mb-3">
+              Fully automated pneumatic tube distribution network delivering medications directly to wards in under 3 minutes with barcode verification safety.
+            </p>
+            <ul class="list-unstyled small text-secondary mb-4 mt-auto">
+              <li><i class="fa-solid fa-check text-success me-2"></i> Robotic unit-dose pill packaging</li>
+              <li><i class="fa-solid fa-check text-success me-2"></i> 100% cold-chain refrigeration units</li>
+              <li><i class="fa-solid fa-check text-success me-2"></i> Clinical pharmacist drug interaction checks</li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <span class="small fw-semibold text-secondary"><i class="fa-solid fa-location-dot me-1 text-primary"></i> Ground Floor Lobby</span>
+              <span class="badge bg-success text-white">Drive-Thru Available</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facility 6: Blood Bank & Component Lab -->
+        <div class="col-md-6 col-lg-4">
+          <div class="facility-card">
+            <span class="facility-badge bg-danger text-white">NABH Certified</span>
+            <div class="facility-icon-wrap" style="background:#ffe4e6; color:#e11d48;">
+              <i class="fa-solid fa-droplet"></i>
+            </div>
+            <h4 class="fw-bold text-navy mb-2">Transfusion & Component Lab</h4>
+            <p class="text-muted small mb-3">
+              State-of-the-art blood bank performing leukoreduction, plateletpheresis, apheresis, and cryoprecipitate processing with automated nucleic acid testing (NAT).
+            </p>
+            <ul class="list-unstyled small text-secondary mb-4 mt-auto">
+              <li><i class="fa-solid fa-check text-success me-2"></i> Rare blood group registry & standby</li>
+              <li><i class="fa-solid fa-check text-success me-2"></i> Chemiluminescence infectious disease screening</li>
+              <li><i class="fa-solid fa-check text-success me-2"></i> 24/7 emergency blood issue window</li>
+            </ul>
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+              <span class="small fw-semibold text-secondary"><i class="fa-solid fa-location-dot me-1 text-primary"></i> 1st Floor (Central Wing)</span>
+              <a href="contact.html" class="btn btn-sm btn-outline-danger rounded-pill px-3">Donor Registry</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. INTERACTIVE FLOOR-BY-FLOOR DIRECTORY
+  ============================================================ -->
+  <section id="floor-map" class="py-5 bg-white">
+    <div class="container px-lg-4 py-4">
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-8">
+          <span class="text-primary fw-bold text-uppercase letter-spacing-1">Wayfinding & Navigation</span>
+          <h2 class="font-display fw-bold text-navy mt-1">Interactive Hospital Directory</h2>
+          <p class="text-muted mb-0">Select any floor level below to view department wings, nursing stations, facilities, and elevator accesses.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+          <span class="badge bg-light text-navy border p-2 px-3 fw-normal">
+            <i class="fa-solid fa-wheelchair me-1 text-primary"></i> 100% ADA Wheelchair Accessible
+          </span>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Floor Selector Tabs -->
+        <div class="col-lg-4">
+          <div class="d-flex flex-column gap-2" id="floorTabList">
+            <button class="floor-pill-btn active" onclick="switchFloor('floor9', this)">
+              <span><i class="fa-solid fa-building me-2 text-primary"></i> <strong>9th Floor:</strong> Presidential Suites</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <button class="floor-pill-btn" onclick="switchFloor('floor7', this)">
+              <span><i class="fa-solid fa-bed-pulse me-2 text-primary"></i> <strong>7th – 8th Floor:</strong> Deluxe Inpatient Wards</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <button class="floor-pill-btn" onclick="switchFloor('floor5', this)">
+              <span><i class="fa-solid fa-baby me-2 text-primary"></i> <strong>5th – 6th Floor:</strong> Maternity, NICU & Pediatrics</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <button class="floor-pill-btn" onclick="switchFloor('floor3', this)">
+              <span><i class="fa-solid fa-scissors me-2 text-primary"></i> <strong>3rd – 4th Floor:</strong> Surgical Suites & Robotic OTs</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <button class="floor-pill-btn" onclick="switchFloor('floor2', this)">
+              <span><i class="fa-solid fa-heart-pulse me-2 text-primary"></i> <strong>2nd Floor:</strong> Intensive Care & Cath Lab</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <button class="floor-pill-btn" onclick="switchFloor('floor1', this)">
+              <span><i class="fa-solid fa-user-doctor me-2 text-primary"></i> <strong>1st Floor:</strong> OPD Clinics & Consultation Suites</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <button class="floor-pill-btn" onclick="switchFloor('floorG', this)">
+              <span><i class="fa-solid fa-truck-medical me-2 text-danger"></i> <strong>Ground Floor:</strong> Emergency, Triage, Pharmacy & Reception</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+            <button class="floor-pill-btn" onclick="switchFloor('floorB', this)">
+              <span><i class="fa-solid fa-radiation me-2 text-primary"></i> <strong>Basement Level:</strong> Radiology, MRI, CT & Nuclear Medicine</span>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Floor Detail Window -->
+        <div class="col-lg-8">
+          <div class="floor-detail-display" id="floorDisplayBox">
+            <!-- Default Content: 9th Floor -->
+            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+              <div>
+                <span class="badge bg-primary px-3 py-2 rounded-pill fw-bold">Level 9 Tower Wing</span>
+                <h3 class="fw-bold text-navy mt-2 mb-0">Presidential & Executive Medical Suites</h3>
+              </div>
+              <div class="text-end">
+                <span class="badge bg-success-subtle text-success border px-3 py-2 fw-semibold">
+                  <i class="fa-solid fa-shield me-1"></i> Private Concierge & Security
+                </span>
+              </div>
+            </div>
+
+            <p class="text-muted">
+              The 9th floor houses our ultra-luxurious VIP healing pavilions designed for patients requiring executive privacy, family accommodations, dedicated 24-hour nursing teams, and personal catering chefs.
+            </p>
+
+            <div class="row g-3 my-3">
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded-3 border">
+                  <h6 class="fw-bold text-navy mb-2"><i class="fa-solid fa-door-open text-primary me-2"></i> Accommodations</h6>
+                  <p class="small text-muted mb-0">12 Presidential Suites with attached attendant bedroom, conference desk, kitchenette, and panoramic skyline view.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded-3 border">
+                  <h6 class="fw-bold text-navy mb-2"><i class="fa-solid fa-user-nurse text-primary me-2"></i> Clinical Coverage</h6>
+                  <p class="small text-muted mb-0">Direct tele-monitoring linked to ICU command center, private in-suite medication dispensers, and lead specialist bedside rounds.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded-3 border">
+                  <h6 class="fw-bold text-navy mb-2"><i class="fa-solid fa-elevator text-primary me-2"></i> Accessibility</h6>
+                  <p class="small text-muted mb-0">Express private elevator from basement VIP parking bay directly into the suite reception lounge.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded-3 border">
+                  <h6 class="fw-bold text-navy mb-2"><i class="fa-solid fa-helicopter text-primary me-2"></i> Rooftop Access</h6>
+                  <p class="small text-muted mb-0">Direct stairwell and stretcher lift link to the rooftop emergency medical helipad.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-3 border-top mt-4">
+              <span class="text-secondary small"><i class="fa-solid fa-phone me-1 text-primary"></i> VIP Wing Desk: Ext. 9001 / 9002</span>
+              <a href="contact.html" class="btn btn-navy text-white btn-sm px-4 rounded-pill" style="background:#0a2342;">Schedule In-Person Viewing</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. PATIENT ROOMS & ACCOMMODATION TIERS
+  ============================================================ -->
+  <section class="py-5" style="background: #f1f5f9;">
+    <div class="container px-lg-4 py-4">
+      <div class="text-center mb-5">
+        <span class="text-primary fw-bold text-uppercase letter-spacing-1">Inpatient Comfort</span>
+        <h2 class="font-display fw-bold text-navy mt-1">Healing Accommodation Options</h2>
+        <p class="text-muted mx-auto" style="max-width: 600px;">
+          Clean, sound-insulated, and medically integrated rooms tailored for patient comfort, safety, and swift recovery.
+        </p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <!-- Room 1: General Multi-Bed Ward -->
+        <div class="col-md-6 col-lg-3">
+          <div class="room-tier-card">
+            <h5 class="fw-bold text-navy mb-1">Standard Multi-Bed</h5>
+            <p class="text-muted small">Economy Inpatient Ward</p>
+            <div class="room-price">$45 <span>/ day</span></div>
+            <p class="small text-secondary mb-3">4-bed partitioned layout with maximum privacy curtains.</p>
+            <hr class="my-3 text-muted" />
+            <ul class="list-unstyled text-start small text-secondary flex-grow-1">
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> 24/7 Nursing call button</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Adjustable electronic bed</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Shared clean washrooms</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Central air cooling</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Dietitian planned meals</li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline-secondary rounded-pill w-100 mt-3 btn-sm">Inquire Availability</a>
+          </div>
+        </div>
+
+        <!-- Room 2: Semi-Private Twin Sharing -->
+        <div class="col-md-6 col-lg-3">
+          <div class="room-tier-card">
+            <h5 class="fw-bold text-navy mb-1">Twin Semi-Private</h5>
+            <p class="text-muted small">Shared Between 2 Patients</p>
+            <div class="room-price">$95 <span>/ day</span></div>
+            <p class="small text-secondary mb-3">Two beds with partition divider and attendant seating.</p>
+            <hr class="my-3 text-muted" />
+            <ul class="list-unstyled text-start small text-secondary flex-grow-1">
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Everything in Standard</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Attached private bathroom</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Dedicated LCD television</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Attendant recline couch</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> High-speed guest Wi-Fi</li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline-primary rounded-pill w-100 mt-3 btn-sm">Inquire Availability</a>
+          </div>
+        </div>
+
+        <!-- Room 3: Deluxe Single Private (Featured) -->
+        <div class="col-md-6 col-lg-3">
+          <div class="room-tier-card featured">
+            <div class="room-tier-badge">Most Popular</div>
+            <h5 class="fw-bold text-navy mb-1">Deluxe Private Single</h5>
+            <p class="text-muted small">Sole Occupancy Suite</p>
+            <div class="room-price text-primary">$180 <span>/ day</span></div>
+            <p class="small text-secondary mb-3">Private healing sanctuary with personal family sofa-bed.</p>
+            <hr class="my-3 text-muted" />
+            <ul class="list-unstyled text-start small text-secondary flex-grow-1">
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i> <strong>Exclusive 1-Patient Room</strong></li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i> Motorized 5-function ICU bed</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i> Smart TV with Netflix & cable</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i> Mini-fridge & electric kettle</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i> En-suite hot water shower</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-primary me-2"></i> Attendant meal included</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary rounded-pill w-100 mt-3 btn-sm" style="background:#00b4d8; border-color:#00b4d8;">Reserve Room</a>
+          </div>
+        </div>
+
+        <!-- Room 4: Presidential Suite -->
+        <div class="col-md-6 col-lg-3">
+          <div class="room-tier-card">
+            <h5 class="fw-bold text-navy mb-1">Presidential Pavilion</h5>
+            <p class="text-muted small">2-Room Luxury Living</p>
+            <div class="room-price">$450 <span>/ day</span></div>
+            <p class="small text-secondary mb-3">Master patient room plus adjacent family living room.</p>
+            <hr class="my-3 text-muted" />
+            <ul class="list-unstyled text-start small text-secondary flex-grow-1">
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> <strong>Dedicated 1:1 Nurse</strong></li>
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Living room with sofa set</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Microwave & dining kitchenette</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> VIP parking & elevator access</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Gourmet á la carte menus</li>
+              <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i> Round-the-clock doctor visits</li>
+            </ul>
+            <a href="contact.html" class="btn btn-outline-dark rounded-pill w-100 mt-3 btn-sm">VIP Booking Desk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. HIGH-TECH MEDICAL EQUIPMENT & INNOVATION
+  ============================================================ -->
+  <section class="py-5 bg-white">
+    <div class="container px-lg-4 py-4">
+      <div class="row align-items-end mb-5">
+        <div class="col-lg-8">
+          <span class="text-primary fw-bold text-uppercase letter-spacing-1">Next-Generation Technology</span>
+          <h2 class="font-display fw-bold text-navy mt-1">Medical Technology That Saves Lives</h2>
+          <p class="text-muted mb-0">We invest continuously in top-tier medical equipment to guarantee minimal invasiveness, maximum precision, and rapid patient recovery.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+          <a href="services.html" class="btn btn-outline-primary rounded-pill px-4">View All Diagnostic Services</a>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="tech-card">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="bg-primary text-white rounded-3 p-3 fs-4"><i class="fa-solid fa-robot"></i></div>
+              <div>
+                <h5 class="fw-bold text-navy mb-0">Da Vinci Xi Surgical Robot</h5>
+                <span class="badge bg-primary-subtle text-primary">Robotic Surgery</span>
+              </div>
+            </div>
+            <p class="small text-muted mb-0">
+              Provides 3D high-definition vision and wristed instruments that bend and rotate far beyond the human hand, resulting in micro-incisions, negligible blood loss, and faster discharge.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="tech-card">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="bg-info text-white rounded-3 p-3 fs-4"><i class="fa-solid fa-magnet"></i></div>
+              <div>
+                <h5 class="fw-bold text-navy mb-0">3.0 Tesla Silent MRI</h5>
+                <span class="badge bg-info-subtle text-info">Neuro & Ortho Imaging</span>
+              </div>
+            </div>
+            <p class="small text-muted mb-0">
+              Ultra-high-definition imaging with ambient mood lighting, noise cancellation technology, and a 70cm wide bore accommodating claustrophobic patients comfortably.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="tech-card">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="bg-danger text-white rounded-3 p-3 fs-4"><i class="fa-solid fa-heart-pulse"></i></div>
+              <div>
+                <h5 class="fw-bold text-navy mb-0">256-Slice Dual Source CT</h5>
+                <span class="badge bg-danger-subtle text-danger">Cardiac Angiography</span>
+              </div>
+            </div>
+            <p class="small text-muted mb-0">
+              Captures a complete heart scan in less than a single heartbeat (under 0.25 seconds) without needing beta-blockers, providing unparalleled vascular detail.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="tech-card">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="bg-success text-white rounded-3 p-3 fs-4"><i class="fa-solid fa-crosshairs"></i></div>
+              <div>
+                <h5 class="fw-bold text-navy mb-0">TrueBeam Linear Accelerator</h5>
+                <span class="badge bg-success-subtle text-success">Radiation Oncology</span>
+              </div>
+            </div>
+            <p class="small text-muted mb-0">
+              Delivers sub-millimeter targeted radiation to cancer tumors while automatically adjusting for patient breathing and completely sparing surrounding healthy tissues.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="tech-card">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="bg-warning text-dark rounded-3 p-3 fs-4"><i class="fa-solid fa-lungs"></i></div>
+              <div>
+                <h5 class="fw-bold text-navy mb-0">Advanced ECMO Life Support</h5>
+                <span class="badge bg-warning-subtle text-dark">Cardiopulmonary Rescue</span>
+              </div>
+            </div>
+            <p class="small text-muted mb-0">
+              Extracorporeal Membrane Oxygenation pumps and oxygenates blood outside the body, offering life-sustaining intervention for severe heart failure or ARDS lung collapse.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="tech-card">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="bg-secondary text-white rounded-3 p-3 fs-4"><i class="fa-solid fa-vial-circle-check"></i></div>
+              <div>
+                <h5 class="fw-bold text-navy mb-0">Cobas 8000 Total Lab Automation</h5>
+                <span class="badge bg-secondary-subtle text-secondary">Pathology & Genetics</span>
+              </div>
+            </div>
+            <p class="small text-muted mb-0">
+              Fully robotic track system analyzing up to 4,000 biological samples per hour with automated barcode tracking, eliminating human transcription errors completely.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. VISITOR GUIDELINES & VISITING HOURS
+  ============================================================ -->
+  <section class="py-5" style="background:#f8fafc;">
+    <div class="container px-lg-4 py-4">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <span class="text-primary fw-bold text-uppercase letter-spacing-1">Patient Safety First</span>
+          <h2 class="font-display fw-bold text-navy mt-1">Visitor Policy & Visiting Hours</h2>
+          <p class="text-muted mb-4">
+            To ensure optimal patient rest and infection prevention, we kindly request all visitors and family members to adhere strictly to our hospital visitation schedules.
+          </p>
+
+          <div class="table-responsive bg-white rounded-4 shadow-sm border p-3 mb-4">
+            <table class="table table-borderless align-middle mb-0">
+              <thead class="border-bottom text-navy">
+                <tr>
+                  <th scope="col" class="fw-bold">Department / Ward</th>
+                  <th scope="col" class="fw-bold">Morning Hours</th>
+                  <th scope="col" class="fw-bold">Evening Hours</th>
+                  <th scope="col" class="fw-bold">Max Visitors</th>
+                </tr>
+              </thead>
+              <tbody class="small text-secondary">
+                <tr class="border-bottom">
+                  <td class="fw-semibold text-navy"><i class="fa-solid fa-door-open me-2 text-primary"></i> General Inpatient</td>
+                  <td>10:00 AM – 12:00 PM</td>
+                  <td>04:30 PM – 07:30 PM</td>
+                  <td><span class="badge bg-light text-dark border">2 Persons</span></td>
+                </tr>
+                <tr class="border-bottom">
+                  <td class="fw-semibold text-navy"><i class="fa-solid fa-star me-2 text-warning"></i> Deluxe & VIP Rooms</td>
+                  <td>09:00 AM – 01:00 PM</td>
+                  <td>04:00 PM – 09:00 PM</td>
+                  <td><span class="badge bg-light text-dark border">3 Persons</span></td>
+                </tr>
+                <tr class="border-bottom">
+                  <td class="fw-semibold text-navy"><i class="fa-solid fa-heart-pulse me-2 text-danger"></i> ICU / CCU / SICU</td>
+                  <td>11:00 AM – 11:30 AM</td>
+                  <td>05:00 PM – 05:30 PM</td>
+                  <td><span class="badge bg-danger-subtle text-danger">1 Person Only</span></td>
+                </tr>
+                <tr>
+                  <td class="fw-semibold text-navy"><i class="fa-solid fa-baby me-2 text-info"></i> NICU & Maternity</td>
+                  <td>Parents: 24/7 Access</td>
+                  <td>04:00 PM – 06:00 PM</td>
+                  <td><span class="badge bg-light text-dark border">Parents Only</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="d-flex gap-3">
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-mask-face text-primary fs-5"></i>
+              <span class="small text-muted">Masks provided at nursing desks</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-hands-bubbles text-primary fs-5"></i>
+              <span class="small text-muted">Sanitization stations on all floors</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="p-4 p-md-5 bg-navy text-white rounded-4 shadow" style="background:#0a2342;">
+            <h4 class="fw-bold mb-3"><i class="fa-solid fa-bell-concierge text-info me-2"></i> Amenities for Families & Visitors</h4>
+            <p class="text-light opacity-75 small mb-4">
+              We strive to make family stays comfortable with an array of complimentary and convenient on-campus amenities.
+            </p>
+
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="fa-solid fa-wifi text-info fs-4 mt-1"></i>
+                  <div>
+                    <h6 class="fw-bold mb-1">Free Campus Wi-Fi</h6>
+                    <p class="small text-light opacity-75 mb-0">High-speed gigabit internet in all waiting lounges.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="fa-solid fa-mug-hot text-info fs-4 mt-1"></i>
+                  <div>
+                    <h6 class="fw-bold mb-1">Cafeteria & Starbucks</h6>
+                    <p class="small text-light opacity-75 mb-0">Nutritious meals and barista coffee open 24/7.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="fa-solid fa-square-parking text-info fs-4 mt-1"></i>
+                  <div>
+                    <h6 class="fw-bold mb-1">Valet & Multi-Level Parking</h6>
+                    <p class="small text-light opacity-75 mb-0">300+ covered bays with free electric vehicle charging.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="fa-solid fa-money-bill-transfer text-info fs-4 mt-1"></i>
+                  <div>
+                    <h6 class="fw-bold mb-1">24/7 ATM & Banking</h6>
+                    <p class="small text-light opacity-75 mb-0">Chase & Bank of America ATMs in ground concourse.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="fa-solid fa-hands-praying text-info fs-4 mt-1"></i>
+                  <div>
+                    <h6 class="fw-bold mb-1">Multi-Faith Prayer Room</h6>
+                    <p class="small text-light opacity-75 mb-0">Quiet meditation and reflection sanctuary on 2nd floor.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex align-items-start gap-3">
+                  <i class="fa-solid fa-language text-info fs-4 mt-1"></i>
+                  <div>
+                    <h6 class="fw-bold mb-1">Medical Translators</h6>
+                    <p class="small text-light opacity-75 mb-0">Over 15 international languages supported on-demand.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. ACCREDITATIONS STRIP
+  ============================================================ -->
+  <div class="py-4 bg-white border-top border-bottom">
+    <div class="container text-center">
+      <span class="text-uppercase small fw-bold text-muted letter-spacing-1 d-block mb-3">Recognized Globally for Clinical Excellence & Patient Safety</span>
+      <div class="d-flex justify-content-center align-items-center flex-wrap gap-4 gap-md-5 text-secondary opacity-75">
+        <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-certificate text-primary fs-3"></i><span class="fw-bold">JCI International</span></div>
+        <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-shield-halved text-success fs-3"></i><span class="fw-bold">NABH Hospital</span></div>
+        <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-microscope text-info fs-3"></i><span class="fw-bold">NABL Certified Labs</span></div>
+        <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-award text-warning fs-3"></i><span class="fw-bold">ISO 9001:2015</span></div>
+        <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-leaf text-success fs-3"></i><span class="fw-bold">IGBC Green Hospital</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       11. CALL TO ACTION STRIP
+  ============================================================ -->
+  <section class="py-5 text-white text-center" style="background: linear-gradient(135deg, #0a2342 0%, #0077b6 100%);">
+    <div class="container px-4">
+      <h2 class="display-6 fw-bold font-display mb-3">Need Assistance or a Guided Facility Tour?</h2>
+      <p class="lead text-light opacity-90 mx-auto mb-4" style="max-width: 650px;">
+        Our patient coordinators are available around the clock to assist with admissions, bed bookings, insurance pre-authorizations, and hospital walkthroughs.
+      </p>
+      <div class="d-flex justify-content-center flex-wrap gap-3">
+        <a href="contact.html#appointment" class="btn btn-info text-dark rounded-pill px-4 py-3 fw-bold">
+          <i class="fa-solid fa-calendar-check me-2"></i> Book Patient Consultation
+        </a>
+        <a href="tel:+18006243427" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">
+          <i class="fa-solid fa-phone me-2"></i> Inquire Hospital Admissions
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       12. FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="container px-lg-4">
+      <div class="row g-4 mb-5">
+        <!-- Col 1: About & Info -->
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex align-items-center mb-3">
+            <div class="brand-logo-box me-2" style="width:38px; height:38px; font-size:1.1rem;">
+              <i class="fa-solid fa-hospital"></i>
+            </div>
+            <div class="brand-text-main text-white">Medi<span style="color:#00b4d8;">Care</span></div>
+          </div>
+          <p class="text-light opacity-75 small mb-3">
+            MediCare General Hospital is a leading multidisciplinary healthcare institution committed to delivering cutting-edge, compassionate, and accessible clinical care since 1985.
+          </p>
+          <div class="d-flex gap-2 text-white">
+            <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle text-white" style="width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center;"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle text-white" style="width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center;"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle text-white" style="width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center;"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle text-white" style="width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center;"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="col-lg-2 col-md-6">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="doctors.html">Doctor Directory</a></li>
+            <li><a href="services.html">Medical Services</a></li>
+            <li><a href="facilities.html">Facilities & Beds</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Key Departments -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Specialty Centers</h5>
+          <ul class="footer-links">
+            <li><a href="departments.html">Cardiology & Heart Care</a></li>
+            <li><a href="departments.html">Neurology & Neurosurgery</a></li>
+            <li><a href="departments.html">Orthopedics & Joint Replacement</a></li>
+            <li><a href="departments.html">Oncology Comprehensive Center</a></li>
+            <li><a href="departments.html">Pediatrics & Neonatology</a></li>
+            <li><a href="departments.html">Robotic Minimally Invasive Surgery</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Emergency -->
+        <div class="col-lg-3 col-md-6">
+          <h5>Emergency & Inquiries</h5>
+          <div class="mb-3">
+            <span class="small text-danger fw-bold d-block"><i class="fa-solid fa-truck-medical me-1"></i> 24/7 Trauma Hotline:</span>
+            <a href="tel:108" class="text-white fs-5 fw-bold text-decoration-none">Call 108 / +1 (800) 911-MEDI</a>
+          </div>
+          <div class="mb-3">
+            <span class="small text-info fw-bold d-block"><i class="fa-solid fa-phone me-1"></i> General Admission Desk:</span>
+            <span class="text-white small">+1 (800) 624-3427</span>
+          </div>
+          <div>
+            <span class="small text-info fw-bold d-block"><i class="fa-solid fa-location-dot me-1"></i> Campus Address:</span>
+            <span class="text-light opacity-75 small">42 Wellness Blvd, Healthcare City, CA 90210</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary pt-3 d-flex justify-content-between align-items-center flex-wrap gap-2 text-secondary small">
+        <div>&copy; 2026 MediCare General Hospital. All Rights Reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="#" class="text-secondary text-decoration-none">Privacy Policy</a>
+          <a href="#" class="text-secondary text-decoration-none">Terms of Service</a>
+          <a href="#" class="text-secondary text-decoration-none">Patient Rights</a>
+          <a href="#" class="text-secondary text-decoration-none">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JavaScript Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Data & Logic Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Interactive Floor Map Switcher JS -->
+  <script>
+    const floorData = {
+      floor9: {
+        badge: "Level 9 Tower Wing",
+        title: "Presidential & Executive Medical Suites",
+        subtitle: "Private Concierge & Security",
+        desc: "The 9th floor houses our ultra-luxurious VIP healing pavilions designed for patients requiring executive privacy, family accommodations, dedicated 24-hour nursing teams, and personal catering chefs.",
+        boxes: [
+          { icon: "fa-door-open", title: "Accommodations", desc: "12 Presidential Suites with attached attendant bedroom, conference desk, kitchenette, and panoramic skyline view." },
+          { icon: "fa-user-nurse", title: "Clinical Coverage", desc: "Direct tele-monitoring linked to ICU command center, private in-suite medication dispensers, and lead specialist bedside rounds." },
+          { icon: "fa-elevator", title: "Accessibility", desc: "Express private elevator from basement VIP parking bay directly into the suite reception lounge." },
+          { icon: "fa-helicopter", title: "Rooftop Access", desc: "Direct stairwell and stretcher lift link to the rooftop emergency medical helipad." }
+        ],
+        ext: "Ext. 9001 / 9002"
+      },
+      floor7: {
+        badge: "Level 7 – 8 Inpatient Towers",
+        title: "Deluxe Single & Twin Inpatient Wards",
+        subtitle: "Post-Surgical Healing Floor",
+        desc: "Designed specifically for post-operative recovery and general inpatient medical management. Features natural daylight illumination, noise attenuation partitions, and central telemetry monitoring.",
+        boxes: [
+          { icon: "fa-bed", title: "Bed Capacity", desc: "120 individual rooms including 60 Deluxe Private singles and 30 twin semi-private suites." },
+          { icon: "fa-user-nurse", title: "Nursing Stations", desc: "4 central nursing pods providing immediate response times within 15 seconds of call button activation." },
+          { icon: "fa-mug-saucer", title: "Family Lounges", desc: "Complimentary coffee bar, library corner, and consultation rooms for doctor briefings on both wings." },
+          { icon: "fa-shield-halved", title: "Infection Control", desc: "HEPA-filtered positive pressure air handling with automated UV-C surface sterilization." }
+        ],
+        ext: "Ext. 7001 / 8001"
+      },
+      floor5: {
+        badge: "Level 5 – 6 Mother & Child Wing",
+        title: "Maternity Suites, NICU & Pediatric Care",
+        subtitle: "Advanced Neonatal Life Support",
+        desc: "A specialized, warmly decorated environment dedicated entirely to mothers, infants, and pediatric patients. Equipped with Level-III NICU isolation pods and LDRP (Labor, Delivery, Recovery, Postpartum) birthing suites.",
+        boxes: [
+          { icon: "fa-baby", title: "Birthing Suites", desc: "16 luxurious LDRP suites equipped with birthing tubs, telemetry fetal monitors, and family seating." },
+          { icon: "fa-heart-pulse", title: "Level-III NICU", desc: "24 specialized incubators for pre-term infants requiring advanced respiratory and nutritional support." },
+          { icon: "fa-child", title: "Pediatric Play Wing", desc: "Interactive playroom, sensory stimulation zones, and child life specialists to ease young patient anxiety." },
+          { icon: "fa-shield-heart", title: "Infant Security", desc: "Electronic RFID infant tracking and tamper-proof security sensors throughout the wing." }
+        ],
+        ext: "Ext. 5100 / 6200"
+      },
+      floor3: {
+        badge: "Level 3 – 4 Surgical Complex",
+        title: "Modular Operation Theatres & Robotic Suites",
+        subtitle: "Class 100 Sterile Environment",
+        desc: "The hospital's surgical nerve center, featuring 25 state-of-the-art modular operating rooms, Da Vinci Xi robotic surgery stations, and sterile central supply department.",
+        boxes: [
+          { icon: "fa-robot", title: "Robotic OTs", desc: "4 dedicated Da Vinci Xi robotic surgery suites performing urology, oncology, and gynecology procedures." },
+          { icon: "fa-wind", title: "Laminar Airflow", desc: "Class 100 sterile cleanrooms with HEPA filtration changing room air 25 times per hour." },
+          { icon: "fa-tv", title: "4K Video Integration", desc: "Real-time telemedicine broadcast links allowing worldwide surgical peer consultations." },
+          { icon: "fa-procedures", title: "Recovery PACU", desc: "32-bed Post-Anesthesia Care Unit with continuous hemodynamic and neurological monitoring." }
+        ],
+        ext: "Ext. 3500 / 4500"
+      },
+      floor2: {
+        badge: "Level 2 Critical Care",
+        title: "Intensive Care Units & Cardiac Cath Lab",
+        subtitle: "1:1 Nursing Critical Ratio",
+        desc: "Dedicated to the most critical patients requiring acute life support. Houses our biplane Cardiac Catheterization Lab, MICU, SICU, and Neuro-Intensive Care units.",
+        boxes: [
+          { icon: "fa-heart-pulse", title: "Biplane Cath Lab", desc: "Primary angioplasty center with door-to-balloon times averaging under 42 minutes." },
+          { icon: "fa-lungs", title: "ECMO & Dialysis", desc: "Bedside continuous renal replacement therapy (CRRT) and veno-arterial ECMO consoles." },
+          { icon: "fa-laptop-medical", title: "Central Telemetry", desc: "AI-assisted early warning system alerting physicians to subtle vital sign deteriorations." },
+          { icon: "fa-person-booth", title: "Isolation Suites", desc: "12 negative pressure airborne isolation chambers for highly infectious or vulnerable patients." }
+        ],
+        ext: "Ext. 2100 / 2200"
+      },
+      floor1: {
+        badge: "Level 1 Ambulatory Pavilion",
+        title: "Outpatient Clinics (OPD) & Specialists",
+        subtitle: "45 Specialist Consultation Suites",
+        desc: "Our primary outpatient consulting wing where 150+ senior doctors examine outpatients across all medical and surgical specializations in a calm, organized setting.",
+        boxes: [
+          { icon: "fa-stethoscope", title: "45 Consultation Rooms", desc: "Modern examination suites equipped with ultrasound, ENT scopes, and computerized patient records." },
+          { icon: "fa-ticket", title: "Smart Token Queue", desc: "Digital queue management via smartphone SMS so patients never have to wait in crowded hallways." },
+          { icon: "fa-flask-vial", title: "OPD Sample Collection", desc: "10 phlebotomy collection stations for blood tests without needing to enter inpatient wards." },
+          { icon: "fa-credit-card", title: "Insurance Desk", desc: "On-site cashless mediclaim coordinators assisting with instant approvals from over 30 insurers." }
+        ],
+        ext: "Ext. 1100 / 1200"
+      },
+      floorG: {
+        badge: "Ground Level Concourse",
+        title: "Emergency, Trauma, Main Atrium & Pharmacy",
+        subtitle: "24/7 Immediate Triage & Resuscitation",
+        desc: "The vibrant gateway of MediCare Hospital featuring our 24/7 Level-1 Trauma Center, main admissions atrium, customer relations concierge, and drive-thru pharmacy.",
+        boxes: [
+          { icon: "fa-truck-medical", title: "Emergency Wing", desc: "18 resuscitation bays, dedicated pediatric trauma bay, and immediate CT scanner access." },
+          { icon: "fa-pills", title: "24/7 Pharmacy", desc: "Robotic prescription dispensing with over 5,000 certified pharmaceuticals and home delivery service." },
+          { icon: "fa-bell-concierge", title: "Admissions Concierge", desc: "Express check-in, wheelchair porter service, and international patient greeting counter." },
+          { icon: "fa-mug-hot", title: "Food Concourse", desc: "Starbucks, healthy salad bar, and visitor resting lounges with free device charging ports." }
+        ],
+        ext: "Emergency 108 / Main: Ext. 100"
+      },
+      floorB: {
+        badge: "Basement Level 1 Diagnostic Center",
+        title: "Radiology, Nuclear Medicine & Laboratory",
+        subtitle: "Comprehensive Diagnostic Imaging",
+        desc: "Heavy diagnostic shielding facility featuring our 3.0 Tesla MRI, 256-Slice CT scanner, PET-CT scanner, automated pathology core laboratory, and blood transfusion bank.",
+        boxes: [
+          { icon: "fa-radiation", title: "Advanced MRI & CT", desc: "Vibration-dampened and magnetically shielded chambers ensuring absolute imaging clarity." },
+          { icon: "fa-vial", title: "Pathology Core Lab", desc: "Automated robotic track running hematology, biochemistry, immunology, and genetic sequencing." },
+          { icon: "fa-droplet", title: "Blood Bank", desc: "Apheresis collection units and rare component storage under constant temperature logging." },
+          { icon: "fa-car", title: "Covered Parking", desc: "300 underground visitor spaces with direct elevator access to all hospital floors." }
+        ],
+        ext: "Ext. 0101 / 0102"
+      }
+    };
+
+    function switchFloor(floorId, btnElement) {
+      // Update active button state
+      const buttons = document.querySelectorAll('#floorTabList .floor-pill-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      if(btnElement) btnElement.classList.add('active');
+
+      const data = floorData[floorId];
+      if(!data) return;
+
+      const display = document.getElementById('floorDisplayBox');
+      
+      let boxesHtml = '';
+      data.boxes.forEach(box => {
+        boxesHtml += `
+          <div class="col-md-6">
+            <div class="p-3 bg-white rounded-3 border">
+              <h6 class="fw-bold text-navy mb-2"><i class="fa-solid ${box.icon} text-primary me-2"></i> ${box.title}</h6>
+              <p class="small text-muted mb-0">${box.desc}</p>
+            </div>
+          </div>
+        `;
+      });
+
+      display.innerHTML = `
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+          <div>
+            <span class="badge bg-primary px-3 py-2 rounded-pill fw-bold">${data.badge}</span>
+            <h3 class="fw-bold text-navy mt-2 mb-0">${data.title}</h3>
+          </div>
+          <div class="text-end">
+            <span class="badge bg-success-subtle text-success border px-3 py-2 fw-semibold">
+              <i class="fa-solid fa-shield me-1"></i> ${data.subtitle}
+            </span>
+          </div>
+        </div>
+
+        <p class="text-muted">${data.desc}</p>
+
+        <div class="row g-3 my-3">
+          ${boxesHtml}
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-3 border-top mt-4">
+          <span class="text-secondary small"><i class="fa-solid fa-phone me-1 text-primary"></i> Wing Desk: ${data.ext}</span>
+          <a href="contact.html" class="btn btn-navy text-white btn-sm px-4 rounded-pill" style="background:#0a2342;">Inquire About This Floor</a>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

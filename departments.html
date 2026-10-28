@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Departments – MediCare General Hospital</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    :root {
+      --primary:   #0d6efd;
+      --primary-dark: #0a58ca;
+      --accent:    #e63946;
+      --success:   #198754;
+      --info:      #0dcaf0;
+      --warning:   #ffc107;
+      --dark:      #1a1a2e;
+      --light-bg:  #f8faff;
+      --card-shadow: 0 4px 24px rgba(13,110,253,.10);
+    }
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--light-bg); color: #2d3748; }
+
+    /* ─── EMERGENCY BANNER ─────────────────────────────── */
+    .emergency-banner {
+      background: linear-gradient(90deg, #c0392b 0%, #e74c3c 100%);
+      color: #fff;
+      font-size: .82rem;
+      letter-spacing: .4px;
+      padding: 6px 0;
+    }
+    .emergency-banner a { color: #fff; text-decoration: none; font-weight: 600; }
+    .emergency-banner a:hover { text-decoration: underline; }
+    .blink { animation: blink 1.1s step-start infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* ─── TOP BAR ──────────────────────────────────────── */
+    .top-bar {
+      background: var(--dark);
+      color: rgba(255,255,255,.75);
+      font-size: .8rem;
+      padding: 7px 0;
+    }
+    .top-bar a { color: rgba(255,255,255,.8); text-decoration: none; }
+    .top-bar a:hover { color: #fff; }
+    .top-bar .social-icon { width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,.1); transition: background .25s; }
+    .top-bar .social-icon:hover { background: var(--primary); }
+
+    /* ─── NAVBAR ───────────────────────────────────────── */
+    .main-navbar {
+      background: #fff;
+      box-shadow: 0 2px 20px rgba(0,0,0,.08);
+      padding: 0;
+    }
+    .navbar-brand .brand-logo {
+      width: 42px; height: 42px; background: linear-gradient(135deg, var(--primary), #6610f2);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem;
+    }
+    .navbar-brand .brand-text { line-height: 1.1; }
+    .navbar-brand .brand-text .hospital-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; color: var(--dark); }
+    .navbar-brand .brand-text .hospital-tagline { font-size: .68rem; color: #6c757d; letter-spacing: .5px; text-transform: uppercase; }
+    .main-navbar .nav-link {
+      font-size: .88rem; font-weight: 500; color: #4a5568;
+      padding: 1.4rem .85rem !important;
+      position: relative; transition: color .2s;
+    }
+    .main-navbar .nav-link::after {
+      content: ''; position: absolute; bottom: 0; left: .85rem; right: .85rem;
+      height: 3px; background: var(--primary); border-radius: 3px 3px 0 0;
+      transform: scaleX(0); transition: transform .25s;
+    }
+    .main-navbar .nav-link:hover, .main-navbar .nav-link.active { color: var(--primary); }
+    .main-navbar .nav-link:hover::after, .main-navbar .nav-link.active::after { transform: scaleX(1); }
+    .btn-book-nav {
+      background: linear-gradient(135deg, var(--primary), #6610f2);
+      color: #fff !important; border-radius: 25px; padding: .45rem 1.3rem !important;
+      font-size: .85rem !important; font-weight: 600 !important; letter-spacing: .3px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-book-nav:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(13,110,253,.4); }
+    .btn-book-nav::after { display: none !important; }
+
+    /* ─── HERO ─────────────────────────────────────────── */
+    .page-hero {
+      background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d6efd 100%);
+      padding: 90px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .page-hero .floating-circle {
+      position: absolute; border-radius: 50%; opacity: .06; background: #fff;
+    }
+    .page-hero .fc1 { width: 300px; height: 300px; top: -80px; right: -60px; }
+    .page-hero .fc2 { width: 180px; height: 180px; bottom: -50px; left: 5%; }
+    .page-hero .fc3 { width: 100px; height: 100px; top: 40%; left: 30%; }
+    .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,.5); }
+    .breadcrumb-item a { color: rgba(255,255,255,.7); text-decoration: none; }
+    .breadcrumb-item.active { color: rgba(255,255,255,.95); }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: #fff; }
+    .page-hero p.lead { color: rgba(255,255,255,.8); font-size: 1.05rem; }
+    .hero-stats span { color: rgba(255,255,255,.85); font-size: .88rem; }
+    .hero-stats strong { color: #fff; }
+
+    /* ─── FILTER BAR ───────────────────────────────────── */
+    .filter-bar {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(13,110,253,.10);
+      padding: 22px 28px;
+      margin-top: -36px;
+      position: relative;
+      z-index: 10;
+    }
+    .filter-btn {
+      border-radius: 20px; font-size: .82rem; font-weight: 500;
+      padding: .38rem 1rem; border: 1.5px solid #dee2e6; color: #495057;
+      background: #fff; transition: all .2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--primary); color: #fff; border-color: var(--primary);
+    }
+    .search-dept-input { border-radius: 10px; border: 1.5px solid #dee2e6; padding: .55rem 1rem .55rem 2.6rem; font-size: .88rem; }
+    .search-dept-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(13,110,253,.12); }
+    .search-dept-wrap { position: relative; }
+    .search-dept-wrap .search-icon-dept { position: absolute; left: .9rem; top: 50%; transform: translateY(-50%); color: #adb5bd; }
+    #results-count { font-size: .85rem; color: #6c757d; font-weight: 500; }
+
+    /* ─── DEPARTMENT CARDS ─────────────────────────────── */
+    .dept-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .dept-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(13,110,253,.15); }
+    .dept-card-header {
+      padding: 28px 24px 22px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .dept-card-header::after {
+      content: ''; position: absolute; right: -20px; bottom: -20px;
+      width: 90px; height: 90px; border-radius: 50%; background: rgba(255,255,255,.12);
+    }
+    .dept-icon-wrap {
+      width: 56px; height: 56px; background: rgba(255,255,255,.22);
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: #fff; margin-bottom: 12px;
+    }
+    .dept-card-body { padding: 20px 22px; flex: 1; display: flex; flex-direction: column; }
+    .dept-stats-row { background: #f8faff; border-radius: 10px; padding: 10px 14px; font-size: .78rem; }
+    .dept-stats-row .stat-item { text-align: center; }
+    .dept-stats-row .stat-num { font-weight: 700; font-size: 1.05rem; display: block; }
+    .hod-mini { display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid #e9ecef; border-radius: 10px; padding: 8px 12px; }
+    .hod-avatar { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: .88rem; flex-shrink: 0; }
+    .spec-list li { font-size: .8rem; color: #495057; padding: 2px 0; }
+    .spec-list li::marker { color: var(--primary); }
+    .dept-actions { padding: 14px 22px; border-top: 1px solid #f0f0f0; background: #fafbff; display: flex; gap: 8px; }
+    .btn-view-dept { flex: 1; font-size: .82rem; border-radius: 8px; padding: .42rem .6rem; font-weight: 600; }
+    .btn-find-docs { flex: 1; font-size: .82rem; border-radius: 8px; padding: .42rem .6rem; font-weight: 500; }
+
+    /* gradient themes */
+    .g-blue     { background: linear-gradient(135deg, #1a6fc4, #0d6efd); }
+    .g-red      { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+    .g-green    { background: linear-gradient(135deg, #0f7a55, #198754); }
+    .g-purple   { background: linear-gradient(135deg, #6610f2, #9b59b6); }
+    .g-orange   { background: linear-gradient(135deg, #e67e22, #f39c12); }
+    .g-teal     { background: linear-gradient(135deg, #0a7a85, #20c997); }
+    .g-pink     { background: linear-gradient(135deg, #c0395b, #e91e63); }
+    .g-indigo   { background: linear-gradient(135deg, #3a0ca3, #4361ee); }
+    .g-cyan     { background: linear-gradient(135deg, #0077b6, #00b4d8); }
+    .g-brown    { background: linear-gradient(135deg, #7b3f00, #b5541d); }
+    .g-olive    { background: linear-gradient(135deg, #3d5a00, #6b8c1a); }
+    .g-navy     { background: linear-gradient(135deg, #023e8a, #0077b6); }
+
+    /* ─── MODAL ────────────────────────────────────────── */
+    .modal-dept-header { color: #fff; padding: 28px 32px; position: relative; overflow: hidden; }
+    .modal-dept-header::before { content: ''; position: absolute; right: -30px; top: -30px; width: 150px; height: 150px; background: rgba(255,255,255,.1); border-radius: 50%; }
+    .modal-icon-lg { width: 68px; height: 68px; background: rgba(255,255,255,.2); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.9rem; }
+    .opd-table th { font-size: .8rem; background: #f8f9fa; }
+    .opd-table td { font-size: .82rem; }
+    .equip-badge { background: #e8f4fd; color: #0a58ca; border-radius: 20px; padding: 4px 12px; font-size: .77rem; display: inline-block; margin: 3px 2px; }
+    .cond-tag { background: #fff3cd; color: #856404; border-radius: 20px; padding: 3px 10px; font-size: .76rem; display: inline-block; margin: 2px; }
+
+    /* ─── STATS SECTION ────────────────────────────────── */
+    .stats-section { background: linear-gradient(135deg, #0a1628, #1a3a5c); padding: 60px 0; margin-top: 60px; }
+    .stat-box { text-align: center; padding: 30px 20px; border-right: 1px solid rgba(255,255,255,.1); }
+    .stat-box:last-child { border-right: none; }
+    .stat-box .stat-number { font-size: 2.8rem; font-weight: 800; color: #fff; font-family: 'Playfair Display', serif; }
+    .stat-box .stat-label { color: rgba(255,255,255,.7); font-size: .88rem; letter-spacing: .5px; }
+    .stat-box .stat-icon { font-size: 2rem; margin-bottom: 10px; opacity: .7; }
+
+    /* ─── SPECIALTY PROGRAMS ───────────────────────────── */
+    .specialty-section { padding: 70px 0; }
+    .program-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: var(--card-shadow);
+      padding: 34px 28px;
+      border-top: 5px solid transparent;
+      transition: transform .3s;
+      height: 100%;
+    }
+    .program-card:hover { transform: translateY(-5px); }
+    .program-card.cancer { border-top-color: #e74c3c; }
+    .program-card.heart  { border-top-color: #e91e63; }
+    .program-card.mother { border-top-color: #198754; }
+    .program-icon { width: 68px; height: 68px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 16px; }
+    .program-icon.cancer { background: #fdecea; color: #e74c3c; }
+    .program-icon.heart  { background: #fce4ec; color: #e91e63; }
+    .program-icon.mother { background: #e8f5e9; color: #198754; }
+
+    /* ─── FOOTER ───────────────────────────────────────── */
+    .main-footer { background: #0d1b2a; color: rgba(255,255,255,.75); padding: 60px 0 0; }
+    .footer-brand p { font-size: .85rem; color: rgba(255,255,255,.55); line-height: 1.7; }
+    .footer-heading { color: #fff; font-weight: 600; font-size: .95rem; margin-bottom: 18px; position: relative; padding-bottom: 10px; }
+    .footer-heading::after { content: ''; position: absolute; left: 0; bottom: 0; width: 32px; height: 2px; background: var(--primary); border-radius: 2px; }
+    .footer-links { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: 9px; }
+    .footer-links a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .85rem; transition: color .2s; }
+    .footer-links a:hover { color: #fff; padding-left: 4px; }
+    .footer-contact-item { display: flex; gap: 12px; margin-bottom: 14px; }
+    .footer-contact-item .icon { width: 34px; height: 34px; background: rgba(255,255,255,.07); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--primary); flex-shrink: 0; }
+    .footer-contact-item p { margin: 0; font-size: .83rem; color: rgba(255,255,255,.6); }
+    .footer-contact-item strong { color: rgba(255,255,255,.85); font-size: .88rem; }
+    .footer-bottom { background: #080f1a; padding: 16px 0; margin-top: 48px; }
+    .footer-bottom p { font-size: .8rem; color: rgba(255,255,255,.45); margin: 0; }
+    .footer-social a { width: 32px; height: 32px; background: rgba(255,255,255,.08); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: rgba(255,255,255,.6); transition: all .25s; font-size: .82rem; text-decoration: none; }
+    .footer-social a:hover { background: var(--primary); color: #fff; }
+
+    /* ─── MISC ─────────────────────────────────────────── */
+    section.departments-section { padding: 60px 0; }
+    .section-badge { background: rgba(13,110,253,.1); color: var(--primary); border-radius: 20px; padding: 5px 16px; font-size: .78rem; font-weight: 600; letter-spacing: .5px; display: inline-block; margin-bottom: 10px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--dark); }
+
+    @media (max-width: 768px) {
+      .page-hero h1 { font-size: 1.9rem; }
+      .filter-bar { padding: 16px; }
+      .stat-box { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     EMERGENCY BANNER
+══════════════════════════════════════════════════════════════════ -->
+<div class="emergency-banner">
+  <div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <div>
+        <span class="blink me-1"><i class="fa-solid fa-circle" style="font-size:.55rem;"></i></span>
+        <strong>24/7 Emergency Services Available</strong>
+        <span class="mx-2">|</span>
+        Emergency Helpline: <a href="tel:+18001234567"><strong>1-800-123-4567</strong></a>
+        <span class="mx-2">|</span>
+        Ambulance: <a href="tel:108"><strong>108</strong></a>
+      </div>
+      <div>
+        <i class="fa-regular fa-clock me-1"></i>
+        OPD Hours: <strong>Mon–Sat 8:00 AM – 8:00 PM</strong>
+        <span class="mx-2">|</span>
+        <a href="doctors.html"><i class="fa-regular fa-calendar-check me-1"></i>Book Online</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TOP BAR
+══════════════════════════════════════════════════════════════════ -->
+<div class="top-bar d-none d-lg-block">
+  <div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex gap-4">
+        <span><i class="fa-solid fa-location-dot me-1" style="color:#0d6efd;"></i>42 Healthcare Avenue, Medical District, NY 10001</span>
+        <a href="mailto:info@medicare-hospital.com"><i class="fa-regular fa-envelope me-1"></i>info@medicare-hospital.com</a>
+        <a href="tel:+12125550199"><i class="fa-solid fa-phone me-1"></i>+1 (212) 555-0199</a>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <span>Follow Us:</span>
+        <div class="d-flex gap-1">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f" style="font-size:.7rem;"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter" style="font-size:.7rem;"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram" style="font-size:.7rem;"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in" style="font-size:.7rem;"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-youtube" style="font-size:.7rem;"></i></a>
+        </div>
+        <a href="patient-portal.html" class="btn btn-sm btn-outline-light py-0 px-2" style="font-size:.76rem;border-radius:4px;">
+          <i class="fa-solid fa-user me-1"></i>Patient Portal
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-xl main-navbar sticky-top">
+  <div class="container-fluid px-4">
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <div class="brand-logo"><i class="fa-solid fa-hospital-user"></i></div>
+      <div class="brand-text">
+        <div class="hospital-name">MediCare General</div>
+        <div class="hospital-tagline">Hospital &amp; Research Centre</div>
+      </div>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa-solid fa-house me-1"></i>Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="departments.html" id="deptDrop" role="button" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-building-columns me-1"></i>Departments
+          </a>
+          <ul class="dropdown-menu shadow border-0 rounded-3 py-2" style="min-width:220px;">
+            <li><a class="dropdown-item" href="departments.html"><i class="fa-solid fa-th me-2 text-primary"></i>All Departments</a></li>
+            <li><hr class="dropdown-divider my-1"></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-heart-pulse me-2 text-danger"></i>Cardiology</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-brain me-2 text-purple"></i>Neurology</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bone me-2 text-warning"></i>Orthopedics</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-baby me-2 text-pink"></i>Pediatrics</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-venus me-2 text-success"></i>Obstetrics &amp; Gynecology</a></li>
+            <li><hr class="dropdown-divider my-1"></li>
+            <li><a class="dropdown-item text-primary fw-600" href="departments.html">View All Departments →</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="doctors.html"><i class="fa-solid fa-user-doctor me-1"></i>Doctors</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html"><i class="fa-solid fa-flask-vial me-1"></i>Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="facilities.html"><i class="fa-solid fa-building-shield me-1"></i>Facilities</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fa-solid fa-envelope me-1"></i>Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2 ms-2">
+        <a href="tel:+18001234567" class="btn btn-outline-danger btn-sm d-none d-xl-inline-flex align-items-center gap-1 rounded-pill">
+          <i class="fa-solid fa-phone-volume fa-shake"></i> Emergency
+        </a>
+        <a href="doctors.html" class="nav-link btn-book-nav">
+          <i class="fa-regular fa-calendar-plus me-1"></i>Book Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE HERO
+══════════════════════════════════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="floating-circle fc1"></div>
+  <div class="floating-circle fc2"></div>
+  <div class="floating-circle fc3"></div>
+  <div class="container">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb mb-0" style="background:transparent;">
+        <li class="breadcrumb-item"><a href="index.html"><i class="fa-solid fa-house me-1"></i>Home</a></li>
+        <li class="breadcrumb-item active">Departments</li>
+      </ol>
+    </nav>
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div style="width:48px;height:48px;background:rgba(255,255,255,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;">
+            <i class="fa-solid fa-building-columns"></i>
+          </div>
+          <span style="color:rgba(255,255,255,.75);font-size:.85rem;letter-spacing:.5px;text-transform:uppercase;font-weight:500;">Medical Excellence Since 1987</span>
+        </div>
+        <h1 class="mb-3 fw-bold">Our Medical <span style="color:#90cdf4;">Departments</span></h1>
+        <p class="lead mb-4">Delivering world-class care across 12 specialised departments with over 250 experienced physicians, cutting-edge technology, and a patient-first approach to medicine.</p>
+        <div class="hero-stats d-flex flex-wrap gap-4">
+          <div><strong>12</strong> <span>Specialties</span></div>
+          <div class="border-start border-secondary ps-4"><strong>250+</strong> <span>Physicians</span></div>
+          <div class="border-start border-secondary ps-4"><strong>800+</strong> <span>Beds</span></div>
+          <div class="border-start border-secondary ps-4"><strong>98%</strong> <span>Patient Satisfaction</span></div>
+        </div>
+      </div>
+      <div class="col-lg-4 text-end d-none d-lg-block">
+        <i class="fa-solid fa-hospital" style="font-size:9rem;color:rgba(255,255,255,.08);"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FILTER BAR
+══════════════════════════════════════════════════════════════════ -->
+<div class="container">
+  <div class="filter-bar">
+    <div class="row g-3 align-items-center">
+      <div class="col-lg-4">
+        <div class="search-dept-wrap">
+          <i class="fa-solid fa-magnifying-glass search-icon-dept"></i>
+          <input type="text" id="deptSearch" class="form-control search-dept-input" placeholder="Search departments, specialties…" />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="d-flex flex-wrap gap-2">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="emergency">Emergency</button>
+          <button class="filter-btn" data-filter="surgical">Surgical</button>
+          <button class="filter-btn" data-filter="medical">Medical</button>
+          <button class="filter-btn" data-filter="diagnostic">Diagnostic</button>
+          <button class="filter-btn" data-filter="pediatric">Pediatric</button>
+          <button class="filter-btn" data-filter="maternity">Maternity</button>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <select class="form-select form-select-sm" id="sortDept" style="border-radius:8px;font-size:.85rem;">
+          <option value="az">Sort: A–Z</option>
+          <option value="za">Sort: Z–A</option>
+          <option value="doctors">Most Doctors</option>
+        </select>
+      </div>
+    </div>
+    <div class="mt-2">
+      <span id="results-count"><i class="fa-solid fa-circle-check text-success me-1"></i>Showing <strong>12</strong> departments</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DEPARTMENTS GRID
+══════════════════════════════════════════════════════════════════ -->
+<section class="departments-section">
+  <div class="container">
+    <div class="row g-4" id="departments-grid">
+
+      <!-- 1. Cardiology -->
+      <div class="col-xl-4 col-lg-6 dept-item" data-name="Cardiology" data-cat="medical" data-docs="28">
+        <div class="dept-card" onclick="openDeptModal('cardiology')">
+          <div class="dept-card-header g-red">
+            <div class="dept-icon-wrap"><i class="fa-solid fa-heart-pulse"></i></div>
+            <h4 class="mb-1 fw-700" style="font-size:1.15rem;">Cardiology</h4>
+            <div style="font-size:.78rem;opacity:.85;">Heart &amp; Cardiovascular Care</div>
+          </div>
+          <div class="dept-card-body">
+            <p class="text-muted" style="font-size:.84rem;line-height:1.6;">Comprehensive cardiac care from prevention and diagnosis to advanced interventional procedures and cardiac rehabilitation for all heart conditions.</p>
+            <div class="dept-stats-row d-flex justify-content-between mb-3">
+              <div class="stat-item"><span class="stat-num text-danger">28</span>Doctors</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-primary">80</span>Beds</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-success">45</span>Services</div>
+            </div>
+            <div class="hod-mini mb-3">
+              <div class="hod-avatar">DK</div>
+              <div>
+                <div style="font-size:.82rem;font-weight:600;color:#2d3748;">Dr. David Kim</div>
+                <div style="font-size:.74rem;color:#6c757d;">Head of Department · MD, FACC</div>
+              </div>
+            </div>
+            <ul class="spec-list ps-3">
+              <li>Interventional Cardiology &amp; Catheterisation</li>
+              <li>Echocardiography &amp; Cardiac Imaging</li>
+              <li>Electrophysiology &amp; Arrhythmia Management</li>
+            </ul>
+          </div>
+          <div class="dept-actions">
+            <button class="btn btn-primary btn-view-dept" onclick="event.stopPropagation();openDeptModal('cardiology')"><i class="fa-solid fa-eye me-1"></i>View Dept</button>
+            <a href="doctors.html?dept=cardiology" class="btn btn-outline-secondary btn-find-docs" onclick="event.stopPropagation();"><i class="fa-solid fa-user-doctor me-1"></i>Find Doctors</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Neurology -->
+      <div class="col-xl-4 col-lg-6 dept-item" data-name="Neurology" data-cat="medical" data-docs="22">
+        <div class="dept-card" onclick="openDeptModal('neurology')">
+          <div class="dept-card-header g-purple">
+            <div class="dept-icon-wrap"><i class="fa-solid fa-brain"></i></div>
+            <h4 class="mb-1 fw-700" style="font-size:1.15rem;">Neurology &amp; Neurosurgery</h4>
+            <div style="font-size:.78rem;opacity:.85;">Brain, Spine &amp; Nervous System</div>
+          </div>
+          <div class="dept-card-body">
+            <p class="text-muted" style="font-size:.84rem;line-height:1.6;">Advanced diagnosis and treatment of neurological disorders using state-of-the-art neuroimaging, electrophysiology, and minimally invasive neurosurgical techniques.</p>
+            <div class="dept-stats-row d-flex justify-content-between mb-3">
+              <div class="stat-item"><span class="stat-num text-danger">22</span>Doctors</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-primary">65</span>Beds</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-success">38</span>Services</div>
+            </div>
+            <div class="hod-mini mb-3">
+              <div class="hod-avatar">SR</div>
+              <div>
+                <div style="font-size:.82rem;font-weight:600;color:#2d3748;">Dr. Sanya Rostova</div>
+                <div style="font-size:.74rem;color:#6c757d;">Head of Department · MD, DM (Neuro)</div>
+              </div>
+            </div>
+            <ul class="spec-list ps-3">
+              <li>Stroke &amp; Cerebrovascular Disease Management</li>
+              <li>Epilepsy Monitoring &amp; Surgery</li>
+              <li>Parkinson's &amp; Movement Disorders</li>
+            </ul>
+          </div>
+          <div class="dept-actions">
+            <button class="btn btn-primary btn-view-dept" onclick="event.stopPropagation();openDeptModal('neurology')"><i class="fa-solid fa-eye me-1"></i>View Dept</button>
+            <a href="doctors.html?dept=neurology" class="btn btn-outline-secondary btn-find-docs" onclick="event.stopPropagation();"><i class="fa-solid fa-user-doctor me-1"></i>Find Doctors</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Orthopedics -->
+      <div class="col-xl-4 col-lg-6 dept-item" data-name="Orthopedics" data-cat="surgical" data-docs="19">
+        <div class="dept-card" onclick="openDeptModal('orthopedics')">
+          <div class="dept-card-header g-orange">
+            <div class="dept-icon-wrap"><i class="fa-solid fa-bone"></i></div>
+            <h4 class="mb-1 fw-700" style="font-size:1.15rem;">Orthopedics &amp; Spine</h4>
+            <div style="font-size:.78rem;opacity:.85;">Bone, Joint &amp; Musculoskeletal</div>
+          </div>
+          <div class="dept-card-body">
+            <p class="text-muted" style="font-size:.84rem;line-height:1.6;">Complete bone and joint care including joint replacement, sports medicine, spine surgery, and trauma management using robotic-assisted surgical platforms.</p>
+            <div class="dept-stats-row d-flex justify-content-between mb-3">
+              <div class="stat-item"><span class="stat-num text-danger">19</span>Doctors</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-primary">55</span>Beds</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-success">32</span>Services</div>
+            </div>
+            <div class="hod-mini mb-3">
+              <div class="hod-avatar">MP</div>
+              <div>
+                <div style="font-size:.82rem;font-weight:600;color:#2d3748;">Dr. Marcus Patel</div>
+                <div style="font-size:.74rem;color:#6c757d;">Head of Department · MS, DNB (Ortho)</div>
+              </div>
+            </div>
+            <ul class="spec-list ps-3">
+              <li>Total Hip &amp; Knee Replacement Surgery</li>
+              <li>Spine Deformity Correction &amp; Fusion</li>
+              <li>Sports Injury &amp; Arthroscopic Surgery</li>
+            </ul>
+          </div>
+          <div class="dept-actions">
+            <button class="btn btn-primary btn-view-dept" onclick="event.stopPropagation();openDeptModal('orthopedics')"><i class="fa-solid fa-eye me-1"></i>View Dept</button>
+            <a href="doctors.html?dept=orthopedics" class="btn btn-outline-secondary btn-find-docs" onclick="event.stopPropagation();"><i class="fa-solid fa-user-doctor me-1"></i>Find Doctors</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Emergency Medicine -->
+      <div class="col-xl-4 col-lg-6 dept-item" data-name="Emergency Medicine" data-cat="emergency" data-docs="35">
+        <div class="dept-card" onclick="openDeptModal('emergency')">
+          <div class="dept-card-header g-red" style="background:linear-gradient(135deg,#7b0000,#c0392b);">
+            <div class="dept-icon-wrap"><i class="fa-solid fa-truck-medical"></i></div>
+            <h4 class="mb-1 fw-700" style="font-size:1.15rem;">Emergency Medicine</h4>
+            <div style="font-size:.78rem;opacity:.85;">24/7 Critical &amp; Trauma Care</div>
+          </div>
+          <div class="dept-card-body">
+            <p class="text-muted" style="font-size:.84rem;line-height:1.6;">Round-the-clock emergency services with a Level-1 trauma centre, dedicated resuscitation bays, and a rapid-response team for all life-threatening emergencies.</p>
+            <div class="dept-stats-row d-flex justify-content-between mb-3">
+              <div class="stat-item"><span class="stat-num text-danger">35</span>Doctors</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-primary">40</span>Beds</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-success">28</span>Services</div>
+            </div>
+            <div class="hod-mini mb-3">
+              <div class="hod-avatar">LM</div>
+              <div>
+                <div style="font-size:.82rem;font-weight:600;color:#2d3748;">Dr. Laura Martinez</div>
+                <div style="font-size:.74rem;color:#6c757d;">Head of Department · MD, FAEM</div>
+              </div>
+            </div>
+            <ul class="spec-list ps-3">
+              <li>Advanced Trauma Life Support (ATLS)</li>
+              <li>Cardiac &amp; Respiratory Resuscitation</li>
+              <li>Toxicology &amp; Poisoning Management</li>
+            </ul>
+          </div>
+          <div class="dept-actions">
+            <button class="btn btn-primary btn-view-dept" onclick="event.stopPropagation();openDeptModal('emergency')"><i class="fa-solid fa-eye me-1"></i>View Dept</button>
+            <a href="doctors.html?dept=emergency" class="btn btn-outline-secondary btn-find-docs" onclick="event.stopPropagation();"><i class="fa-solid fa-user-doctor me-1"></i>Find Doctors</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Oncology -->
+      <div class="col-xl-4 col-lg-6 dept-item" data-name="Oncology" data-cat="medical" data-docs="18">
+        <div class="dept-card" onclick="openDeptModal('oncology')">
+          <div class="dept-card-header g-teal">
+            <div class="dept-icon-wrap"><i class="fa-solid fa-ribbon"></i></div>
+            <h4 class="mb-1 fw-700" style="font-size:1.15rem;">Oncology &amp; Cancer Care</h4>
+            <div style="font-size:.78rem;opacity:.85;">Comprehensive Cancer Treatment</div>
+          </div>
+          <div class="dept-card-body">
+            <p class="text-muted" style="font-size:.84rem;line-height:1.6;">Multidisciplinary cancer care including medical oncology, radiation therapy, surgical oncology, and targeted immunotherapy for all types of malignancies.</p>
+            <div class="dept-stats-row d-flex justify-content-between mb-3">
+              <div class="stat-item"><span class="stat-num text-danger">18</span>Doctors</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-primary">70</span>Beds</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-success">52</span>Services</div>
+            </div>
+            <div class="hod-mini mb-3">
+              <div class="hod-avatar">AN</div>
+              <div>
+                <div style="font-size:.82rem;font-weight:600;color:#2d3748;">Dr. Aisha Nwosu</div>
+                <div style="font-size:.74rem;color:#6c757d;">Head of Department · MD, DM (Oncology)</div>
+              </div>
+            </div>
+            <ul class="spec-list ps-3">
+              <li>Chemotherapy &amp; Targeted Therapy</li>
+              <li>Radiation Oncology &amp; IMRT/IGRT</li>
+              <li>Bone Marrow Transplantation</li>
+            </ul>
+          </div>
+          <div class="dept-actions">
+            <button class="btn btn-primary btn-view-dept" onclick="event.stopPropagation();openDeptModal('oncology')"><i class="fa-solid fa-eye me-1"></i>View Dept</button>
+            <a href="doctors.html?dept=oncology" class="btn btn-outline-secondary btn-find-docs" onclick="event.stopPropagation();"><i class="fa-solid fa-user-doctor me-1"></i>Find Doctors</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Pediatrics -->
+      <div class="col-xl-4 col-lg-6 dept-item" data-name="Pediatrics" data-cat="pediatric" data-docs="24">
+        <div class="dept-card" onclick="openDeptModal('pediatrics')">
+          <div class="dept-card-header g-cyan">
+            <div class="dept-icon-wrap"><i class="fa-solid fa-baby"></i></div>
+            <h4 class="mb-1 fw-700" style="font-size:1.15rem;">Pediatrics &amp; Neonatology</h4>
+            <div style="font-size:.78rem;opacity:.85;">Child &amp; Newborn Healthcare</div>
+          </div>
+          <div class="dept-card-body">
+            <p class="text-muted" style="font-size:.84rem;line-height:1.6;">Expert paediatric care from neonatal intensive care to adolescent medicine, including a dedicated NICU with advanced life-support equipment.</p>
+            <div class="dept-stats-row d-flex justify-content-between mb-3">
+              <div class="stat-item"><span class="stat-num text-danger">24</span>Doctors</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-primary">60</span>Beds</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-success">41</span>Services</div>
+            </div>
+            <div class="hod-mini mb-3">
+              <div class="hod-avatar">RG</div>
+              <div>
+                <div style="font-size:.82rem;font-weight:600;color:#2d3748;">Dr. Rachel Green</div>
+                <div style="font-size:.74rem;color:#6c757d;">Head of Department · MD, DCH, FAAP</div>
+              </div>
+            </div>
+            <ul class="spec-list ps-3">
+              <li>Neonatal Intensive Care (NICU Level III)</li>
+              <li>Paediatric Pulmonology &amp; Allergy</li>
+              <li>Child Development &amp; Vaccination Programs</li>
+            </ul>
+          </div>
+          <div class="dept-actions">
+            <button class="btn btn-primary btn-view-dept" onclick="event.stopPropagation();openDeptModal('pediatrics')"><i class="fa-solid fa-eye me-1"></i>View Dept</button>
+            <a href="doctors.html?dept=pediatrics" class="btn btn-outline-secondary btn-find-docs" onclick="event.stopPropagation();"><i class="fa-solid fa-user-doctor me-1"></i>Find Doctors</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Obstetrics & Gynecology -->
+      <div class="col-xl-4 col-lg-6 dept-item" data-name="Obstetrics Gynecology" data-cat="maternity" data-docs="16">
+        <div class="dept-card" onclick="openDeptModal('obgyn')">
+          <div class="dept-card-header g-pink">
+            <div class="dept-icon-wrap"><i class="fa-solid fa-venus"></i></div>
+            <h4 class="mb-1 fw-700" style="font-size:1.15rem;">Obstetrics &amp; Gynecology</h4>
+            <div style="font-size:.78rem;opacity:.85;">Women's Health &amp; Maternity</div>
+          </div>
+          <div class="dept-card-body">
+            <p class="text-muted" style="font-size:.84rem;line-height:1.6;">Complete women's health services from routine gynaecological check-ups and fertility treatments to high-risk obstetrics and minimally invasive gynaecological surgery.</p>
+            <div class="dept-stats-row d-flex justify-content-between mb-3">
+              <div class="stat-item"><span class="stat-num text-danger">16</span>Doctors</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-primary">50</span>Beds</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-success">36</span>Services</div>
+            </div>
+            <div class="hod-mini mb-3">
+              <div class="hod-avatar">PS</div>
+              <div>
+                <div style="font-size:.82rem;font-weight:600;color:#2d3748;">Dr. Priya Sharma</div>
+                <div style="font-size:.74rem;color:#6c757d;">Head of Department · MS (OBG), FRCOG</div>
+              </div>
+            </div>
+            <ul class="spec-list ps-3">
+              <li>High-Risk Pregnancy &amp; Antenatal Care</li>
+              <li>Laparoscopic Gynaecological Surgery</li>
+              <li>Infertility &amp; IVF Treatment</li>
+            </ul>
+          </div>
+          <div class="dept-actions">
+            <button class="btn btn-primary btn-view-dept" onclick="event.stopPropagation();openDeptModal('obgyn')"><i class="fa-solid fa-eye me-1"></i>View Dept</button>
+            <a href="doctors.html?dept=obgyn" class="btn btn-outline-secondary btn-find-docs" onclick="event.stopPropagation();"><i class="fa-solid fa-user-doctor me-1"></i>Find Doctors</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Gastroenterology -->
+      <div class="col-xl-4 col-lg-6 dept-item" data-name="Gastroenterology" data-cat="medical" data-docs="14">
+        <div class="dept-card" onclick="openDeptModal('gastro')">
+          <div class="dept-card-header g-brown">
+            <div class="dept-icon-wrap"><i class="fa-solid fa-stomach"></i></div>
+            <h4 class="mb-1 fw-700" style="font-size:1.15rem;">Gastroenterology</h4>
+            <div style="font-size:.78rem;opacity:.85;">Digestive System &amp; Liver Care</div>
+          </div>
+          <div class="dept-card-body">
+            <p class="text-muted" style="font-size:.84rem;line-height:1.6;">Expert management of digestive disorders including advanced endoscopy, hepatology, IBD management, and minimally invasive GI surgical interventions.</p>
+            <div class="dept-stats-row d-flex justify-content-between mb-3">
+              <div class="stat-item"><span class="stat-num text-danger">14</span>Doctors</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-primary">40</span>Beds</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-success">30</span>Services</div>
+            </div>
+            <div class="hod-mini mb-3">
+              <div class="hod-avatar">VK</div>
+              <div>
+                <div style="font-size:.82rem;font-weight:600;color:#2d3748;">Dr. Vikram Kapoor</div>
+                <div style="font-size:.74rem;color:#6c757d;">Head of Department · DM (Gastro), MRCP</div>
+              </div>
+            </div>
+            <ul class="spec-list ps-3">
+              <li>Advanced GI Endoscopy &amp; ERCP</li>
+              <li>Hepatology &amp; Liver Transplant Workup</li>
+              <li>Inflammatory Bowel Disease (IBD) Clinic</li>
+            </ul>
+          </div>
+          <div class="dept-actions">
+            <button class="btn btn-primary btn-view-dept" onclick="event.stopPropagation();openDeptModal('gastro')"><i class="fa-solid fa-eye me-1"></i>View Dept</button>
+            <a href="doctors.html?dept=gastro" class="btn btn-outline-secondary btn-find-docs" onclick="event.stopPropagation();"><i class="fa-solid fa-user-doctor me-1"></i>Find Doctors</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Radiology & Imaging -->
+      <div class="col-xl-4 col-lg-6 dept-item" data-name="Radiology Imaging" data-cat="diagnostic" data-docs="12">
+        <div class="dept-card" onclick="openDeptModal('radiology')">
+          <div class="dept-card-header g-indigo">
+            <div class="dept-icon-wrap"><i class="fa-solid fa-radiation"></i></div>
+            <h4 class="mb-1 fw-700" style="font-size:1.15rem;">Radiology &amp; Imaging</h4>
+            <div style="font-size:.78rem;opacity:.85;">Diagnostic Imaging &amp; Interventional</div>
+          </div>
+          <div class="dept-card-body">
+            <p class="text-muted" style="font-size:.84rem;line-height:1.6;">Comprehensive imaging services with 3T MRI, 256-slice CT, PET-CT, digital mammography, and image-guided interventional procedures available 24/7.</p>
+            <div class="dept-stats-row d-flex justify-content-between mb-3">
+              <div class="stat-item"><span class="stat-num text-danger">12</span>Doctors</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-primary">15</span>Beds</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-success">25</span>Services</div>
+            </div>
+            <div class="hod-mini mb-3">
+              <div class="hod-avatar">JT</div>
+              <div>
+                <div style="font-size:.82rem;font-weight:600;color:#2d3748;">Dr. James Thornton</div>
+                <div style="font-size:.74rem;color:#6c757d;">Head of Department · MD, FRCR</div>
+              </div>
+            </div>
+            <ul class="spec-list ps-3">
+              <li>3T MRI &amp; Functional Neuroimaging</li>
+              <li>PET-CT &amp; Nuclear Medicine</li>
+              <li>Interventional Radiology &amp; Biopsy</li>
+            </ul>
+          </div>
+          <div class="dept-actions">
+            <button class="btn btn-primary btn-view-dept" onclick="event.stopPropagation();openDeptModal('radiology')"><i class="fa-solid fa-eye me-1"></i>View Dept</button>
+            <a href="doctors.html?dept=radiology" class="btn btn-outline-secondary btn-find-docs" onclick="event.stopPropagation();"><i class="fa-solid fa-user-doctor me-1"></i>Find Doctors</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. General Surgery -->
+      <div class="col-xl-4 col-lg-6 dept-item" data-name="General Surgery" data-cat="surgical" data-docs="20">
+        <div class="dept-card" onclick="openDeptModal('surgery')">
+          <div class="dept-card-header g-green">
+            <div class="dept-icon-wrap"><i class="fa-solid fa-scalpel"></i></div>
+            <h4 class="mb-1 fw-700" style="font-size:1.15rem;">General &amp; Laparoscopic Surgery</h4>
+            <div style="font-size:.78rem;opacity:.85;">Minimally Invasive Surgical Care</div>
+          </div>
+          <div class="dept-card-body">
+            <p class="text-muted" style="font-size:.84rem;line-height:1.6;">Wide spectrum of general surgical procedures with an emphasis on laparoscopic and robotic-assisted techniques for faster recovery, less pain, and minimal scarring.</p>
+            <div class="dept-stats-row d-flex justify-content-between mb-3">
+              <div class="stat-item"><span class="stat-num text-danger">20</span>Doctors</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-primary">45</span>Beds</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-success">48</span>Services</div>
+            </div>
+            <div class="hod-mini mb-3">
+              <div class="hod-avatar">BW</div>
+              <div>
+                <div style="font-size:.82rem;font-weight:600;color:#2d3748;">Dr. Benjamin Walsh</div>
+                <div style="font-size:.74rem;color:#6c757d;">Head of Department · MS, FRCS, FACS</div>
+              </div>
+            </div>
+            <ul class="spec-list ps-3">
+              <li>Laparoscopic Cholecystectomy &amp; Hernia Repair</li>
+              <li>Colorectal &amp; Bariatric Surgery</li>
+              <li>Robotic-Assisted Surgical Procedures</li>
+            </ul>
+          </div>
+          <div class="dept-actions">
+            <button class="btn btn-primary btn-view-dept" onclick="event.stopPropagation();openDeptModal('surgery')"><i class="fa-solid fa-eye me-1"></i>View Dept</button>
+            <a href="doctors.html?dept=surgery" class="btn btn-outline-secondary btn-find-docs" onclick="event.stopPropagation();"><i class="fa-solid fa-user-doctor me-1"></i>Find Doctors</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Pulmonology -->
+      <div class="col-xl-4 col-lg-6 dept-item" data-name="Pulmonology" data-cat="medical" data-docs="13">
+        <div class="dept-card" onclick="openDeptModal('pulmonology')">
+          <div class="dept-card-header g-olive">
+            <div class="dept-icon-wrap"><i class="fa-solid fa-lungs"></i></div>
+            <h4 class="mb-1 fw-700" style="font-size:1.15rem;">Pulmonology &amp; Respiratory</h4>
+            <div style="font-size:.78rem;opacity:.85;">Lung &amp; Respiratory Medicine</div>
+          </div>
+          <div class="dept-card-body">
+            <p class="text-muted" style="font-size:.84rem;line-height:1.6;">Advanced respiratory care covering COPD, asthma, interstitial lung disease, sleep disorders, and critical pulmonary conditions with modern bronchoscopy suites.</p>
+            <div class="dept-stats-row d-flex justify-content-between mb-3">
+              <div class="stat-item"><span class="stat-num text-danger">13</span>Doctors</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-primary">35</span>Beds</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-success">27</span>Services</div>
+            </div>
+            <div class="hod-mini mb-3">
+              <div class="hod-avatar">SC</div>
+              <div>
+                <div style="font-size:.82rem;font-weight:600;color:#2d3748;">Dr. Sophia Chen</div>
+                <div style="font-size:.74rem;color:#6c757d;">Head of Department · DM (Pulm), FCCP</div>
+              </div>
+            </div>
+            <ul class="spec-list ps-3">
+              <li>Advanced Bronchoscopy &amp; Pleural Procedures</li>
+              <li>Sleep Medicine &amp; Polysomnography</li>
+              <li>Pulmonary Rehabilitation Programs</li>
+            </ul>
+          </div>
+          <div class="dept-actions">
+            <button class="btn btn-primary btn-view-dept" onclick="event.stopPropagation();openDeptModal('pulmonology')"><i class="fa-solid fa-eye me-1"></i>View Dept</button>
+            <a href="doctors.html?dept=pulmonology" class="btn btn-outline-secondary btn-find-docs" onclick="event.stopPropagation();"><i class="fa-solid fa-user-doctor me-1"></i>Find Doctors</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. Nephrology & Urology -->
+      <div class="col-xl-4 col-lg-6 dept-item" data-name="Nephrology Urology" data-cat="surgical" data-docs="15">
+        <div class="dept-card" onclick="openDeptModal('nephro')">
+          <div class="dept-card-header g-navy">
+            <div class="dept-icon-wrap"><i class="fa-solid fa-kidneys"></i></div>
+            <h4 class="mb-1 fw-700" style="font-size:1.15rem;">Nephrology &amp; Urology</h4>
+            <div style="font-size:.78rem;opacity:.85;">Kidney, Renal &amp; Urinary Tract</div>
+          </div>
+          <div class="dept-card-body">
+            <p class="text-muted" style="font-size:.84rem;line-height:1.6;">Complete renal and urological care including kidney dialysis, transplantation workup, stone management, robotic prostatectomy, and urological oncology services.</p>
+            <div class="dept-stats-row d-flex justify-content-between mb-3">
+              <div class="stat-item"><span class="stat-num text-danger">15</span>Doctors</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-primary">42</span>Beds</div>
+              <div class="border-start"></div>
+              <div class="stat-item"><span class="stat-num text-success">33</span>Services</div>
+            </div>
+            <div class="hod-mini mb-3">
+              <div class="hod-avatar">AR</div>
+              <div>
+                <div style="font-size:.82rem;font-weight:600;color:#2d3748;">Dr. Arjun Reddy</div>
+                <div style="font-size:.74rem;color:#6c757d;">Head of Department · DM (Nephro), MCh (Uro)</div>
+              </div>
+            </div>
+            <ul class="spec-list ps-3">
+              <li>Haemodialysis &amp; Peritoneal Dialysis</li>
+              <li>Kidney Transplantation Program</li>
+              <li>Laser Lithotripsy &amp; Stone Management</li>
+            </ul>
+          </div>
+          <div class="dept-actions">
+            <button class="btn btn-primary btn-view-dept" onclick="event.stopPropagation();openDeptModal('nephro')"><i class="fa-solid fa-eye me-1"></i>View Dept</button>
+            <a href="doctors.html?dept=nephro" class="btn btn-outline-secondary btn-find-docs" onclick="event.stopPropagation();"><i class="fa-solid fa-user-doctor me-1"></i>Find Doctors</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /#departments-grid -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DEPARTMENT DETAIL MODAL
+══════════════════════════════════════════════════════════════════ -->
+<div class="modal fade" id="deptModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content border-0 overflow-hidden">
+
+      <!-- Dynamic header injected by JS -->
+      <div id="modal-dept-header" class="modal-dept-header g-red">
+        <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+        <div class="d-flex align-items-center gap-3">
+          <div class="modal-icon-lg" id="modal-icon"><i class="fa-solid fa-heart-pulse fa-2x"></i></div>
+          <div>
+            <h3 class="mb-1 fw-bold" id="modal-title">Cardiology</h3>
+            <div style="opacity:.85;" id="modal-subtitle">Heart &amp; Cardiovascular Care</div>
+            <div class="d-flex gap-3 mt-2" style="font-size:.82rem;">
+              <span><i class="fa-solid fa-user-doctor me-1"></i><strong id="modal-docs">28</strong> Doctors</span>
+              <span><i class="fa-solid fa-bed me-1"></i><strong id="modal-beds">80</strong> Beds</span>
+              <span><i class="fa-solid fa-star me-1" style="color:#ffc107;"></i><strong>4.8</strong> Rating</span>
+              <span><i class="fa-regular fa-clock me-1"></i>Est. 1995</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-body p-0">
+        <div class="row g-0">
+          <!-- Left column -->
+          <div class="col-lg-8 p-4">
+            <h5 class="fw-600 mb-3"><i class="fa-solid fa-circle-info text-primary me-2"></i>About the Department</h5>
+            <p id="modal-desc" class="text-muted" style="line-height:1.8;font-size:.9rem;">
+              The Department of Cardiology at MediCare General Hospital is a nationally accredited centre of excellence for heart disease management. Our team of board-certified cardiologists and cardiac surgeons work collaboratively to provide the full continuum of cardiac care — from preventive screening and non-invasive diagnostics to complex interventional procedures and cardiac rehabilitation.
+            </p>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <h6 class="fw-600 mb-2"><i class="fa-solid fa-list-check text-success me-2"></i>Specializations</h6>
+                <ul class="list-group list-group-flush" style="font-size:.84rem;">
+                  <li class="list-group-item px-0"><i class="fa-solid fa-check-circle text-success me-2"></i>Interventional Cardiology</li>
+                  <li class="list-group-item px-0"><i class="fa-solid fa-check-circle text-success me-2"></i>Electrophysiology</li>
+                  <li class="list-group-item px-0"><i class="fa-solid fa-check-circle text-success me-2"></i>Heart Failure Management</li>
+                  <li class="list-group-item px-0"><i class="fa-solid fa-check-circle text-success me-2"></i>Cardiac Imaging &amp; Echo</li>
+                  <li class="list-group-item px-0"><i class="fa-solid fa-check-circle text-success me-2"></i>Preventive Cardiology</li>
+                  <li class="list-group-item px-0"><i class="fa-solid fa-check-circle text-success me-2"></i>Cardiac Rehabilitation</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h6 class="fw-600 mb-2"><i class="fa-solid fa-stethoscope text-primary me-2"></i>Conditions Treated</h6>
+                <div>
+                  <span class="cond-tag">Coronary Artery Disease</span>
+                  <span class="cond-tag">Heart Failure</span>
+                  <span class="cond-tag">Atrial Fibrillation</span>
+                  <span class="cond-tag">Hypertension</span>
+                  <span class="cond-tag">Valvular Heart Disease</span>
+                  <span class="cond-tag">Cardiomyopathy</span>
+                  <span class="cond-tag">Aortic Aneurysm</span>
+                  <span class="cond-tag">Pericardial Disease</span>
+                  <span class="cond-tag">Congenital Heart Defects</span>
+                </div>
+              </div>
+            </div>
+
+            <h6 class="fw-600 mb-2"><i class="fa-solid fa-microchip text-warning me-2"></i>Equipment &amp; Technology</h6>
+            <div class="mb-4">
+              <span class="equip-badge">3T Cardiac MRI</span>
+              <span class="equip-badge">256-slice CT Angiography</span>
+              <span class="equip-badge">Biplane Cath Lab</span>
+              <span class="equip-badge">IVUS System</span>
+              <span class="equip-badge">3D Echocardiography</span>
+              <span class="equip-badge">EP Mapping System</span>
+              <span class="equip-badge">IABP &amp; LVAD</span>
+              <span class="equip-badge">Holter Monitor</span>
+              <span class="equip-badge">Stress Echocardiography</span>
+            </div>
+
+            <h6 class="fw-600 mb-2"><i class="fa-solid fa-clock text-info me-2"></i>OPD Schedule</h6>
+            <table class="table table-bordered table-sm opd-table mb-0">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Morning OPD</th>
+                  <th>Evening OPD</th>
+                  <th>Emergency</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Monday</td><td>8:00 AM – 1:00 PM</td><td>4:00 PM – 7:00 PM</td><td class="text-success">Open</td></tr>
+                <tr><td>Tuesday</td><td>8:00 AM – 1:00 PM</td><td>4:00 PM – 7:00 PM</td><td class="text-success">Open</td></tr>
+                <tr><td>Wednesday</td><td>8:00 AM – 1:00 PM</td><td>—</td><td class="text-success">Open</td></tr>
+                <tr><td>Thursday</td><td>8:00 AM – 1:00 PM</td><td>4:00 PM – 7:00 PM</td><td class="text-success">Open</td></tr>
+                <tr><td>Friday</td><td>8:00 AM – 1:00 PM</td><td>4:00 PM – 7:00 PM</td><td class="text-success">Open</td></tr>
+                <tr><td>Saturday</td><td>9:00 AM – 12:00 PM</td><td>—</td><td class="text-success">Open</td></tr>
+                <tr><td>Sunday</td><td class="text-muted">Emergency Only</td><td>—</td><td class="text-success">Open</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Right column -->
+          <div class="col-lg-4 border-start" style="background:#f8faff;">
+            <div class="p-4">
+              <!-- Overview Stats -->
+              <div class="card border-0 shadow-sm rounded-3 mb-3">
+                <div class="card-body">
+                  <h6 class="fw-600 mb-3"><i class="fa-solid fa-chart-bar text-primary me-2"></i>Department Overview</h6>
+                  <div class="row g-2 text-center">
+                    <div class="col-6">
+                      <div style="background:#e8f4fd;border-radius:10px;padding:12px 8px;">
+                        <div style="font-size:1.6rem;font-weight:800;color:#0d6efd;">28</div>
+                        <div style="font-size:.72rem;color:#6c757d;">Doctors</div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div style="background:#fdecea;border-radius:10px;padding:12px 8px;">
+                        <div style="font-size:1.6rem;font-weight:800;color:#e74c3c;">80</div>
+                        <div style="font-size:.72rem;color:#6c757d;">Beds</div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div style="background:#e9f7ef;border-radius:10px;padding:12px 8px;">
+                        <div style="font-size:1.6rem;font-weight:800;color:#198754;">45</div>
+                        <div style="font-size:.72rem;color:#6c757d;">Services</div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div style="background:#fff3cd;border-radius:10px;padding:12px 8px;">
+                        <div style="font-size:1.6rem;font-weight:800;color:#856404;">4.8★</div>
+                        <div style="font-size:.72rem;color:#6c757d;">Rating</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Head of Department -->
+              <div class="card border-0 shadow-sm rounded-3 mb-3">
+                <div class="card-body">
+                  <h6 class="fw-600 mb-3"><i class="fa-solid fa-user-tie text-purple me-2"></i>Head of Department</h6>
+                  <div class="d-flex gap-3 align-items-center mb-3">
+                    <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#e74c3c,#c0392b);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;font-weight:700;flex-shrink:0;">DK</div>
+                    <div>
+                      <div class="fw-600" style="font-size:.92rem;">Dr. David Kim</div>
+                      <div style="font-size:.78rem;color:#6c757d;">Senior Cardiologist</div>
+                      <div style="font-size:.76rem;color:#6c757d;">MD, FACC, PhD</div>
+                    </div>
+                  </div>
+                  <div style="font-size:.8rem;color:#6c757d;" class="mb-3">
+                    <i class="fa-solid fa-graduation-cap me-1"></i>Johns Hopkins University · 24 Years Exp.
+                  </div>
+                  <div class="d-flex gap-2">
+                    <span class="badge bg-success-subtle text-success"><i class="fa-solid fa-circle me-1" style="font-size:.5rem;"></i>Available Today</span>
+                  </div>
+                  <a href="doctors.html?doctor=david-kim" class="btn btn-primary btn-sm w-100 mt-3 rounded-pill">
+                    <i class="fa-regular fa-calendar-plus me-1"></i>Book with Dr. Kim
+                  </a>
+                </div>
+              </div>
+
+              <!-- Quick Contact -->
+              <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-body">
+                  <h6 class="fw-600 mb-3"><i class="fa-solid fa-phone text-success me-2"></i>Contact Department</h6>
+                  <div style="font-size:.83rem;" class="d-flex flex-column gap-2">
+                    <div><i class="fa-solid fa-phone text-primary me-2"></i><a href="tel:+12125550210" style="color:inherit;">+1 (212) 555-0210</a></div>
+                    <div><i class="fa-regular fa-envelope text-primary me-2"></i><a href="mailto:cardiology@medicare.com" style="color:inherit;">cardiology@medicare.com</a></div>
+                    <div><i class="fa-solid fa-location-dot text-primary me-2"></i>Block A, 3rd Floor, Wing B</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer border-top">
+        <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal"><i class="fa-solid fa-xmark me-1"></i>Close</button>
+        <a href="doctors.html?dept=cardiology" class="btn btn-outline-primary rounded-pill"><i class="fa-solid fa-user-doctor me-1"></i>Find All Doctors</a>
+        <a href="doctors.html" class="btn btn-primary rounded-pill"><i class="fa-regular fa-calendar-plus me-1"></i>Book Appointment</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     STATISTICS SECTION
+══════════════════════════════════════════════════════════════════ -->
+<div class="stats-section">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-md-3">
+        <div class="stat-box">
+          <div class="stat-icon text-info"><i class="fa-solid fa-building-columns"></i></div>
+          <div class="stat-number" id="count-depts">12</div>
+          <div class="stat-label">Total Departments</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-box">
+          <div class="stat-icon text-warning"><i class="fa-solid fa-user-doctor"></i></div>
+          <div class="stat-number" id="count-docs">250+</div>
+          <div class="stat-label">Expert Physicians</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-box">
+          <div class="stat-icon" style="color:#20c997;"><i class="fa-solid fa-calendar-day"></i></div>
+          <div class="stat-number">1,200+</div>
+          <div class="stat-label">Daily OPD Visits</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="stat-box">
+          <div class="stat-icon" style="color:#ff6b6b;"><i class="fa-solid fa-syringe"></i></div>
+          <div class="stat-number">18,500+</div>
+          <div class="stat-label">Annual Surgeries</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SPECIALTY PROGRAMS SECTION
+══════════════════════════════════════════════════════════════════ -->
+<section class="specialty-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-badge"><i class="fa-solid fa-star me-1"></i>Centres of Excellence</span>
+      <h2 class="section-title mt-2">Specialty Programs &amp; Centres</h2>
+      <p class="text-muted">World-class multidisciplinary programs designed to deliver the highest standard of specialised care.</p>
+    </div>
+    <div class="row g-4">
+
+      <!-- Cancer Care Centre -->
+      <div class="col-lg-4">
+        <div class="program-card cancer h-100">
+          <div class="program-icon cancer"><i class="fa-solid fa-ribbon"></i></div>
+          <h4 class="fw-700 mb-2" style="font-family:'Playfair Display',serif;">Cancer Care Center</h4>
+          <p class="text-muted mb-3" style="font-size:.88rem;line-height:1.7;">
+            A JCI-accredited comprehensive cancer centre bringing together medical oncology, radiation therapy, surgical oncology, haematology, and supportive care under one roof. We use the latest immunotherapy, targeted therapy, and precision medicine approaches.
+          </p>
+          <ul class="list-unstyled mb-4" style="font-size:.84rem;">
+            <li class="mb-1"><i class="fa-solid fa-check-circle text-danger me-2"></i>Multi-disciplinary Tumour Boards</li>
+            <li class="mb-1"><i class="fa-solid fa-check-circle text-danger me-2"></i>Linear Accelerator (LINAC) Radiation</li>
+            <li class="mb-1"><i class="fa-solid fa-check-circle text-danger me-2"></i>Bone Marrow Transplant Unit</li>
+            <li class="mb-1"><i class="fa-solid fa-check-circle text-danger me-2"></i>Cancer Genetics &amp; Counselling</li>
+            <li class="mb-1"><i class="fa-solid fa-check-circle text-danger me-2"></i>Palliative Care &amp; Support</li>
+          </ul>
+          <div class="d-flex gap-2 flex-wrap mb-3">
+            <span class="badge bg-danger-subtle text-danger">18 Oncologists</span>
+            <span class="badge bg-secondary-subtle text-secondary">70 Beds</span>
+            <span class="badge bg-warning-subtle text-warning">JCI Accredited</span>
+          </div>
+          <a href="departments.html#oncology" class="btn btn-danger rounded-pill btn-sm"><i class="fa-solid fa-arrow-right me-1"></i>Explore Cancer Care</a>
+        </div>
+      </div>
+
+      <!-- Heart Institute -->
+      <div class="col-lg-4">
+        <div class="program-card heart h-100">
+          <div class="program-icon heart"><i class="fa-solid fa-heart-pulse"></i></div>
+          <h4 class="fw-700 mb-2" style="font-family:'Playfair Display',serif;">Heart Institute</h4>
+          <p class="text-muted mb-3" style="font-size:.88rem;line-height:1.7;">
+            Our Heart Institute is a nationally ranked tertiary cardiac care facility equipped with state-of-the-art catheterisation labs, a dedicated cardiac ICU, and a team of 28 cardiologists and cardiovascular surgeons performing over 3,000 procedures annually.
+          </p>
+          <ul class="list-unstyled mb-4" style="font-size:.84rem;">
+            <li class="mb-1"><i class="fa-solid fa-check-circle text-pink me-2" style="color:#e91e63;"></i>24/7 Primary PCI for Heart Attacks</li>
+            <li class="mb-1"><i class="fa-solid fa-check-circle me-2" style="color:#e91e63;"></i>Open Heart &amp; Bypass Surgery</li>
+            <li class="mb-1"><i class="fa-solid fa-check-circle me-2" style="color:#e91e63;"></i>TAVI / Structural Heart Procedures</li>
+            <li class="mb-1"><i class="fa-solid fa-check-circle me-2" style="color:#e91e63;"></i>Cardiac Electrophysiology &amp; Ablation</li>
+            <li class="mb-1"><i class="fa-solid fa-check-circle me-2" style="color:#e91e63;"></i>Heart Failure &amp; Transplant Program</li>
+          </ul>
+          <div class="d-flex gap-2 flex-wrap mb-3">
+            <span class="badge bg-danger-subtle text-danger">28 Cardiologists</span>
+            <span class="badge bg-secondary-subtle text-secondary">80 Beds</span>
+            <span class="badge bg-warning-subtle text-warning">Top-100 Ranked</span>
+          </div>
+          <a href="departments.html#cardiology" class="btn rounded-pill btn-sm" style="background:#e91e63;color:#fff;"><i class="fa-solid fa-arrow-right me-1"></i>Explore Heart Institute</a>
+        </div>
+      </div>
+
+      <!-- Mother & Child Center -->
+      <div class="col-lg-4">
+        <div class="program-card mother h-100">
+          <div class="program-icon mother"><i class="fa-solid fa-baby-carriage"></i></div>
+          <h4 class="fw-700 mb-2" style="font-family:'Playfair Display',serif;">Mother &amp; Child Center</h4>
+          <p class="text-muted mb-3" style="font-size:.88rem;line-height:1.7;">
+            A dedicated women's and children's facility integrating obstetrics, gynaecology, neonatology, and paediatrics to provide seamless care from pre-conception through childhood, in a nurturing, family-centred environment.
+          </p>
+          <ul class="list-unstyled mb-4" style="font-size:.84rem;">
+            <li class="mb-1"><i class="fa-solid fa-check-circle text-success me-2"></i>Level III NICU with 24 Incubators</li>
+            <li class="mb-1"><i class="fa-solid fa-check-circle text-success me-2"></i>IVF &amp; Fertility Treatment Centre</li>
+            <li class="mb-1"><i class="fa-solid fa-check-circle text-success me-2"></i>Fetal Medicine &amp; High-Risk OB</li>
+            <li class="mb-1"><i class="fa-solid fa-check-circle text-success me-2"></i>Lactation Support &amp; Counselling</li>
+            <li class="mb-1"><i class="fa-solid fa-check-circle text-success me-2"></i>Child Development Clinic</li>
+          </ul>
+          <div class="d-flex gap-2 flex-wrap mb-3">
+            <span class="badge bg-success-subtle text-success">40 Specialists</span>
+            <span class="badge bg-secondary-subtle text-secondary">110 Beds</span>
+            <span class="badge bg-info-subtle text-info">Baby-Friendly</span>
+          </div>
+          <a href="departments.html#obgyn" class="btn btn-success rounded-pill btn-sm"><i class="fa-solid fa-arrow-right me-1"></i>Explore Mother &amp; Child</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════════════ -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Brand Column -->
+      <div class="col-lg-4">
+        <div class="footer-brand">
+          <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none mb-3">
+            <div style="width:44px;height:44px;background:linear-gradient(135deg,#0d6efd,#6610f2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;">
+              <i class="fa-solid fa-hospital-user"></i>
+            </div>
+            <div>
+              <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;font-weight:700;">MediCare General</div>
+              <div style="font-size:.7rem;color:rgba(255,255,255,.5);letter-spacing:.5px;">Hospital &amp; Research Centre</div>
+            </div>
+          </a>
+          <p>Delivering compassionate, evidence-based healthcare to our community since 1987. Accredited by JCI and NABH with a commitment to patient safety and clinical excellence.</p>
+          <div class="d-flex gap-2 flex-wrap mt-3">
+            <span class="badge" style="background:rgba(255,255,255,.1);font-size:.72rem;"><i class="fa-solid fa-shield-halved me-1"></i>JCI Accredited</span>
+            <span class="badge" style="background:rgba(255,255,255,.1);font-size:.72rem;"><i class="fa-solid fa-award me-1"></i>NABH Certified</span>
+            <span class="badge" style="background:rgba(255,255,255,.1);font-size:.72rem;"><i class="fa-solid fa-star me-1"></i>ISO 9001:2015</span>
+          </div>
+          <div class="footer-social d-flex gap-2 mt-3">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-2 col-md-4">
+        <h6 class="footer-heading">Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="departments.html">Departments</a></li>
+          <li><a href="doctors.html">Find a Doctor</a></li>
+          <li><a href="doctors.html">Book Appointment</a></li>
+          <li><a href="patients.html">Patient Portal</a></li>
+          <li><a href="research.html">Research &amp; Education</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="col-lg-2 col-md-4">
+        <h6 class="footer-heading">Our Services</h6>
+        <ul class="footer-links">
+          <li><a href="#">Emergency Care</a></li>
+          <li><a href="#">Diagnostics &amp; Lab</a></li>
+          <li><a href="#">Radiology &amp; Imaging</a></li>
+          <li><a href="#">Surgery &amp; OT</a></li>
+          <li><a href="#">ICU &amp; Critical Care</a></li>
+          <li><a href="#">Blood Bank</a></li>
+          <li><a href="#">Pharmacy</a></li>
+          <li><a href="#">Health Packages</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-lg-4 col-md-4">
+        <h6 class="footer-heading">Get in Touch</h6>
+        <div class="footer-contact-item">
+          <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <strong>Address</strong>
+            <p>42 Healthcare Avenue, Medical District<br>New York, NY 10001, USA</p>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <strong>Phone</strong>
+            <p><a href="tel:+12125550199" style="color:inherit;">+1 (212) 555-0199</a> (General)<br>
+               <a href="tel:+18001234567" style="color:inherit;">1-800-123-4567</a> (Toll-Free)</p>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="icon"><i class="fa-regular fa-clock"></i></div>
+          <div>
+            <strong>Working Hours</strong>
+            <p>OPD: Mon–Sat 8:00 AM – 8:00 PM<br>Emergency: 24 Hours / 7 Days</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <p>© 2026 MediCare General Hospital &amp; Research Centre. All Rights Reserved.</p>
+        <div class="d-flex gap-3">
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:.78rem;text-decoration:none;">Privacy Policy</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:.78rem;text-decoration:none;">Terms of Use</a>
+          <a href="#" style="color:rgba(255,255,255,.4);font-size:.78rem;text-decoration:none;">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/filter.js"></script>
+
+<script>
+  /* ── Department Data ── */
+  const departments = {
+    cardiology:   { title:'Cardiology', sub:'Heart & Cardiovascular Care', icon:'fa-heart-pulse', grad:'g-red', docs:28, beds:80 },
+    neurology:    { title:'Neurology & Neurosurgery', sub:'Brain, Spine & Nervous System', icon:'fa-brain', grad:'g-purple', docs:22, beds:65 },
+    orthopedics:  { title:'Orthopedics & Spine', sub:'Bone, Joint & Musculoskeletal', icon:'fa-bone', grad:'g-orange', docs:19, beds:55 },
+    emergency:    { title:'Emergency Medicine', sub:'24/7 Critical & Trauma Care', icon:'fa-truck-medical', grad:'g-red', docs:35, beds:40 },
+    oncology:     { title:'Oncology & Cancer Care', sub:'Comprehensive Cancer Treatment', icon:'fa-ribbon', grad:'g-teal', docs:18, beds:70 },
+    pediatrics:   { title:'Pediatrics & Neonatology', sub:'Child & Newborn Healthcare', icon:'fa-baby', grad:'g-cyan', docs:24, beds:60 },
+    obgyn:        { title:'Obstetrics & Gynecology', sub:"Women's Health & Maternity", icon:'fa-venus', grad:'g-pink', docs:16, beds:50 },
+    gastro:       { title:'Gastroenterology', sub:'Digestive System & Liver Care', icon:'fa-stomach', grad:'g-brown', docs:14, beds:40 },
+    radiology:    { title:'Radiology & Imaging', sub:'Diagnostic Imaging & Interventional', icon:'fa-radiation', grad:'g-indigo', docs:12, beds:15 },
+    surgery:      { title:'General & Laparoscopic Surgery', sub:'Minimally Invasive Surgical Care', icon:'fa-scalpel', grad:'g-green', docs:20, beds:45 },
+    pulmonology:  { title:'Pulmonology & Respiratory', sub:'Lung & Respiratory Medicine', icon:'fa-lungs', grad:'g-olive', docs:13, beds:35 },
+    nephro:       { title:'Nephrology & Urology', sub:'Kidney, Renal & Urinary Tract', icon:'fa-kidneys', grad:'g-navy', docs:15, beds:42 }
+  };
+
+  function openDeptModal(key) {
+    const d = departments[key];
+    if (!d) return;
+    const hdr = document.getElementById('modal-dept-header');
+    hdr.className = 'modal-dept-header ' + d.grad;
+    document.getElementById('modal-icon').innerHTML = `<i class="fa-solid ${d.icon} fa-2x"></i>`;
+    document.getElementById('modal-title').textContent = d.title;
+    document.getElementById('modal-subtitle').textContent = d.sub;
+    document.getElementById('modal-docs').textContent = d.docs;
+    document.getElementById('modal-beds').textContent = d.beds;
+    const modal = new bootstrap.Modal(document.getElementById('deptModal'));
+    modal.show();
+  }
+
+  /* ── Filter/Search Logic ── */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const deptItems  = document.querySelectorAll('.dept-item');
+  const searchInput = document.getElementById('deptSearch');
+  const sortSelect  = document.getElementById('sortDept');
+  const resultsCount = document.getElementById('results-count');
+
+  let activeFilter = 'all';
+
+  function applyFilters() {
+    const query = searchInput.value.toLowerCase();
+    let visible = 0;
+    deptItems.forEach(item => {
+      const name = item.dataset.name.toLowerCase();
+      const cat  = item.dataset.cat;
+      const matchFilter = activeFilter === 'all' || cat === activeFilter;
+      const matchSearch = name.includes(query);
+      if (matchFilter && matchSearch) {
+        item.style.display = '';
+        visible++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+    resultsCount.innerHTML = `<i class="fa-solid fa-circle-check text-success me-1"></i>Showing <strong>${visible}</strong> department${visible !== 1 ? 's' : ''}`;
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  searchInput.addEventListener('input', applyFilters);
+
+  sortSelect.addEventListener('change', () => {
+    const grid = document.getElementById('departments-grid');
+    const items = [...grid.querySelectorAll('.dept-item')];
+    items.sort((a, b) => {
+      if (sortSelect.value === 'az') return a.dataset.name.localeCompare(b.dataset.name);
+      if (sortSelect.value === 'za') return b.dataset.name.localeCompare(a.dataset.name);
+      if (sortSelect.value === 'doctors') return parseInt(b.dataset.docs) - parseInt(a.dataset.docs);
+    });
+    items.forEach(i => grid.appendChild(i));
+  });
+
+  /* ── Counter animation ── */
+  function animateCount(el, target, suffix='') {
+    let start = 0;
+    const step = Math.ceil(target / 60);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { el.textContent = target + suffix; clearInterval(timer); }
+      else el.textContent = start + suffix;
+    }, 25);
+  }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCount(document.getElementById('count-depts'), 12);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: .3 });
+  const statSection = document.querySelector('.stats-section');
+  if (statSection) observer.observe(statSection);
+</script>
+</body>
+</html>

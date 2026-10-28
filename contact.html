@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | MediCare Hospital</title>
+  <meta name="description" content="Contact MediCare Hospital. Reach our departments, book appointments, submit feedback, and find directions to our facility." />
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===================== ROOT VARIABLES ===================== */
+    :root {
+      --primary:      #0d6efd;
+      --primary-dark: #0a58ca;
+      --teal:         #0dcaf0;
+      --teal-dark:    #0aa2c0;
+      --navy:         #0a2540;
+      --navy-mid:     #1a3a5c;
+      --red:          #dc3545;
+      --red-dark:     #b02a37;
+      --gold:         #ffc107;
+      --green:        #198754;
+      --light-bg:     #f8fafc;
+      --card-shadow:  0 4px 24px rgba(10,37,64,.10);
+      --card-radius:  16px;
+      --transition:   .3s cubic-bezier(.4,0,.2,1);
+      --font-main:    'Inter', sans-serif;
+      --font-display: 'Playfair Display', serif;
+    }
+
+    /* ===================== GLOBAL ===================== */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: var(--font-main);
+      background: var(--light-bg);
+      color: #1e293b;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; }
+    img { max-width: 100%; }
+    section { position: relative; }
+
+    /* ===================== READING PROGRESS BAR ===================== */
+    #reading-progress {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      height: 3px; width: 0; background: linear-gradient(90deg,#0d6efd,#0dcaf0);
+      transition: width .1s linear;
+    }
+
+    /* ===================== EMERGENCY BANNER ===================== */
+    #emergency-banner {
+      background: linear-gradient(90deg, var(--red-dark), var(--red));
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+      padding: 7px 0;
+    }
+    #emergency-banner .pulse-dot {
+      display: inline-block; width: 8px; height: 8px;
+      border-radius: 50%; background: #fff;
+      margin-right: 6px;
+      animation: pulse-dot 1.2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100%{ opacity:1; transform:scale(1); }
+      50%{ opacity:.5; transform:scale(1.5); }
+    }
+    #close-banner {
+      background: none; border: none; color: rgba(255,255,255,.8);
+      font-size: 1.1rem; cursor: pointer; padding: 0 4px;
+    }
+    #close-banner:hover { color: #fff; }
+
+    /* ===================== NAVBAR ===================== */
+    #mainNav {
+      background: rgba(10,37,64,.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 0;
+      transition: var(--transition);
+    }
+    #mainNav.scrolled {
+      padding: 8px 0;
+      box-shadow: 0 2px 30px rgba(0,0,0,.3);
+    }
+    .navbar-brand .brand-icon {
+      background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+      border-radius: 10px; padding: 6px 9px;
+      font-size: 1.25rem; color: #fff;
+      display: inline-flex; align-items: center;
+    }
+    .navbar-brand .brand-text { color: #fff; font-weight: 800; font-size: 1.25rem; margin-left: 8px; }
+    .navbar-brand .brand-text span { color: #0dcaf0; }
+    .nav-link {
+      color: rgba(255,255,255,.82) !important;
+      font-weight: 500; font-size: .9rem;
+      padding: 6px 14px !important;
+      border-radius: 8px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #fff !important;
+      background: rgba(255,255,255,.1);
+    }
+    .nav-link.active::after {
+      content: ''; position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%);
+      width: 18px; height: 2px; background: #0dcaf0; border-radius: 2px;
+    }
+    .nav-cta {
+      background: linear-gradient(135deg,#0d6efd,#0dcaf0) !important;
+      color: #fff !important;
+      border-radius: 50px !important;
+      padding: 8px 20px !important;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { opacity: .9; background: none !important; }
+    .navbar-toggler { border-color: rgba(255,255,255,.3); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* ===================== PAGE HERO ===================== */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 40%, #0d6efd 100%);
+      padding: 100px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .page-hero .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50px; padding: 6px 16px; color: #0dcaf0;
+      font-size: .82rem; font-weight: 600; letter-spacing: .5px;
+      text-transform: uppercase; margin-bottom: 18px;
+    }
+    .page-hero h1 { color: #fff; font-family: var(--font-display); font-size: clamp(2rem,5vw,3rem); font-weight: 700; }
+    .page-hero .subtitle { color: rgba(255,255,255,.72); font-size: 1.05rem; max-width: 520px; }
+    .breadcrumb-item a { color: rgba(255,255,255,.6); }
+    .breadcrumb-item.active { color: rgba(255,255,255,.9); }
+    .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,.4); }
+    .hero-float-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 14px;
+      padding: 18px 22px;
+      backdrop-filter: blur(8px);
+      color: #fff;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .hero-float-card .icon { font-size: 1.6rem; color: #0dcaf0; }
+    .hero-float-card .label { font-size: .75rem; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing:.4px; }
+    .hero-float-card .value { font-size: 1rem; font-weight: 700; }
+
+    /* ===================== QUICK CONTACT STRIP ===================== */
+    .quick-contact-strip { margin-top: -32px; position: relative; z-index: 10; }
+    .qc-card {
+      border-radius: var(--card-radius);
+      padding: 24px 28px;
+      display: flex; align-items: center; gap: 16px;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition);
+      border: none;
+    }
+    .qc-card:hover { transform: translateY(-4px); }
+    .qc-card.emergency { background: linear-gradient(135deg,#b02a37,#dc3545); color: #fff; }
+    .qc-card.appointment { background: linear-gradient(135deg,#0aa2c0,#0dcaf0); color: #fff; }
+    .qc-card.general { background: linear-gradient(135deg,#0a2540,#1a3a5c); color: #fff; }
+    .qc-icon {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .qc-label { font-size: .75rem; text-transform: uppercase; letter-spacing: .6px; opacity: .8; margin-bottom: 2px; }
+    .qc-number { font-size: 1.1rem; font-weight: 800; margin-bottom: 0; }
+    .qc-sub { font-size: .78rem; opacity: .75; margin-top: 2px; }
+    .pulse-ring {
+      position: relative;
+    }
+    .pulse-ring::after {
+      content: '';
+      position: absolute; inset: -6px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.4);
+      animation: pulse-ring 1.6s infinite;
+    }
+    @keyframes pulse-ring {
+      0%{ transform:scale(1); opacity:1; }
+      100%{ transform:scale(1.5); opacity:0; }
+    }
+
+    /* ===================== SECTION HEADERS ===================== */
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(13,110,253,.1); border: 1px solid rgba(13,110,253,.2);
+      border-radius: 50px; padding: 5px 14px;
+      color: var(--primary); font-size: .78rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px;
+    }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 700; color: var(--navy); }
+    .section-subtitle { color: #64748b; font-size: 1rem; max-width: 580px; }
+    .divider {
+      width: 48px; height: 4px; border-radius: 4px;
+      background: linear-gradient(90deg,#0d6efd,#0dcaf0);
+      margin: 14px 0;
+    }
+
+    /* ===================== DEPT DIRECTORY (ACCORDION) ===================== */
+    .dept-directory { background: #fff; border-radius: var(--card-radius); box-shadow: var(--card-shadow); overflow: hidden; }
+    .dept-directory .accordion-button {
+      font-weight: 600; font-size: .95rem; background: #fff;
+      color: var(--navy);
+    }
+    .dept-directory .accordion-button:not(.collapsed) {
+      background: linear-gradient(90deg,#0d6efd 0%,#0dcaf0 100%);
+      color: #fff;
+    }
+    .dept-directory .accordion-button:not(.collapsed) .dept-icon { background: rgba(255,255,255,.2); color: #fff; }
+    .dept-icon {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: rgba(13,110,253,.1); color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .95rem; margin-right: 12px; flex-shrink: 0;
+    }
+    .dept-info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 14px; }
+    .dept-info-item { display: flex; flex-direction: column; }
+    .dept-info-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .5px; color: #64748b; margin-bottom: 2px; }
+    .dept-info-value { font-size: .9rem; font-weight: 600; color: var(--navy); }
+    .dept-info-value a { color: var(--primary); }
+    .dept-info-value a:hover { text-decoration: underline; }
+    .opd-badge { display: inline-block; background: rgba(25,135,84,.1); color: #198754; font-size: .72rem; font-weight: 600; border-radius: 50px; padding: 2px 10px; margin-top: 4px; }
+
+    /* ===================== CONTACT FORM ===================== */
+    .contact-section { background: #fff; }
+    .form-wrapper {
+      background: #fff; border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow); padding: 36px 32px;
+    }
+    .form-floating > .form-control, .form-floating > .form-select {
+      border-radius: 10px; border-color: #e2e8f0;
+      font-size: .93rem;
+    }
+    .form-floating > .form-control:focus, .form-floating > .form-select:focus {
+      border-color: var(--primary); box-shadow: 0 0 0 3px rgba(13,110,253,.12);
+    }
+    .form-floating label { font-size: .9rem; color: #64748b; }
+    .radio-group { display: flex; flex-wrap: wrap; gap: 10px; }
+    .radio-pill input[type=radio] { display: none; }
+    .radio-pill label {
+      border: 1.5px solid #e2e8f0; border-radius: 50px;
+      padding: 6px 18px; font-size: .83rem; font-weight: 600;
+      cursor: pointer; color: #64748b; transition: var(--transition);
+    }
+    .radio-pill input[type=radio]:checked + label {
+      background: var(--primary); border-color: var(--primary); color: #fff;
+    }
+    .attach-zone {
+      border: 2px dashed #cbd5e1; border-radius: 12px;
+      padding: 18px; text-align: center; cursor: pointer;
+      color: #64748b; font-size: .87rem; transition: var(--transition);
+    }
+    .attach-zone:hover { border-color: var(--primary); background: rgba(13,110,253,.03); }
+    .captcha-box {
+      border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 14px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: #f8fafc;
+    }
+    .captcha-logo { font-size: .65rem; color: #64748b; text-align: center; }
+    .btn-submit {
+      background: linear-gradient(135deg,#0d6efd,#0dcaf0);
+      border: none; border-radius: 50px; padding: 13px 40px;
+      color: #fff; font-weight: 700; font-size: 1rem;
+      transition: var(--transition); letter-spacing: .3px;
+    }
+    .btn-submit:hover { opacity: .9; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,110,253,.35); }
+    .btn-submit:disabled { opacity: .7; transform: none; }
+
+    /* ===================== SIDEBAR ===================== */
+    .sidebar-card {
+      background: #fff; border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow); padding: 28px 24px; margin-bottom: 22px;
+    }
+    .sidebar-card h5 { font-weight: 700; color: var(--navy); font-size: 1rem; margin-bottom: 16px; }
+    .info-row { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #f1f5f9; }
+    .info-row:last-child { border-bottom: none; }
+    .info-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: .95rem; flex-shrink: 0; }
+    .info-icon.red { background: rgba(220,53,69,.1); color: #dc3545; }
+    .info-icon.blue { background: rgba(13,110,253,.1); color: #0d6efd; }
+    .info-icon.teal { background: rgba(13,202,240,.1); color: #0aa2c0; }
+    .info-icon.green { background: rgba(25,135,84,.1); color: #198754; }
+    .info-icon.gold { background: rgba(255,193,7,.1); color: #d4a017; }
+    .info-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .4px; color: #94a3b8; margin-bottom: 2px; }
+    .info-value { font-size: .88rem; font-weight: 600; color: var(--navy); }
+    .info-value a { color: var(--primary); }
+    .social-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .social-btn {
+      display: flex; align-items: center; gap: 8px;
+      border-radius: 10px; padding: 9px 14px; font-size: .8rem;
+      font-weight: 600; border: 1.5px solid #e2e8f0; color: #1e293b;
+      transition: var(--transition);
+    }
+    .social-btn:hover { border-color: transparent; color: #fff; transform: translateY(-2px); }
+    .social-btn.fb:hover { background: #1877f2; border-color:#1877f2; }
+    .social-btn.tw:hover { background: #1da1f2; border-color:#1da1f2; }
+    .social-btn.yt:hover { background: #ff0000; border-color:#ff0000; }
+    .social-btn.li:hover { background: #0a66c2; border-color:#0a66c2; }
+    .social-btn.ig:hover { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border-color:transparent; }
+    .followers { color: #94a3b8; font-size: .72rem; }
+    .hours-table { width: 100%; font-size: .85rem; }
+    .hours-table tr td:first-child { color: #64748b; font-weight: 600; padding: 6px 0; }
+    .hours-table tr td:last-child { text-align: right; font-weight: 700; color: var(--navy); }
+    .hours-table .today td { color: var(--primary) !important; background: rgba(13,110,253,.05); border-radius: 6px; }
+    .open-badge { display: inline-block; background: rgba(25,135,84,.1); color: #198754; font-size: .68rem; font-weight: 700; border-radius: 4px; padding: 1px 6px; margin-left: 4px; }
+    .closed-badge { background: rgba(220,53,69,.1); color: #dc3545; }
+    .btn-directions {
+      background: linear-gradient(135deg,#0a2540,#1a3a5c);
+      color: #fff; border: none; border-radius: 50px; padding: 11px 24px;
+      font-weight: 600; font-size: .88rem; width: 100%;
+      transition: var(--transition);
+    }
+    .btn-directions:hover { opacity: .9; transform: translateY(-2px); }
+
+    /* ===================== MAP SECTION ===================== */
+    .map-section { background: #fff; }
+    .map-wrapper {
+      border-radius: var(--card-radius); overflow: hidden;
+      box-shadow: var(--card-shadow); position: relative;
+    }
+    .map-placeholder {
+      height: 420px; background: linear-gradient(135deg,#e2e8f0,#cbd5e1);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: #64748b;
+    }
+    .map-placeholder .map-icon { font-size: 3rem; color: #0d6efd; margin-bottom: 14px; }
+    .map-placeholder p { font-size: .95rem; }
+    .direction-card {
+      background: #fff; border-radius: 14px; padding: 22px 18px;
+      box-shadow: var(--card-shadow); text-align: center;
+      border-top: 4px solid var(--primary);
+      transition: var(--transition);
+    }
+    .direction-card:hover { transform: translateY(-4px); }
+    .direction-card .dir-icon { font-size: 1.8rem; color: var(--primary); margin-bottom: 10px; }
+    .direction-card h6 { font-weight: 700; color: var(--navy); font-size: .9rem; margin-bottom: 6px; }
+    .direction-card p { font-size: .8rem; color: #64748b; margin: 0; }
+    .direction-card.teal { border-top-color: #0dcaf0; }
+    .direction-card.teal .dir-icon { color: #0dcaf0; }
+    .direction-card.green { border-top-color: #198754; }
+    .direction-card.green .dir-icon { color: #198754; }
+    .direction-card.gold { border-top-color: #ffc107; }
+    .direction-card.gold .dir-icon { color: #d4a017; }
+
+    /* ===================== FEEDBACK / GRIEVANCE ===================== */
+    .feedback-section { background: linear-gradient(135deg,#f0f7ff,#f8fafc); }
+    .feedback-card {
+      background: #fff; border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow); padding: 32px 28px;
+    }
+    .star-rating { display: flex; gap: 6px; font-size: 1.6rem; cursor: pointer; }
+    .star-rating i { color: #e2e8f0; transition: var(--transition); }
+    .star-rating i.active, .star-rating i.hover { color: var(--gold); }
+    .star-label { font-size: .82rem; color: #64748b; margin-top: 6px; }
+    .grievance-steps { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+    .grievance-steps li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid #f1f5f9;
+      counter-increment: step;
+    }
+    .grievance-steps li:last-child { border-bottom: none; }
+    .step-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: linear-gradient(135deg,#0d6efd,#0dcaf0);
+      color: #fff; font-weight: 700; font-size: .85rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-text h6 { font-weight: 700; color: var(--navy); font-size: .9rem; margin-bottom: 3px; }
+    .step-text p { font-size: .82rem; color: #64748b; margin: 0; }
+    .rights-accordion .accordion-button { font-size: .9rem; font-weight: 600; }
+    .rights-accordion .accordion-body { font-size: .85rem; color: #475569; }
+
+    /* ===================== FAQ SECTION ===================== */
+    .faq-section { background: #fff; }
+    .faq-accordion .accordion-item { border: none; margin-bottom: 10px; }
+    .faq-accordion .accordion-button {
+      border-radius: 12px !important; font-weight: 600; font-size: .92rem;
+      background: #f8fafc; color: var(--navy);
+      box-shadow: none;
+    }
+    .faq-accordion .accordion-button:not(.collapsed) {
+      background: linear-gradient(90deg,#0d6efd,#0dcaf0);
+      color: #fff; border-radius: 12px 12px 0 0 !important;
+    }
+    .faq-accordion .accordion-button::after { filter: none; }
+    .faq-accordion .accordion-button:not(.collapsed)::after { filter: invert(1); }
+    .faq-accordion .accordion-body {
+      background: #fff; border: 1.5px solid #e2e8f0;
+      border-top: none; border-radius: 0 0 12px 12px;
+      font-size: .88rem; color: #475569; padding: 18px 22px;
+    }
+    .faq-count {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: rgba(13,110,253,.12); color: var(--primary);
+      font-size: .75rem; font-weight: 700; margin-right: 10px; flex-shrink: 0;
+    }
+    .faq-accordion .accordion-button:not(.collapsed) .faq-count {
+      background: rgba(255,255,255,.25); color: #fff;
+    }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.72);
+      font-size: .88rem;
+    }
+    .footer-brand .brand-icon { background: linear-gradient(135deg,#0d6efd,#0dcaf0); border-radius: 10px; padding: 6px 9px; font-size: 1.1rem; color: #fff; }
+    .footer-brand .brand-text { color: #fff; font-weight: 800; font-size: 1.15rem; margin-left: 8px; }
+    .footer-brand .brand-text span { color: #0dcaf0; }
+    footer h6 { color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; font-size: .78rem; margin-bottom: 16px; }
+    footer ul { list-style: none; padding: 0; margin: 0; }
+    footer ul li { margin-bottom: 9px; }
+    footer ul li a { color: rgba(255,255,255,.65); transition: var(--transition); }
+    footer ul li a:hover { color: #0dcaf0; padding-left: 4px; }
+    .footer-divider { border-color: rgba(255,255,255,.1); margin: 32px 0 24px; }
+    .footer-bottom { color: rgba(255,255,255,.5); font-size: .8rem; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: rgba(255,255,255,.08); color: rgba(255,255,255,.65);
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--transition); font-size: .88rem;
+    }
+    .footer-social a:hover { background: #0d6efd; color: #fff; }
+    .accred-badge { display: inline-block; border: 1px solid rgba(255,255,255,.15); border-radius: 8px; padding: 5px 10px; font-size: .72rem; color: rgba(255,255,255,.6); margin-right: 6px; margin-bottom: 6px; }
+
+    /* ===================== TOAST ===================== */
+    #toast-container { position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; }
+    .custom-toast {
+      background: #fff; border-radius: 14px; padding: 16px 20px;
+      box-shadow: 0 8px 40px rgba(0,0,0,.15); min-width: 280px;
+      display: flex; align-items: center; gap: 14px;
+      animation: toast-in .3s ease;
+      border-left: 4px solid var(--primary);
+    }
+    .custom-toast.success { border-left-color: #198754; }
+    .custom-toast.error { border-left-color: #dc3545; }
+    .custom-toast .t-icon { font-size: 1.2rem; }
+    .custom-toast.success .t-icon { color: #198754; }
+    .custom-toast.error .t-icon { color: #dc3545; }
+    .custom-toast .t-title { font-weight: 700; font-size: .9rem; color: var(--navy); }
+    .custom-toast .t-msg { font-size: .8rem; color: #64748b; }
+    .custom-toast .t-close { margin-left: auto; background: none; border: none; color: #94a3b8; cursor: pointer; font-size: .9rem; }
+    @keyframes toast-in { from { opacity:0; transform:translateX(40px); } to { opacity:1; transform:none; } }
+
+    /* ===================== BACK TO TOP ===================== */
+    #back-to-top {
+      position: fixed; bottom: 80px; right: 24px; z-index: 999;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg,#0d6efd,#0dcaf0);
+      color: #fff; border: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; box-shadow: 0 4px 16px rgba(13,110,253,.4);
+      opacity: 0; pointer-events: none; transition: var(--transition);
+    }
+    #back-to-top.show { opacity: 1; pointer-events: all; }
+    #back-to-top:hover { transform: translateY(-3px); }
+
+    /* ===================== COOKIE BANNER ===================== */
+    #cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 9998;
+      background: var(--navy); color: #fff; padding: 14px 0;
+      border-top: 2px solid rgba(13,202,240,.3);
+      transform: translateY(100%); transition: var(--transition);
+    }
+    #cookie-banner.show { transform: none; }
+    #cookie-banner p { font-size: .85rem; color: rgba(255,255,255,.8); margin: 0; }
+    #cookie-banner a { color: #0dcaf0; }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media(max-width: 992px) {
+      .form-wrapper { padding: 24px 18px; }
+    }
+    @media(max-width: 768px) {
+      .page-hero { padding: 80px 0 50px; }
+      .quick-contact-strip { margin-top: 0; margin-bottom: 24px; }
+      .dept-info-grid { grid-template-columns: 1fr 1fr; }
+      .hero-float-card { display: none; }
+    }
+    @media(max-width: 576px) {
+      .dept-info-grid { grid-template-columns: 1fr; }
+      .radio-group { gap: 6px; }
+    }
+
+    /* ===================== ANIMATE ON SCROLL ===================== */
+    [data-animate] { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    [data-animate].animated { opacity: 1; transform: none; }
+    [data-animate][data-delay="100"] { transition-delay: .1s; }
+    [data-animate][data-delay="200"] { transition-delay: .2s; }
+    [data-animate][data-delay="300"] { transition-delay: .3s; }
+    [data-animate][data-delay="400"] { transition-delay: .4s; }
+    [data-animate][data-delay="500"] { transition-delay: .5s; }
+  </style>
+</head>
+<body>
+
+<!-- Reading Progress Bar -->
+<div id="reading-progress"></div>
+
+<!-- Emergency Banner -->
+<div id="emergency-banner">
+  <div class="container d-flex align-items-center justify-content-between">
+    <span><span class="pulse-dot"></span>24/7 Emergency: <strong>108</strong> &nbsp;|&nbsp; Ambulance Services Available &nbsp;|&nbsp; Blood Bank: <strong>+1-555-100-0000</strong></span>
+    <button id="close-banner" aria-label="Close"><i class="fa fa-times"></i></button>
+  </div>
+</div>
+
+<!-- Navbar -->
+<nav id="mainNav" class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <span class="brand-icon"><i class="fa-solid fa-hospital-symbol"></i></span>
+      <span class="brand-text">Medi<span>Care</span></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="departments.html">Departments</a></li>
+        <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="facilities.html">Facilities</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-sm btn-outline-light rounded-pill px-3" id="searchToggle"><i class="fa fa-search me-1"></i> Search</button>
+        <a href="doctors.html" class="btn btn-sm nav-cta">Book Appointment</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home me-1"></i>Home</a></li>
+        <li class="breadcrumb-item active">Contact Us</li>
+      </ol>
+    </nav>
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <div class="hero-badge"><i class="fa-solid fa-headset"></i> We're Here to Help</div>
+        <h1 class="mb-3">Get In Touch<br>With Our Team</h1>
+        <p class="subtitle">Reach out to any department directly, book an appointment, share feedback, or visit us. Our team is available around the clock for your healthcare needs.</p>
+        <div class="d-flex gap-3 mt-4 flex-wrap">
+          <a href="#contact-form" class="btn btn-light fw-bold rounded-pill px-4"><i class="fa fa-paper-plane me-2"></i>Send Message</a>
+          <a href="#dept-directory" class="btn btn-outline-light fw-semibold rounded-pill px-4"><i class="fa fa-phone me-2"></i>Find Department</a>
+        </div>
+      </div>
+      <div class="col-lg-5 mt-4 mt-lg-0">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="hero-float-card">
+              <div class="icon"><i class="fa-solid fa-clock"></i></div>
+              <div>
+                <div class="label">Response Time</div>
+                <div class="value">Under 2 Hours</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="hero-float-card">
+              <div class="icon"><i class="fa-solid fa-users"></i></div>
+              <div>
+                <div class="label">Support Staff</div>
+                <div class="value">120+ Agents</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="hero-float-card">
+              <div class="icon"><i class="fa-solid fa-star"></i></div>
+              <div>
+                <div class="label">Patient Rating</div>
+                <div class="value">4.8 / 5.0</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="hero-float-card">
+              <div class="icon"><i class="fa-solid fa-language"></i></div>
+              <div>
+                <div class="label">Languages</div>
+                <div class="value">18 Supported</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Contact Strip -->
+<div class="quick-contact-strip py-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4" data-animate data-delay="100">
+        <div class="qc-card emergency">
+          <div class="qc-icon pulse-ring"><i class="fa-solid fa-truck-medical"></i></div>
+          <div>
+            <div class="qc-label">24/7 Emergency</div>
+            <div class="qc-number">108 &nbsp;/&nbsp; +1-800-432-2273</div>
+            <div class="qc-sub">Ambulance &bull; ICU &bull; Trauma Care</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-animate data-delay="200">
+        <div class="qc-card appointment">
+          <div class="qc-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <div>
+            <div class="qc-label">Book Appointment</div>
+            <div class="qc-number">+1-555-123-4567</div>
+            <div class="qc-sub">Mon – Sat &bull; 08:00 – 20:00</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-animate data-delay="300">
+        <div class="qc-card general">
+          <div class="qc-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+          <div>
+            <div class="qc-label">General Inquiries</div>
+            <div class="qc-number">info@medicare-hospital.com</div>
+            <div class="qc-sub">Reply within 2 business hours</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Department Phone Directory -->
+<section id="dept-directory" class="py-5">
+  <div class="container">
+    <div class="text-center mb-5" data-animate>
+      <div class="section-badge"><i class="fa-solid fa-building-columns me-1"></i> Department Directory</div>
+      <h2 class="section-title">Find Your Department</h2>
+      <div class="divider mx-auto"></div>
+      <p class="section-subtitle mx-auto">Direct contact numbers, fax lines, emails, and OPD hours for every department.</p>
+    </div>
+    <div class="dept-directory" data-animate>
+      <div class="accordion" id="deptAccordion">
+
+        <!-- Emergency -->
+        <div class="accordion-item border-0 border-bottom">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#dept1">
+              <div class="dept-icon"><i class="fa-solid fa-truck-medical"></i></div>
+              Emergency Medicine &amp; Trauma Care
+            </button>
+          </h2>
+          <div id="dept1" class="accordion-collapse collapse show" data-bs-parent="#deptAccordion">
+            <div class="accordion-body">
+              <div class="dept-info-grid">
+                <div class="dept-info-item"><span class="dept-info-label">Extension</span><span class="dept-info-value">Ext. 1000</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Direct Number</span><span class="dept-info-value"><a href="tel:+15551000100">+1-555-100-0100</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Emergency Hotline</span><span class="dept-info-value"><a href="tel:108">108</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Fax</span><span class="dept-info-value">+1-555-100-0101</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Email</span><span class="dept-info-value"><a href="mailto:emergency@medicare-hospital.com">emergency@medicare-hospital.com</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">OPD Hours</span><span class="dept-info-value">24 / 7 / 365 <span class="opd-badge">Always Open</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cardiology -->
+        <div class="accordion-item border-0 border-bottom">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dept2">
+              <div class="dept-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+              Cardiology &amp; Cardiac Surgery
+            </button>
+          </h2>
+          <div id="dept2" class="accordion-collapse collapse" data-bs-parent="#deptAccordion">
+            <div class="accordion-body">
+              <div class="dept-info-grid">
+                <div class="dept-info-item"><span class="dept-info-label">Extension</span><span class="dept-info-value">Ext. 1010</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Direct Number</span><span class="dept-info-value"><a href="tel:+15551001010">+1-555-100-1010</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Appointment</span><span class="dept-info-value"><a href="tel:+15551001011">+1-555-100-1011</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Fax</span><span class="dept-info-value">+1-555-100-1012</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Email</span><span class="dept-info-value"><a href="mailto:cardiology@medicare-hospital.com">cardiology@medicare-hospital.com</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">OPD Hours</span><span class="dept-info-value">Mon–Fri 9 AM–5 PM, Sat 9 AM–1 PM <span class="opd-badge">Open</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Neurology -->
+        <div class="accordion-item border-0 border-bottom">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dept3">
+              <div class="dept-icon"><i class="fa-solid fa-brain"></i></div>
+              Neurology &amp; Neurosurgery
+            </button>
+          </h2>
+          <div id="dept3" class="accordion-collapse collapse" data-bs-parent="#deptAccordion">
+            <div class="accordion-body">
+              <div class="dept-info-grid">
+                <div class="dept-info-item"><span class="dept-info-label">Extension</span><span class="dept-info-value">Ext. 1020</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Direct Number</span><span class="dept-info-value"><a href="tel:+15551001020">+1-555-100-1020</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Appointment</span><span class="dept-info-value"><a href="tel:+15551001021">+1-555-100-1021</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Fax</span><span class="dept-info-value">+1-555-100-1022</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Email</span><span class="dept-info-value"><a href="mailto:neurology@medicare-hospital.com">neurology@medicare-hospital.com</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">OPD Hours</span><span class="dept-info-value">Mon, Wed, Fri 10 AM–4 PM <span class="opd-badge">Open</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orthopedics -->
+        <div class="accordion-item border-0 border-bottom">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dept4">
+              <div class="dept-icon"><i class="fa-solid fa-bone"></i></div>
+              Orthopedics &amp; Sports Medicine
+            </button>
+          </h2>
+          <div id="dept4" class="accordion-collapse collapse" data-bs-parent="#deptAccordion">
+            <div class="accordion-body">
+              <div class="dept-info-grid">
+                <div class="dept-info-item"><span class="dept-info-label">Extension</span><span class="dept-info-value">Ext. 1030</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Direct Number</span><span class="dept-info-value"><a href="tel:+15551001030">+1-555-100-1030</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Appointment</span><span class="dept-info-value"><a href="tel:+15551001031">+1-555-100-1031</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Fax</span><span class="dept-info-value">+1-555-100-1032</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Email</span><span class="dept-info-value"><a href="mailto:ortho@medicare-hospital.com">ortho@medicare-hospital.com</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">OPD Hours</span><span class="dept-info-value">Mon–Sat 8 AM–6 PM <span class="opd-badge">Open</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pediatrics -->
+        <div class="accordion-item border-0 border-bottom">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dept5">
+              <div class="dept-icon"><i class="fa-solid fa-child"></i></div>
+              Pediatrics &amp; Neonatology
+            </button>
+          </h2>
+          <div id="dept5" class="accordion-collapse collapse" data-bs-parent="#deptAccordion">
+            <div class="accordion-body">
+              <div class="dept-info-grid">
+                <div class="dept-info-item"><span class="dept-info-label">Extension</span><span class="dept-info-value">Ext. 1040</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Direct Number</span><span class="dept-info-value"><a href="tel:+15551001040">+1-555-100-1040</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">NICU</span><span class="dept-info-value"><a href="tel:+15551001043">+1-555-100-1043</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Fax</span><span class="dept-info-value">+1-555-100-1042</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Email</span><span class="dept-info-value"><a href="mailto:pediatrics@medicare-hospital.com">pediatrics@medicare-hospital.com</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">OPD Hours</span><span class="dept-info-value">Mon–Sat 9 AM–7 PM <span class="opd-badge">Open</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oncology -->
+        <div class="accordion-item border-0 border-bottom">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dept6">
+              <div class="dept-icon"><i class="fa-solid fa-ribbon"></i></div>
+              Oncology &amp; Cancer Care Center
+            </button>
+          </h2>
+          <div id="dept6" class="accordion-collapse collapse" data-bs-parent="#deptAccordion">
+            <div class="accordion-body">
+              <div class="dept-info-grid">
+                <div class="dept-info-item"><span class="dept-info-label">Extension</span><span class="dept-info-value">Ext. 1050</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Direct Number</span><span class="dept-info-value"><a href="tel:+15551001050">+1-555-100-1050</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Chemotherapy Unit</span><span class="dept-info-value"><a href="tel:+15551001053">+1-555-100-1053</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Fax</span><span class="dept-info-value">+1-555-100-1052</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Email</span><span class="dept-info-value"><a href="mailto:oncology@medicare-hospital.com">oncology@medicare-hospital.com</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">OPD Hours</span><span class="dept-info-value">Mon–Fri 9 AM–5 PM <span class="opd-badge">Open</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Radiology -->
+        <div class="accordion-item border-0 border-bottom">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dept7">
+              <div class="dept-icon"><i class="fa-solid fa-x-ray"></i></div>
+              Radiology &amp; Diagnostic Imaging
+            </button>
+          </h2>
+          <div id="dept7" class="accordion-collapse collapse" data-bs-parent="#deptAccordion">
+            <div class="accordion-body">
+              <div class="dept-info-grid">
+                <div class="dept-info-item"><span class="dept-info-label">Extension</span><span class="dept-info-value">Ext. 1060</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Direct Number</span><span class="dept-info-value"><a href="tel:+15551001060">+1-555-100-1060</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">MRI / CT Unit</span><span class="dept-info-value"><a href="tel:+15551001063">+1-555-100-1063</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Fax</span><span class="dept-info-value">+1-555-100-1062</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Email</span><span class="dept-info-value"><a href="mailto:radiology@medicare-hospital.com">radiology@medicare-hospital.com</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">OPD Hours</span><span class="dept-info-value">Mon–Sat 7 AM–9 PM <span class="opd-badge">Open</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gynecology -->
+        <div class="accordion-item border-0 border-bottom">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dept8">
+              <div class="dept-icon"><i class="fa-solid fa-venus"></i></div>
+              Gynecology &amp; Obstetrics (OB-GYN)
+            </button>
+          </h2>
+          <div id="dept8" class="accordion-collapse collapse" data-bs-parent="#deptAccordion">
+            <div class="accordion-body">
+              <div class="dept-info-grid">
+                <div class="dept-info-item"><span class="dept-info-label">Extension</span><span class="dept-info-value">Ext. 1070</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Direct Number</span><span class="dept-info-value"><a href="tel:+15551001070">+1-555-100-1070</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Labour Ward</span><span class="dept-info-value"><a href="tel:+15551001073">+1-555-100-1073</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Fax</span><span class="dept-info-value">+1-555-100-1072</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Email</span><span class="dept-info-value"><a href="mailto:obgyn@medicare-hospital.com">obgyn@medicare-hospital.com</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">OPD Hours</span><span class="dept-info-value">Mon–Sat 9 AM–6 PM <span class="opd-badge">Open</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- General Surgery -->
+        <div class="accordion-item border-0 border-bottom">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dept9">
+              <div class="dept-icon"><i class="fa-solid fa-scalpel"></i></div>
+              General Surgery &amp; Laparoscopy
+            </button>
+          </h2>
+          <div id="dept9" class="accordion-collapse collapse" data-bs-parent="#deptAccordion">
+            <div class="accordion-body">
+              <div class="dept-info-grid">
+                <div class="dept-info-item"><span class="dept-info-label">Extension</span><span class="dept-info-value">Ext. 1080</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Direct Number</span><span class="dept-info-value"><a href="tel:+15551001080">+1-555-100-1080</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Pre-Op Unit</span><span class="dept-info-value"><a href="tel:+15551001083">+1-555-100-1083</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Fax</span><span class="dept-info-value">+1-555-100-1082</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Email</span><span class="dept-info-value"><a href="mailto:surgery@medicare-hospital.com">surgery@medicare-hospital.com</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">OPD Hours</span><span class="dept-info-value">Mon–Sat 10 AM–5 PM <span class="opd-badge">Open</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ENT -->
+        <div class="accordion-item border-0 border-bottom">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dept10">
+              <div class="dept-icon"><i class="fa-solid fa-ear"></i></div>
+              ENT – Ear, Nose &amp; Throat
+            </button>
+          </h2>
+          <div id="dept10" class="accordion-collapse collapse" data-bs-parent="#deptAccordion">
+            <div class="accordion-body">
+              <div class="dept-info-grid">
+                <div class="dept-info-item"><span class="dept-info-label">Extension</span><span class="dept-info-value">Ext. 1090</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Direct Number</span><span class="dept-info-value"><a href="tel:+15551001090">+1-555-100-1090</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Audiology</span><span class="dept-info-value"><a href="tel:+15551001093">+1-555-100-1093</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Fax</span><span class="dept-info-value">+1-555-100-1092</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Email</span><span class="dept-info-value"><a href="mailto:ent@medicare-hospital.com">ent@medicare-hospital.com</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">OPD Hours</span><span class="dept-info-value">Tue, Thu, Sat 9 AM–3 PM <span class="opd-badge">Open</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ophthalmology -->
+        <div class="accordion-item border-0 border-bottom">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dept11">
+              <div class="dept-icon"><i class="fa-solid fa-eye"></i></div>
+              Ophthalmology &amp; Eye Surgery
+            </button>
+          </h2>
+          <div id="dept11" class="accordion-collapse collapse" data-bs-parent="#deptAccordion">
+            <div class="accordion-body">
+              <div class="dept-info-grid">
+                <div class="dept-info-item"><span class="dept-info-label">Extension</span><span class="dept-info-value">Ext. 1100</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Direct Number</span><span class="dept-info-value"><a href="tel:+15551001100">+1-555-100-1100</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Laser Unit</span><span class="dept-info-value"><a href="tel:+15551001103">+1-555-100-1103</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Fax</span><span class="dept-info-value">+1-555-100-1102</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Email</span><span class="dept-info-value"><a href="mailto:eye@medicare-hospital.com">eye@medicare-hospital.com</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">OPD Hours</span><span class="dept-info-value">Mon–Fri 9 AM–5 PM <span class="opd-badge">Open</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Psychiatry -->
+        <div class="accordion-item border-0">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dept12">
+              <div class="dept-icon"><i class="fa-solid fa-head-side-virus"></i></div>
+              Psychiatry &amp; Mental Health Services
+            </button>
+          </h2>
+          <div id="dept12" class="accordion-collapse collapse" data-bs-parent="#deptAccordion">
+            <div class="accordion-body">
+              <div class="dept-info-grid">
+                <div class="dept-info-item"><span class="dept-info-label">Extension</span><span class="dept-info-value">Ext. 1110</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Direct Number</span><span class="dept-info-value"><a href="tel:+15551001110">+1-555-100-1110</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Crisis Helpline</span><span class="dept-info-value"><a href="tel:+15551001119">+1-555-100-1119</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Fax</span><span class="dept-info-value">+1-555-100-1112</span></div>
+                <div class="dept-info-item"><span class="dept-info-label">Email</span><span class="dept-info-value"><a href="mailto:psych@medicare-hospital.com">psych@medicare-hospital.com</a></span></div>
+                <div class="dept-info-item"><span class="dept-info-label">OPD Hours</span><span class="dept-info-value">Mon–Sat 9 AM–6 PM, Crisis: 24/7 <span class="opd-badge">Open</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /accordion -->
+    </div><!-- /dept-directory -->
+  </div>
+</section>
+
+<!-- Contact Form + Sidebar -->
+<section id="contact-form" class="contact-section py-5">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+
+      <!-- FORM -->
+      <div class="col-lg-7" data-animate>
+        <div class="form-wrapper">
+          <div class="section-badge mb-3"><i class="fa-solid fa-paper-plane me-1"></i> Send Us a Message</div>
+          <h3 class="section-title mb-1">We'd Love to Hear From You</h3>
+          <div class="divider"></div>
+          <p class="text-muted small mb-4">Fill in the form below and our team will respond within 2 business hours. Fields marked <span class="text-danger">*</span> are required.</p>
+
+          <!-- Success / Error alerts -->
+          <div id="form-success" class="alert alert-success d-flex align-items-center gap-2 d-none" role="alert">
+            <i class="fa-solid fa-circle-check fa-lg"></i>
+            <div><strong>Message Sent!</strong> Thank you for reaching out. We'll get back to you shortly.</div>
+          </div>
+          <div id="form-error" class="alert alert-danger d-flex align-items-center gap-2 d-none" role="alert">
+            <i class="fa-solid fa-circle-exclamation fa-lg"></i>
+            <div><strong>Oops!</strong> Something went wrong. Please try again or call us directly.</div>
+          </div>
+
+          <form id="contactForm" novalidate>
+            <!-- Row 1: Name + Email -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="fullName" placeholder="Full Name" required minlength="2" />
+                  <label for="fullName"><i class="fa fa-user me-1 text-muted"></i> Full Name <span class="text-danger">*</span></label>
+                  <div class="invalid-feedback">Please enter your full name (min. 2 characters).</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="email" class="form-control" id="emailAddr" placeholder="Email Address" required />
+                  <label for="emailAddr"><i class="fa fa-envelope me-1 text-muted"></i> Email Address <span class="text-danger">*</span></label>
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 2: Phone + Department -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="tel" class="form-control" id="phoneNum" placeholder="Phone Number" pattern="[+\d\s\-()]{7,20}" />
+                  <label for="phoneNum"><i class="fa fa-phone me-1 text-muted"></i> Phone Number</label>
+                  <div class="invalid-feedback">Enter a valid phone number.</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <select class="form-select" id="deptSelect">
+                    <option value="">-- Select Department --</option>
+                    <option>Emergency Medicine &amp; Trauma Care</option>
+                    <option>Cardiology &amp; Cardiac Surgery</option>
+                    <option>Neurology &amp; Neurosurgery</option>
+                    <option>Orthopedics &amp; Sports Medicine</option>
+                    <option>Pediatrics &amp; Neonatology</option>
+                    <option>Oncology &amp; Cancer Care Center</option>
+                    <option>Radiology &amp; Diagnostic Imaging</option>
+                    <option>Gynecology &amp; Obstetrics</option>
+                    <option>General Surgery &amp; Laparoscopy</option>
+                    <option>ENT – Ear, Nose &amp; Throat</option>
+                    <option>Ophthalmology &amp; Eye Surgery</option>
+                    <option>Psychiatry &amp; Mental Health</option>
+                  </select>
+                  <label for="deptSelect"><i class="fa fa-building me-1 text-muted"></i> Department</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Subject -->
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="subject" placeholder="Subject" required />
+              <label for="subject"><i class="fa fa-tag me-1 text-muted"></i> Subject <span class="text-danger">*</span></label>
+              <div class="invalid-feedback">Please enter a subject.</div>
+            </div>
+
+            <!-- Message -->
+            <div class="form-floating mb-3">
+              <textarea class="form-control" id="message" placeholder="Message" style="height:130px" required minlength="20"></textarea>
+              <label for="message"><i class="fa fa-comment me-1 text-muted"></i> Your Message <span class="text-danger">*</span></label>
+              <div class="invalid-feedback">Please enter a message (min. 20 characters).</div>
+            </div>
+
+            <!-- I am a: -->
+            <div class="mb-3">
+              <label class="form-label fw-600 small text-muted text-uppercase" style="letter-spacing:.5px;font-weight:600;">I am a: <span class="text-danger">*</span></label>
+              <div class="radio-group">
+                <div class="radio-pill"><input type="radio" name="userType" id="r-patient" value="patient" checked /><label for="r-patient">Patient</label></div>
+                <div class="radio-pill"><input type="radio" name="userType" id="r-visitor" value="visitor" /><label for="r-visitor">Visitor</label></div>
+                <div class="radio-pill"><input type="radio" name="userType" id="r-doctor" value="doctor" /><label for="r-doctor">Doctor / Staff</label></div>
+                <div class="radio-pill"><input type="radio" name="userType" id="r-media" value="media" /><label for="r-media">Media</label></div>
+                <div class="radio-pill"><input type="radio" name="userType" id="r-other" value="other" /><label for="r-other">Other</label></div>
+              </div>
+            </div>
+
+            <!-- Attachment -->
+            <div class="mb-3">
+              <label class="form-label fw-600 small text-muted text-uppercase" style="letter-spacing:.5px;font-weight:600;">Attach Files (Optional)</label>
+              <div class="attach-zone" id="attachZone" onclick="document.getElementById('fileInput').click()">
+                <i class="fa-solid fa-paperclip me-2 text-primary"></i>
+                Click to attach reports, images, or documents &nbsp;
+                <small class="text-muted">(PDF, JPG, PNG – Max 5MB each)</small>
+              </div>
+              <input type="file" id="fileInput" class="d-none" multiple accept=".pdf,.jpg,.jpeg,.png" />
+              <div id="file-list" class="mt-2 d-flex flex-wrap gap-2"></div>
+            </div>
+
+            <!-- CAPTCHA -->
+            <div class="captcha-box mb-4">
+              <div class="form-check mb-0">
+                <input class="form-check-input" type="checkbox" id="captchaCheck" required />
+                <label class="form-check-label fw-600" for="captchaCheck" style="font-weight:600;">I am not a robot</label>
+                <div class="invalid-feedback d-block d-none" id="captcha-error">Please verify you are not a robot.</div>
+              </div>
+              <div class="captcha-logo">
+                <div><i class="fa-solid fa-shield-halved text-primary fa-2x mb-1"></i></div>
+                <div>reCAPTCHA</div>
+                <div>Privacy · Terms</div>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <button type="submit" class="btn-submit" id="submitBtn">
+                <span id="submit-text"><i class="fa fa-paper-plane me-2"></i>Send Message</span>
+                <span id="submit-loading" class="d-none"><span class="spinner-border spinner-border-sm me-2"></span>Sending...</span>
+              </button>
+              <button type="reset" class="btn btn-outline-secondary rounded-pill px-4" onclick="resetContactForm()">
+                <i class="fa fa-rotate-left me-1"></i> Reset
+              </button>
+              <small class="text-muted"><i class="fa fa-lock me-1 text-success"></i>Your data is secure.</small>
+            </div>
+          </form>
+        </div>
+      </div><!-- /col form -->
+
+      <!-- SIDEBAR -->
+      <div class="col-lg-5" data-animate data-delay="200">
+
+        <!-- Address & Phones -->
+        <div class="sidebar-card">
+          <h5><i class="fa-solid fa-location-dot text-primary me-2"></i>Hospital Address</h5>
+          <div class="info-row">
+            <div class="info-icon blue"><i class="fa-solid fa-map-pin"></i></div>
+            <div>
+              <div class="info-label">Main Campus</div>
+              <div class="info-value">4200 Medical Center Drive,<br>Suite 100, New York, NY 10001, USA</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon red"><i class="fa-solid fa-phone-volume"></i></div>
+            <div>
+              <div class="info-label">Emergency (24/7)</div>
+              <div class="info-value"><a href="tel:108">108</a> &nbsp;|&nbsp; <a href="tel:+18004322273">+1-800-432-2273</a></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon teal"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <div class="info-label">Main Reception</div>
+              <div class="info-value"><a href="tel:+15551234567">+1-555-123-4567</a></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon gold"><i class="fa-solid fa-fax"></i></div>
+            <div>
+              <div class="info-label">Central Fax</div>
+              <div class="info-value">+1-555-123-4568</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Emails -->
+        <div class="sidebar-card">
+          <h5><i class="fa-solid fa-envelope text-primary me-2"></i>Email Contacts</h5>
+          <div class="info-row">
+            <div class="info-icon blue"><i class="fa-solid fa-inbox"></i></div>
+            <div>
+              <div class="info-label">General Inquiries</div>
+              <div class="info-value"><a href="mailto:info@medicare-hospital.com">info@medicare-hospital.com</a></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon green"><i class="fa-solid fa-calendar-check"></i></div>
+            <div>
+              <div class="info-label">Appointments</div>
+              <div class="info-value"><a href="mailto:appointments@medicare-hospital.com">appointments@medicare-hospital.com</a></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon teal"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+            <div>
+              <div class="info-label">Billing &amp; Insurance</div>
+              <div class="info-value"><a href="mailto:billing@medicare-hospital.com">billing@medicare-hospital.com</a></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon gold"><i class="fa-solid fa-folder-open"></i></div>
+            <div>
+              <div class="info-label">Medical Records</div>
+              <div class="info-value"><a href="mailto:records@medicare-hospital.com">records@medicare-hospital.com</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Media -->
+        <div class="sidebar-card">
+          <h5><i class="fa-solid fa-share-nodes text-primary me-2"></i>Follow Us</h5>
+          <div class="social-row">
+            <a href="#" class="social-btn fb"><i class="fab fa-facebook-f text-primary"></i><span>Facebook</span><span class="followers">128K</span></a>
+            <a href="#" class="social-btn tw"><i class="fab fa-twitter" style="color:#1da1f2"></i><span>Twitter</span><span class="followers">64K</span></a>
+            <a href="#" class="social-btn yt"><i class="fab fa-youtube text-danger"></i><span>YouTube</span><span class="followers">42K</span></a>
+            <a href="#" class="social-btn li"><i class="fab fa-linkedin-in" style="color:#0a66c2"></i><span>LinkedIn</span><span class="followers">31K</span></a>
+            <a href="#" class="social-btn ig"><i class="fab fa-instagram" style="color:#bc1888"></i><span>Instagram</span><span class="followers">97K</span></a>
+          </div>
+        </div>
+
+        <!-- Business Hours -->
+        <div class="sidebar-card">
+          <h5><i class="fa-solid fa-clock text-primary me-2"></i>Business Hours</h5>
+          <table class="hours-table">
+            <tbody>
+              <tr><td>Monday</td><td>8:00 AM – 9:00 PM <span class="open-badge">Open</span></td></tr>
+              <tr><td>Tuesday</td><td>8:00 AM – 9:00 PM <span class="open-badge">Open</span></td></tr>
+              <tr class="today"><td>Wednesday</td><td>8:00 AM – 9:00 PM <span class="open-badge">Open</span></td></tr>
+              <tr><td>Thursday</td><td>8:00 AM – 9:00 PM <span class="open-badge">Open</span></td></tr>
+              <tr><td>Friday</td><td>8:00 AM – 9:00 PM <span class="open-badge">Open</span></td></tr>
+              <tr><td>Saturday</td><td>9:00 AM – 6:00 PM <span class="open-badge">Open</span></td></tr>
+              <tr><td>Sunday</td><td>10:00 AM – 4:00 PM <span class="open-badge">Open</span></td></tr>
+              <tr><td>Public Holidays</td><td>Emergency Only <span class="open-badge closed-badge">Limited</span></td></tr>
+            </tbody>
+          </table>
+          <div class="mt-3">
+            <p class="text-muted small mb-2"><i class="fa fa-circle-info me-1"></i> Emergency &amp; ICU services are available 24/7/365.</p>
+            <a href="https://www.google.com/maps/search/New+York+Hospital" target="_blank" class="btn-directions d-block text-center text-white mt-2">
+              <i class="fa-solid fa-route me-2"></i>Get Directions
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /sidebar -->
+    </div>
+  </div>
+</section>
+
+<!-- Interactive Map Section -->
+<section class="map-section py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-4" data-animate>
+      <div class="section-badge"><i class="fa-solid fa-map-location-dot me-1"></i> Find Us</div>
+      <h2 class="section-title">Our Location</h2>
+      <div class="divider mx-auto"></div>
+      <p class="section-subtitle mx-auto">Located at the heart of New York's Medical District. Easily accessible by metro, bus, and car.</p>
+    </div>
+
+    <div class="map-wrapper mb-5" data-animate>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.5!2d-73.9857!3d40.7484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjMiTiA3M8KwNTknMDguNiJX!5e0!3m2!1sen!2sus!4v1690000000000"
+        width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="MediCare Hospital Location"></iframe>
+    </div>
+
+    <!-- Direction Cards -->
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3" data-animate data-delay="100">
+        <div class="direction-card">
+          <div class="dir-icon"><i class="fa-solid fa-plane-arrival"></i></div>
+          <h6>From JFK Airport</h6>
+          <p>Take the AirTrain to Jamaica, then LIRR to Penn Station. Taxi approx. 45–60 min via I-678 N.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-animate data-delay="200">
+        <div class="direction-card teal">
+          <div class="dir-icon"><i class="fa-solid fa-city"></i></div>
+          <h6>From City Center</h6>
+          <p>10 minutes from Times Square via 7th Avenue. Valet parking available at the Main Entrance.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-animate data-delay="300">
+        <div class="direction-card green">
+          <div class="dir-icon"><i class="fa-solid fa-train-subway"></i></div>
+          <h6>By Metro / Subway</h6>
+          <p>Take the C, E, or 1 train to 34th Street – Penn Station. We are a 5-minute walk from exit 3.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-animate data-delay="400">
+        <div class="direction-card gold">
+          <div class="dir-icon"><i class="fa-solid fa-bus"></i></div>
+          <h6>By Bus</h6>
+          <p>Routes M34, M20, and M11 stop at Medical Center Drive. Bus shelters directly in front of the hospital.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feedback & Grievance Section -->
+<section class="feedback-section py-5">
+  <div class="container">
+    <div class="text-center mb-5" data-animate>
+      <div class="section-badge"><i class="fa-solid fa-star me-1"></i> Your Voice Matters</div>
+      <h2 class="section-title">Feedback &amp; Grievance Redressal</h2>
+      <div class="divider mx-auto"></div>
+    </div>
+    <div class="row g-4">
+
+      <!-- Feedback Form -->
+      <div class="col-lg-5" data-animate>
+        <div class="feedback-card h-100">
+          <h5 class="fw-700 text-navy mb-4"><i class="fa-solid fa-comment-dots text-primary me-2"></i>Share Your Experience</h5>
+          <form id="feedbackForm" novalidate>
+            <div class="mb-4">
+              <label class="form-label fw-600 small">Rate Your Experience <span class="text-danger">*</span></label>
+              <div class="star-rating" id="starRating" role="group" aria-label="Rating">
+                <i class="fa-star fa-solid" data-value="1" aria-label="1 star"></i>
+                <i class="fa-star fa-solid" data-value="2" aria-label="2 stars"></i>
+                <i class="fa-star fa-solid" data-value="3" aria-label="3 stars"></i>
+                <i class="fa-star fa-solid" data-value="4" aria-label="4 stars"></i>
+                <i class="fa-star fa-solid" data-value="5" aria-label="5 stars"></i>
+              </div>
+              <div class="star-label" id="starLabel">Click a star to rate</div>
+              <input type="hidden" id="ratingValue" value="0" />
+            </div>
+            <div class="form-floating mb-3">
+              <select class="form-select" id="fbDept">
+                <option value="">-- Select Department --</option>
+                <option>Emergency Medicine</option>
+                <option>Cardiology</option>
+                <option>Neurology</option>
+                <option>Orthopedics</option>
+                <option>Pediatrics</option>
+                <option>Oncology</option>
+                <option>Radiology</option>
+                <option>Gynecology</option>
+                <option>General Surgery</option>
+                <option>ENT</option>
+                <option>Ophthalmology</option>
+                <option>Psychiatry</option>
+                <option>General (Overall Hospital)</option>
+              </select>
+              <label for="fbDept">Department Visited</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="fbName" placeholder="Your Name" />
+              <label for="fbName">Your Name (Optional)</label>
+            </div>
+            <div class="form-floating mb-4">
+              <textarea class="form-control" id="fbComments" placeholder="Comments" style="height:100px" required minlength="10"></textarea>
+              <label for="fbComments">Comments &amp; Suggestions <span class="text-danger">*</span></label>
+              <div class="invalid-feedback">Please share your feedback (min. 10 characters).</div>
+            </div>
+            <button type="submit" class="btn btn-primary rounded-pill px-4 fw-600 w-100">
+              <i class="fa fa-paper-plane me-2"></i> Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Grievance & Rights -->
+      <div class="col-lg-7" data-animate data-delay="200">
+        <div class="feedback-card mb-4">
+          <h5 class="fw-700 text-navy mb-3"><i class="fa-solid fa-scale-balanced text-primary me-2"></i>Grievance Redressal Process</h5>
+          <p class="text-muted small mb-4">We take every concern seriously. Here's how to raise a grievance and what to expect.</p>
+          <ul class="grievance-steps">
+            <li>
+              <div class="step-num">1</div>
+              <div class="step-text">
+                <h6>Submit Your Grievance</h6>
+                <p>Fill out our online form, call our Patient Relations helpline at <a href="tel:+15551001200">+1-555-100-1200</a>, or visit Room 101 (Ground Floor, Main Building).</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">2</div>
+              <div class="step-text">
+                <h6>Acknowledgement</h6>
+                <p>You will receive an acknowledgement within <strong>24 hours</strong> with a unique reference number for tracking.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">3</div>
+              <div class="step-text">
+                <h6>Investigation</h6>
+                <p>A dedicated Patient Relations Officer will investigate and may contact you for additional details. This stage takes up to <strong>7 working days</strong>.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">4</div>
+              <div class="step-text">
+                <h6>Resolution &amp; Feedback</h6>
+                <p>A written resolution will be shared with you. If unsatisfied, you may escalate to the Hospital Ombudsman at <a href="mailto:ombudsman@medicare-hospital.com">ombudsman@medicare-hospital.com</a>.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Patient Rights Accordion -->
+        <div class="feedback-card">
+          <h5 class="fw-700 text-navy mb-3"><i class="fa-solid fa-file-shield text-primary me-2"></i>Patient Rights</h5>
+          <div class="accordion rights-accordion" id="rightsAccordion">
+            <div class="accordion-item border-bottom border-0 rounded-0">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#right1">
+                  Right to Information
+                </button>
+              </h2>
+              <div id="right1" class="accordion-collapse collapse" data-bs-parent="#rightsAccordion">
+                <div class="accordion-body">You have the right to receive complete and accurate information about your diagnosis, treatment options, and prognosis in a language you understand.</div>
+              </div>
+            </div>
+            <div class="accordion-item border-bottom border-0 rounded-0">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#right2">
+                  Right to Informed Consent
+                </button>
+              </h2>
+              <div id="right2" class="accordion-collapse collapse" data-bs-parent="#rightsAccordion">
+                <div class="accordion-body">No medical procedure will be performed without your voluntary informed consent, except in life-threatening emergencies where you are unable to provide it.</div>
+              </div>
+            </div>
+            <div class="accordion-item border-bottom border-0 rounded-0">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#right3">
+                  Right to Privacy &amp; Confidentiality
+                </button>
+              </h2>
+              <div id="right3" class="accordion-collapse collapse" data-bs-parent="#rightsAccordion">
+                <div class="accordion-body">Your medical records and personal information are protected. We comply with HIPAA regulations. Access to your records will only be provided to authorized individuals.</div>
+              </div>
+            </div>
+            <div class="accordion-item border-0">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#right4">
+                  Right to Refuse Treatment
+                </button>
+              </h2>
+              <div id="right4" class="accordion-collapse collapse" data-bs-parent="#rightsAccordion">
+                <div class="accordion-body">You have the right to refuse any medical treatment or procedure. You will be informed of the consequences of refusing treatment and asked to sign a release form.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section py-5">
+  <div class="container">
+    <div class="text-center mb-5" data-animate>
+      <div class="section-badge"><i class="fa-solid fa-circle-question me-1"></i> FAQs</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="divider mx-auto"></div>
+      <p class="section-subtitle mx-auto">Can't find your answer? Contact us directly — we're happy to help.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="accordion faq-accordion" id="faqLeft">
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                <span class="faq-count">1</span> How do I book an appointment online?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqLeft">
+              <div class="accordion-body">You can book an appointment through our website by clicking "Book Appointment" in the navigation bar, calling <strong>+1-555-123-4567</strong>, or using our MediCare mobile app available on iOS and Android. Online booking is available 24/7 and confirmation is sent via email and SMS.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                <span class="faq-count">2</span> What insurance plans do you accept?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqLeft">
+              <div class="accordion-body">MediCare Hospital accepts over 150 insurance plans including Medicare, Medicaid, Blue Cross Blue Shield, Aetna, Cigna, United Healthcare, Humana, and most major commercial plans. Please contact our billing department at <a href="mailto:billing@medicare-hospital.com">billing@medicare-hospital.com</a> to verify your specific plan coverage.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                <span class="faq-count">3</span> What are the visiting hours for inpatients?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqLeft">
+              <div class="accordion-body">General ward visiting hours are <strong>10:00 AM – 12:00 PM</strong> and <strong>4:00 PM – 7:00 PM</strong> daily. ICU visits are limited to 15 minutes per visit, twice daily, for immediate family only. Children under 12 must be accompanied by an adult. Special arrangements can be made for critically ill patients.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                <span class="faq-count">4</span> How do I access my medical records?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqLeft">
+              <div class="accordion-body">Medical records can be requested by visiting the Medical Records Department (Room 205, 2nd Floor) with valid photo ID, submitting a request via email to <a href="mailto:records@medicare-hospital.com">records@medicare-hospital.com</a>, or through the patient portal at <strong>portal.medicare-hospital.com</strong>. Records are typically processed within 3–5 business days.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                <span class="faq-count">5</span> Is parking available at the hospital?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqLeft">
+              <div class="accordion-body">Yes. We have a multi-level parking structure adjacent to the main building with over 800 spaces. Parking is free for the first 2 hours. After that, rates are $3/hour up to a daily maximum of $18. Valet parking is available at the main entrance for $12. Accessible parking is available on all levels.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                <span class="faq-count">6</span> How do I cancel or reschedule an appointment?
+              </button>
+            </h2>
+            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqLeft">
+              <div class="accordion-body">Appointments can be cancelled or rescheduled online through the patient portal, via phone at <strong>+1-555-123-4567</strong>, or by email. Please notify us at least <strong>24 hours in advance</strong> to avoid a cancellation fee. Repeated no-shows may result in temporary suspension of online booking privileges.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                <span class="faq-count">7</span> Do you offer telemedicine / video consultations?
+              </button>
+            </h2>
+            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqLeft">
+              <div class="accordion-body">Yes! MediCare offers video consultations with most of our specialists. You can book a virtual appointment through the website or app. Video consults are conducted via our secure platform using any smartphone, tablet, or computer. Follow-up prescriptions are sent electronically to your preferred pharmacy.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="accordion faq-accordion" id="faqRight">
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                <span class="faq-count">8</span> What should I bring for my first visit?
+              </button>
+            </h2>
+            <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqRight">
+              <div class="accordion-body">Please bring a valid government-issued photo ID, your insurance card, a list of current medications and dosages, any previous medical reports or imaging results relevant to your condition, your appointment confirmation, and your referral letter (if applicable). Arrive 15 minutes early to complete registration.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
+                <span class="faq-count">9</span> Is interpretation / translation service available?
+              </button>
+            </h2>
+            <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#faqRight">
+              <div class="accordion-body">Yes. MediCare provides free medical interpretation services in 18 languages including Spanish, French, Mandarin, Hindi, Arabic, Portuguese, Russian, and more. Please notify us of your language preference when booking your appointment and we'll arrange an interpreter.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
+                <span class="faq-count">10</span> How do I get a second opinion from a specialist?
+              </button>
+            </h2>
+            <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#faqRight">
+              <div class="accordion-body">Patients are always welcome to seek a second opinion. You can book directly with any of our specialists. We also offer a dedicated Second Opinion Program where our multidisciplinary team reviews your case comprehensively. Contact us at <a href="mailto:secondopinion@medicare-hospital.com">secondopinion@medicare-hospital.com</a>.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq11">
+                <span class="faq-count">11</span> Are there cafeteria or food facilities?
+              </button>
+            </h2>
+            <div id="faq11" class="accordion-collapse collapse" data-bs-parent="#faqRight">
+              <div class="accordion-body">Yes. Our main cafeteria is open from 7:00 AM to 8:00 PM on weekdays and 8:00 AM to 6:00 PM on weekends. We also have a 24-hour vending area, a Starbucks outlet in the lobby, and a juice bar near the OPD block. Dietary-specific meal options are available for admitted patients.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq12">
+                <span class="faq-count">12</span> How can I pay my hospital bill?
+              </button>
+            </h2>
+            <div id="faq12" class="accordion-collapse collapse" data-bs-parent="#faqRight">
+              <div class="accordion-body">Bills can be paid online through the patient portal (credit card, debit card, bank transfer, PayPal), at the billing counter (cash, card, check), or by calling our billing department. We also offer flexible EMI payment plans for large bills. Insurance claims are processed directly with your provider.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq13">
+                <span class="faq-count">13</span> Can I request a specific doctor?
+              </button>
+            </h2>
+            <div id="faq13" class="accordion-collapse collapse" data-bs-parent="#faqRight">
+              <div class="accordion-body">Yes. You can search for and select a specific doctor when booking online. If your preferred doctor is not available on your desired date, you can join the waitlist and will be notified if a slot opens up. Alternatively, you may book with another specialist in the same department.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq14">
+                <span class="faq-count">14</span> What COVID-19 safety measures are in place?
+              </button>
+            </h2>
+            <div id="faq14" class="accordion-collapse collapse" data-bs-parent="#faqRight">
+              <div class="accordion-body">MediCare follows all current CDC and state health guidelines. This includes mandatory mask wearing in clinical areas, hand sanitizer stations throughout the facility, enhanced ventilation systems, regular surface disinfection, and COVID-19 screening at entry points. PCR and rapid antigen testing are available at our testing center.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq15">
+                <span class="faq-count">15</span> Is there a pharmacy on campus?
+              </button>
+            </h2>
+            <div id="faq15" class="accordion-collapse collapse" data-bs-parent="#faqRight">
+              <div class="accordion-body">Yes. Our in-house pharmacy is located on the ground floor, near the OPD exit, and is open Monday–Saturday 8:00 AM – 9:00 PM and Sunday 10:00 AM – 4:00 PM. We also offer a 24-hour medication dispensing kiosk for urgent prescriptions and a home delivery service within a 10-mile radius.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /row -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="pt-5 pb-4">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Brand -->
+      <div class="col-lg-4">
+        <a href="index.html" class="footer-brand d-flex align-items-center mb-3">
+          <span class="brand-icon"><i class="fa-solid fa-hospital-symbol"></i></span>
+          <span class="brand-text ms-2">Medi<span>Care</span></span>
+        </a>
+        <p class="mb-3" style="color:rgba(255,255,255,.6);font-size:.88rem;line-height:1.7">Delivering world-class healthcare with compassion since 1978. NABH Accredited. JCI Certified. Over 45 years of clinical excellence.</p>
+        <div class="d-flex flex-wrap">
+          <span class="accred-badge"><i class="fa-solid fa-award me-1"></i> NABH</span>
+          <span class="accred-badge"><i class="fa-solid fa-certificate me-1"></i> JCI</span>
+          <span class="accred-badge"><i class="fa-solid fa-star me-1"></i> ISO 9001:2015</span>
+        </div>
+      </div>
+      <!-- Quick Links -->
+      <div class="col-sm-6 col-lg-2">
+        <h6>Quick Links</h6>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="departments.html">Departments</a></li>
+          <li><a href="doctors.html">Find a Doctor</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <!-- Services -->
+      <div class="col-sm-6 col-lg-2">
+        <h6>Services</h6>
+        <ul>
+          <li><a href="#">Emergency Care</a></li>
+          <li><a href="#">Outpatient (OPD)</a></li>
+          <li><a href="#">Diagnostics &amp; Lab</a></li>
+          <li><a href="#">Pharmacy</a></li>
+          <li><a href="#">Blood Bank</a></li>
+          <li><a href="#">Telemedicine</a></li>
+        </ul>
+      </div>
+      <!-- Patient Info -->
+      <div class="col-sm-6 col-lg-2">
+        <h6>Patient Info</h6>
+        <ul>
+          <li><a href="#">Patient Portal</a></li>
+          <li><a href="#">Health Records</a></li>
+          <li><a href="#">Billing &amp; Insurance</a></li>
+          <li><a href="#">Visiting Hours</a></li>
+          <li><a href="#">Patient Rights</a></li>
+          <li><a href="#">Health Packages</a></li>
+        </ul>
+      </div>
+      <!-- Contact -->
+      <div class="col-sm-6 col-lg-2">
+        <h6>Contact</h6>
+        <ul>
+          <li><a href="tel:108"><i class="fa fa-phone me-1"></i>108 (Emergency)</a></li>
+          <li><a href="tel:+15551234567"><i class="fa fa-phone me-1"></i>+1-555-123-4567</a></li>
+          <li><a href="mailto:info@medicare-hospital.com"><i class="fa fa-envelope me-1"></i>info@medicare-hospital.com</a></li>
+          <li class="mt-3"><a href="#" style="color:rgba(255,255,255,.6)"><i class="fa fa-location-dot me-1"></i>4200 Medical Center Dr, NY</a></li>
+        </ul>
+        <div class="footer-social mt-3">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="row footer-bottom align-items-center">
+      <div class="col-md-6">
+        <p class="mb-0">&copy; 2026 MediCare Hospital. All rights reserved. &nbsp;|&nbsp; <a href="#" style="color:#0dcaf0">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" style="color:#0dcaf0">Terms of Service</a></p>
+      </div>
+      <div class="col-md-6 text-md-end mt-2 mt-md-0">
+        <span>Designed with <i class="fa fa-heart text-danger mx-1"></i> for patient care excellence</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button id="back-to-top" title="Back to Top" aria-label="Back to Top"><i class="fa fa-chevron-up"></i></button>
+
+<!-- Toast Container -->
+<div id="toast-container"></div>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner">
+  <div class="container d-flex align-items-center justify-content-between flex-wrap gap-3">
+    <p class="mb-0"><i class="fa fa-cookie-bite me-2 text-warning"></i>We use cookies to improve your experience. By continuing, you agree to our <a href="#">Cookie Policy</a>.</p>
+    <div class="d-flex gap-2">
+      <button class="btn btn-sm btn-outline-light rounded-pill" id="cookie-decline">Decline</button>
+      <button class="btn btn-sm btn-primary rounded-pill px-3" id="cookie-accept">Accept All</button>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Main JS -->
+<script src="js/main.js"></script>
+
+<script>
+/* ===================== CONTACT PAGE SPECIFIC JS ===================== */
+
+// Reading Progress Bar
+(function() {
+  const bar = document.getElementById('reading-progress');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    const dh = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
+  });
+})();
+
+// Contact Form Submission
+(function() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const captcha = document.getElementById('captchaCheck');
+    const captchaErr = document.getElementById('captcha-error');
+    form.classList.add('was-validated');
+    if (!captcha.checked) { captchaErr.classList.remove('d-none'); return; }
+    captchaErr.classList.add('d-none');
+    if (!form.checkValidity()) return;
+
+    const btn = document.getElementById('submitBtn');
+    const st = document.getElementById('submit-text');
+    const sl = document.getElementById('submit-loading');
+    btn.disabled = true; st.classList.add('d-none'); sl.classList.remove('d-none');
+
+    setTimeout(() => {
+      btn.disabled = false; st.classList.remove('d-none'); sl.classList.add('d-none');
+      document.getElementById('form-success').classList.remove('d-none');
+      form.reset(); form.classList.remove('was-validated');
+      document.getElementById('file-list').innerHTML = '';
+      if (window.showToast) showToast('success', 'Message Sent!', 'We\'ll get back to you within 2 hours.');
+      setTimeout(() => document.getElementById('form-success').classList.add('d-none'), 6000);
+    }, 2200);
+  });
+})();
+
+// Reset contact form
+function resetContactForm() {
+  const form = document.getElementById('contactForm');
+  if (form) { form.classList.remove('was-validated'); }
+  document.getElementById('file-list').innerHTML = '';
+  document.getElementById('form-success').classList.add('d-none');
+  document.getElementById('form-error').classList.add('d-none');
+}
+
+// File Attachment
+(function() {
+  const fileInput = document.getElementById('fileInput');
+  const fileList = document.getElementById('file-list');
+  if (!fileInput || !fileList) return;
+  fileInput.addEventListener('change', function() {
+    fileList.innerHTML = '';
+    Array.from(this.files).forEach(f => {
+      const tag = document.createElement('span');
+      tag.className = 'badge bg-primary-subtle text-primary d-flex align-items-center gap-1';
+      tag.style.cssText = 'border-radius:50px;padding:6px 12px;font-size:.78rem;';
+      tag.innerHTML = `<i class="fa fa-paperclip"></i> ${f.name} <span style="opacity:.7">(${(f.size/1024).toFixed(0)}KB)</span>`;
+      fileList.appendChild(tag);
+    });
+  });
+})();
+
+// Drag & Drop on attach zone
+(function() {
+  const zone = document.getElementById('attachZone');
+  const input = document.getElementById('fileInput');
+  if (!zone || !input) return;
+  zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.style.borderColor = '#0d6efd'; });
+  zone.addEventListener('dragleave', () => zone.style.borderColor = '');
+  zone.addEventListener('drop', (e) => {
+    e.preventDefault(); zone.style.borderColor = '';
+    input.files = e.dataTransfer.files;
+    input.dispatchEvent(new Event('change'));
+  });
+})();
+
+// Star Rating
+(function() {
+  const stars = document.querySelectorAll('#starRating i');
+  const ratingInput = document.getElementById('ratingValue');
+  const starLabel = document.getElementById('starLabel');
+  const labels = ['','Poor – Needs Improvement','Fair – Below Average','Good – Met Expectations','Very Good – Exceeded Expectations','Excellent – Outstanding Service'];
+  if (!stars.length) return;
+
+  function setStars(val, className) {
+    stars.forEach((s, i) => {
+      s.classList.remove('active', 'hover');
+      if (i < val) s.classList.add(className);
+    });
+  }
+
+  stars.forEach((star, i) => {
+    star.addEventListener('mouseenter', () => { setStars(i+1, 'hover'); starLabel.textContent = labels[i+1]; });
+    star.addEventListener('mouseleave', () => {
+      setStars(parseInt(ratingInput.value) || 0, 'active');
+      starLabel.textContent = ratingInput.value > 0 ? labels[ratingInput.value] : 'Click a star to rate';
+    });
+    star.addEventListener('click', () => {
+      ratingInput.value = i + 1;
+      setStars(i+1, 'active');
+      starLabel.textContent = labels[i+1];
+    });
+  });
+})();
+
+// Feedback Form Submission
+(function() {
+  const form = document.getElementById('feedbackForm');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const rating = document.getElementById('ratingValue').value;
+    if (!rating || rating === '0') {
+      if (window.showToast) showToast('error', 'Rating Required', 'Please rate your experience before submitting.');
+      return;
+    }
+    form.classList.add('was-validated');
+    if (!form.checkValidity()) return;
+    setTimeout(() => {
+      form.reset(); form.classList.remove('was-validated');
+      document.querySelectorAll('#starRating i').forEach(s => s.classList.remove('active','hover'));
+      document.getElementById('ratingValue').value = 0;
+      document.getElementById('starLabel').textContent = 'Click a star to rate';
+      if (window.showToast) showToast('success', 'Feedback Submitted!', 'Thank you for helping us improve our services.');
+    }, 800);
+  });
+})();
+
+// Highlight today's hours row
+(function() {
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const today = days[new Date().getDay()];
+  const rows = document.querySelectorAll('.hours-table tr');
+  rows.forEach(row => {
+    if (row.querySelector('td') && row.querySelector('td').textContent.trim() === today) {
+      row.classList.add('today');
+    } else {
+      row.classList.remove('today');
+    }
+  });
+})();
+</script>
+</body>
+</html>
